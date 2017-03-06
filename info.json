@@ -1,11 +1,11 @@
 {
     "name": "Ruins",
-    "version": "0.1.2",
+    "version": "0.1.0",
     "title": "The Ruins Mod",
     "author": "Gangsir",
     "contact": "The best way to reach me is to PM me on Reddit, at /u/Gangsir. If you need to submit an issue with the mod, please do so on the github repository.",
     "homepage": "",
     "factorio_version": "0.14",
     "dependencies": ["base >= 0.14"],
-    "description": "You weren't the first to come here, and you won't be the last. Every so often, you encounter ruins of past failed bases, some even still have running defenses, strewn across the countryside. Explore them for resources if you wish, but beware, as within these ruins, machinery still waits..."
+    "description": "You weren't the first to come here, and you won't be the last. Every so often, you encounter ruins of past failed bases, some even still have running defenses, strewn across the countryside. Explore them for resources if you wish, but beware, as within these ruins, defensive machinery still waits..."
 }
