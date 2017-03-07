@@ -90,11 +90,11 @@ local s_ruins = {
    function(center) --suspicious rock, stash
       local ce = game.surfaces[1].create_entity --save typing
       if s_clearArea(center) == false then return end
-      local chest = ce{name="wooden-chest",position={center.x,center.y},force=game.forces.enemy}.damage(323,"neutral","physical")
+      local chest = ce{name="wooden-chest",position={center.x,center.y},force=game.forces.neutral}
       chest.insert{name="engine-unit",count=8}
       chest.insert{name="iron-plate",count=20}
       chest.insert{name="steel-plate",count=5}
-      ce{name="stone-rock",position={center.x,center.y},force=game.forces.enemy}.damage(1,"neutral","physical")
+      ce{name="stone-rock",position={center.x,center.y},force=game.forces.neutral}
    end,
    function(center) --randomly damaged diagonal wall
       local ce = game.surfaces[1].create_entity --save typing
@@ -114,13 +114,33 @@ local s_ruins = {
       ce{name="stone-wall",position={center.x+3.5,center.y-2.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
    end,
 
-   function(center)
+   function(center) --section of wall with gate
       local ce = game.surfaces[1].create_entity --save typing
       if s_clearArea(center) == false then return end
+      ce{name="stone-wall",position={center.x+0.5,center.y-2.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+0.5,center.y-1.5},force=game.forces.neutral}
 
+      ce{name="gate",position={center.x+0.5,center.y-0.5},force=game.forces.neutral}
+      ce{name="gate",position={center.x+0.5,center.y+0.5},force=game.forces.neutral}
+      ce{name="gate",position={center.x+0.5,center.y+1.5},force=game.forces.neutral}
 
+      ce{name="stone-wall",position={center.x+0.5,center.y+2.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+0.5,center.y+3.5},force=game.forces.neutral}
    end,
-
+   function(center) --small mountain
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="stone-rock",position={center.x-1,center.y-1},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+1,center.y-1},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x-1,center.y+1},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+1,center.y+1},force=game.forces.neutral}
+   end,
+   function(center) --research station
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="lab",position={center.x+1.5,center.y-0.5},force=game.forces.neutral}
+      ce{name="wooden-chest",position={center.x-1.5,center.y+0.5},force=game.forces.neutral}.insert{name="science-pack-1",count=20}
+   end,
 
 }
 
