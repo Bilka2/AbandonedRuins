@@ -12,8 +12,8 @@
 
 --checks for spawning validity and if valid, clears space for the spawn
 function s_clearArea(center)
-   for y = center.y, center.y+6 do --fail if any water in area
-      for x = center.x, center.x+6 do
+   for y = center.y-4, center.y+4 do --fail if any water in area
+      for x = center.x-4, center.x+4 do
          if game.surfaces[1].get_tile(x,y).name == "water" or game.surfaces[1].get_tile(x,y).name == "deepwater" then
             return false
          end
@@ -66,10 +66,65 @@ local s_ruins = {
       ce{name="transport-belt",position={center.x-1.5,center.y},force=game.forces.neutral}
       ce{name="transport-belt",position={center.x-1.5,center.y-1},force=game.forces.neutral}.damage(15,"neutral","physical")
    end,
+   function(center) --random walls
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="stone-wall",position={center.x-2.5,center.y-2.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+0.5,center.y-2.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x-1.5,center.y-1.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+2.5,center.y+1.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x-1.5,center.y-0.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+2.5,center.y-0.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+1.5,center.y+0.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+1.5,center.y+1.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x-0.5,center.y+2.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+2.5,center.y+2.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x-2.5,center.y+3.5},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x-1.5,center.y+3.5},force=game.forces.neutral}
+   end,
+   function(center) --harmless turret
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="gun-turret",position={center.x+1,center.y},force=game.forces.enemy}.damage(323,"neutral","physical")
+   end,
+   function(center) --suspicious rock, stash
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      local chest = ce{name="wooden-chest",position={center.x,center.y},force=game.forces.enemy}.damage(323,"neutral","physical")
+      chest.insert{name="engine-unit",count=8}
+      chest.insert{name="iron-plate",count=20}
+      chest.insert{name="steel-plate",count=5}
+      ce{name="stone-rock",position={center.x,center.y},force=game.forces.enemy}.damage(1,"neutral","physical")
+   end,
+   function(center) --randomly damaged diagonal wall
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="stone-wall",position={center.x-2.5,center.y+3.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x-2.5,center.y+2.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x-1.5,center.y+2.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x-1.5,center.y+1.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x-0.5,center.y+1.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x-0.5,center.y+0.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x,center.y},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x+0.5,center.y-0.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x+1.5,center.y-0.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x+1.5,center.y-1.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x+2.5,center.y-1.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x+2.5,center.y-2.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+      ce{name="stone-wall",position={center.x+3.5,center.y-2.5},force=game.forces.neutral}.damage(math.random(0,400),"neutral","physical")
+   end,
+
+   function(center)
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+
+
+   end,
+
 
 }
 
 function spawnSmallRuins(center)
-   game.surfaces[1].set_tiles({{name="concrete",position=center}})
    s_ruins[math.random(#s_ruins)](center) --call a random function
+   game.surfaces[1].set_tiles({{name="concrete",position=center}})
 end
