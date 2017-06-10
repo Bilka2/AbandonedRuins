@@ -33,24 +33,3 @@ script.on_event({defines.events.on_chunk_generated},
       end
    end
 )
-
-
---Testing code
-script.on_event({defines.events.on_tick},
-   function (e)
-      if e.tick % 120 == 0 and game.players[1].selected then
-         game.print(game.players[1].selected.position.x-game.players[1].position.x .. "," .. game.players[1].selected.position.y-game.players[1].position.y)
-      end
-
-   end
-)
-
---[[
-   /c for i = 1, 32 do
-   game.surfaces[1].create_entity{name="stone-wall",position={i,0}, force=game.forces.neutral}
-   game.surfaces[1].create_entity{name="stone-wall",position={32,i}, force=game.forces.neutral}
-   game.surfaces[1].create_entity{name="stone-wall",position={0,32-i},  force=game.forces.neutral}
-   game.surfaces[1].create_entity{name="stone-wall",position={32-i,32},  force=game.forces.neutral}
-   end
-
---]]
