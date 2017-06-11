@@ -10,7 +10,6 @@
 
 --]]
 
-
 --checks for spawning validity and if valid, clears space for the spawn
 function m_clearArea(center)
     for y = center.y-8, center.y+8 do --fail if any water in area
