@@ -29,18 +29,18 @@ script.on_event({defines.events.on_chunk_generated},
          --game.print("A small ruin was spawned at " .. center.x .. "," .. center.y)
 
          --random variance so they aren't always chunk aligned
-         center.x + math.random(-5,5)
-         center.y + math.random(-5,5)
+         center.x = center.x + math.random(-10,10)
+         center.y = center.y + math.random(-10,10)
 
 
-         spawnSmallRuins(center)
+         --spawnSmallRuins(center)
       elseif probability(mediumChance) then
          --spawn medium ruin
          game.print("A medium ruin was spawned at " .. center.x .. "," .. center.y)
 
          --random variance so they aren't always chunk aligned
-         center.x + math.random(-5,5)
-         center.y + math.random(-5,5)
+         center.x = center.x + math.random(-5,5)
+         center.y = center.y + math.random(-5,5)
 
          spawnMediumRuins(center)
 
