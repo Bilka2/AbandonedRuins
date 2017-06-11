@@ -20,6 +20,7 @@ end
 
 local s_ruins = {}
 
+
 table.insert(s_ruins, require("smallRuins.crossOfPipes"))
 table.insert(s_ruins, require("smallRuins.diagonalWall"))
 table.insert(s_ruins, require("smallRuins.gateWall"))

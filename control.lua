@@ -1,8 +1,8 @@
 require("smallRuins")
-require("mediumRuins")
-require("largeRuins")
+--require("mediumRuins")
+--require("largeRuins")
 
-local DEBUG = false --used for debug, users should not enable
+local DEBUG = true --used for debug, users should not enable
 
 --function that will return true 'percent' of the time.
 function probability(percent)
@@ -35,13 +35,13 @@ script.on_event({defines.events.on_chunk_generated},
             center.x = center.x + math.random(-5,5)
             center.y = center.y + math.random(-5,5)
 
-            spawnMediumRuins(center)
+            --spawnMediumRuins(center)
         elseif probability(settings.global["ruins-large-ruin-chance"].value) then
             --spawn large ruin
             if DEBUG then
                 game.print("A large ruin was spawned at " .. center.x .. "," .. center.y)
             end
-            spawnLargeRuins(center)
+            --spawnLargeRuins(center)
         end
     end
 )
