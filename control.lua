@@ -25,7 +25,7 @@ script.on_event({defines.events.on_chunk_generated},
             center.y = center.y + math.random(-10,10)
 
 
-            --spawnSmallRuins(center)
+            spawnSmallRuins(center)
         elseif probability(settings.global["ruins-medium-ruin-chance"].value) then
             --spawn medium ruin
             if DEBUG then

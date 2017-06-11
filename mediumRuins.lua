@@ -10,9 +10,6 @@
 
 --]]
 
-local fN = game.forces.neutral
-local direct = defines.direction
-
 
 --checks for spawning validity and if valid, clears space for the spawn
 function m_clearArea(center)
@@ -37,6 +34,9 @@ local m_ruins = {
     function(center) --power setup
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "medium-electric-pole", position = {center.x+(3.0),center.y+(-6.0)}, force = fN}
         ce{name = "steam-engine", position = {center.x+(-4.0),center.y+(0.0)}, force = fN}
         ce{name = "medium-electric-pole", position = {center.x+(-1.0),center.y+(-3.0)}, force = fN}
@@ -60,6 +60,9 @@ local m_ruins = {
     function(center) --biter defense setup
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-rock", position = {center.x+(-6.5),center.y+(-5.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(-4.5),center.y+(-6.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(-2.5),center.y+(-6.5)}, force = fN}
@@ -92,6 +95,9 @@ local m_ruins = {
     function(center) -- mountain range
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-rock", position = {center.x+(-7.5),center.y+(-0.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(-3.5),center.y+(-0.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(0.5),center.y+(-0.5)}, force = fN}
@@ -103,6 +109,9 @@ local m_ruins = {
     function(center) --small oil setup
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-wall", position = {center.x+(-5.0),center.y+(-5.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-5.0),center.y+(-4.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-4.0),center.y+(-5.0)}, force = fN}
@@ -143,6 +152,9 @@ local m_ruins = {
     function(center) -- assembling line
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "assembling-machine-1", position = {center.x+(-3.0),center.y+(-2.0)}, force = fN}
         ce{name = "inserter", position = {center.x+(-1.0),center.y+(-2.0)}, direction = direct.west, force = fN}
         ce{name = "assembling-machine-1", position = {center.x+(1.0),center.y+(-2.0)}, force = fN}
@@ -163,6 +175,9 @@ local m_ruins = {
     function(center) --queen nest
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-rock", position = {center.x+(-6.5),center.y+(-6.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(-4.5),center.y+(-6.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(-2.5),center.y+(-6.5)}, force = fN}
@@ -195,6 +210,9 @@ local m_ruins = {
     function(center)
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-rock", position = {center.x+(-5.5),center.y+(-5.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(5.5),center.y+(-5.5)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-5.0),center.y+(-4.0)}, force = fN}
@@ -236,6 +254,9 @@ local m_ruins = {
     function(center) --long chain of pipes
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "pipe-to-ground", position = {center.x+(-1.0),center.y+(-7.0)}, force = fN}
         ce{name = "pipe-to-ground", position = {center.x+(-1.0),center.y+(-2.0)}, direction = direct.south, force = fN}
         ce{name = "pipe-to-ground", position = {center.x+(-7.0),center.y+(0.0)}, direction = direct.west, force = fN}
@@ -247,6 +268,9 @@ local m_ruins = {
     function(center) --encampment
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-wall", position = {center.x+(-6.0),center.y+(-5.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-6.0),center.y+(-6.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-4.0),center.y+(-6.0)}, force = fN}
@@ -321,6 +345,9 @@ local m_ruins = {
     function(center) --rough perimeter
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-rock", position = {center.x+(-5.5),center.y+(-5.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(5.5),center.y+(-5.5)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-5.0),center.y+(-4.0)}, force = fN}

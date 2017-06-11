@@ -10,9 +10,6 @@
 
 --]]
 
-local fN = game.forces.neutral
-local direct = defines.direction
-
 --checks for spawning validity and if valid, clears space for the spawn
 function l_clearArea(center)
     for y = center.y-16, center.y+16 do --fail if any water in area
@@ -36,6 +33,10 @@ local l_ruins = {
     function(center) --main buses
         local ce = game.surfaces[1].create_entity --save typing
         if l_clearArea(center) == false then return end
+
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "transport-belt", position = {center.x+(-13.0),center.y+(-8.0)}, direction = direct.east, force = fN}
         ce{name = "transport-belt", position = {center.x+(-12.0),center.y+(-8.0)}, direction = direct.east, force = fN}
         ce{name = "transport-belt", position = {center.x+(-13.0),center.y+(-9.0)}, direction = direct.east, force = fN}
@@ -244,7 +245,11 @@ local l_ruins = {
     function(center) --destroyed fort
         local ce = game.surfaces[1].create_entity --save typing
         if l_clearArea(center) == false then return end
-        ce{name = stone-wall, position = {center.x+(-9.0),center.y+(-5.0)}, force = fN}
+
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
+        ce{name = "stone-wall", position = {center.x+(-9.0),center.y+(-5.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-8.0),center.y+(-5.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-7.0),center.y+(-5.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-6.0),center.y+(-5.0)}, force = fN}
@@ -300,6 +305,10 @@ local l_ruins = {
         local randomTree = "tree-0" .. tostring(math.random(1,9))
         local ce = game.surfaces[1].create_entity --save typing
         if l_clearArea(center) == false then return end
+
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = randomTree, position = {center.x+(-12.5),center.y+(-12.5)}, force = fN}
         ce{name = randomTree, position = {center.x+(-10.5),center.y+(-12.5)}, force = fN}
         ce{name = randomTree, position = {center.x+(-8.5),center.y+(-12.5)}, force = fN}
@@ -382,6 +391,10 @@ local l_ruins = {
     function(center) --early game setups
         local ce = game.surfaces[1].create_entity --save typing
         if l_clearArea(center) == false then return end
+
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "lab", position = {center.x+(-7.0),center.y+(-10.0)}, force = fN}
         ce{name = "small-electric-pole", position = {center.x+(-5.0),center.y+(-10.0)}, force = fN}
         ce{name = "fast-inserter", position = {center.x+(-5.0),center.y+(-11.0)}, direction = direct.west, force = fN}
@@ -436,6 +449,10 @@ local l_ruins = {
     function(center) --destroyed enemy fort
         local ce = game.surfaces[1].create_entity --save typing
         if l_clearArea(center) == false then return end
+
+        local fN = game.forces.neutral
+        local direct = defines.direction
+
         ce{name = "stone-wall", position = {center.x+(-15.0),center.y+(-16.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-16.0),center.y+(-15.0)}, force = fN}
         ce{name = "stone-wall", position = {center.x+(-16.0),center.y+(-16.0)}, force = fN}
