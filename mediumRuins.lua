@@ -206,7 +206,7 @@ local m_ruins = {
         ce{name = "stone-rock", position = {center.x+(3.5),center.y+(6.5)}, force = fN}
         ce{name = "stone-rock", position = {center.x+(5.5),center.y+(6.5)}, force = fN}
     end,
-    function(center)
+    function(center) --rough perimeter
         local ce = game.surfaces[1].create_entity --save typing
         if m_clearArea(center) == false then return end
         local fN = game.forces.neutral
@@ -390,5 +390,5 @@ local m_ruins = {
 
 function spawnMediumRuins(center)
     m_ruins[math.random(#m_ruins)](center) --call a random function
-    game.surfaces[1].set_tiles({{name = "concrete", position = center}})
+
 end

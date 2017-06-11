@@ -649,5 +649,5 @@ local l_ruins = {
 
 function spawnLargeRuins(center)
     l_ruins[math.random(#l_ruins)](center) --call a random function
-    game.surfaces[1].set_tiles({{name = "concrete", position = center}})
+
 end
