@@ -10,7 +10,7 @@ function s_clearArea(center)
     end
 
     for index, entity in pairs(game.surfaces[1].find_entities({{center.x-4,center.y-4},{center.x+4,center.y+4}})) do
-        if not string.find(entity.name, "-ore") then --don't destroy ores
+        if not entity.type == "resource" then --don't destroy ores
             entity.destroy()
         end
     end
