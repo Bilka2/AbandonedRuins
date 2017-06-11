@@ -4,7 +4,7 @@
    Remember that the server must also share this config, exactly, to prevent desyncs.
    Format:
 
-   function(area,center)
+   function(center)
    --code to spawn entities relative to the center
    end,
 
@@ -21,8 +21,11 @@ function s_clearArea(center)
    end
 
    for index,entity in pairs(game.surfaces[1].find_entities({{center.x-4,center.y-4},{center.x+4,center.y+4}})) do
-      entity.destroy()
+      if not string.find(entity.name, "-ore") then --don't destroy ores
+         entity.destroy()
+      end
    end
+
    return true
 end
 
@@ -141,7 +144,50 @@ local s_ruins = {
       ce{name="lab",position={center.x+1.5,center.y-0.5},force=game.forces.neutral}
       ce{name="wooden-chest",position={center.x-1.5,center.y+0.5},force=game.forces.neutral}.insert{name="science-pack-1",count=20}
    end,
+   function(center) --mining setup
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="electric-mining-drill",position={center.x+(0.0),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="wooden-chest",position={center.x+(0.0),center.y+(2.0)},force=game.forces.neutral}
+   end,
+   function(center) -- cross of pipes
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="pipe-to-ground",position={center.x+(-2.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="pipe",position={center.x+(-1.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="pipe",position={center.x+(1.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="pipe-to-ground",position={center.x+(0.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="pipe",position={center.x+(0.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="pipe-to-ground",position={center.x+(2.0),center.y+(0.0)},direction=defines.direction.west,force=game.forces.neutral}
+      ce{name="pipe-to-ground",position={center.x+(0.0),center.y+(1.0)},force=game.forces.neutral}
+   end,
+   function(center) --section of rails
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="straight-rail",position={center.x+(-2.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="straight-rail",position={center.x+(0.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="straight-rail",position={center.x+(2.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
+   end,
+   function(center) --victory poles
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
+      ce{name="small-electric-pole",position={center.x+(0.0),center.y+(-2.0)},force=game.forces.neutral}
+      ce{name="small-electric-pole",position={center.x+(-2.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="medium-electric-pole",position={center.x+(0.0),center.y+(-1.0)},force=game.forces.neutral}
+      ce{name="small-electric-pole",position={center.x+(2.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="small-electric-pole",position={center.x+(0.0),center.y+(1.0)},force=game.forces.neutral}
+   end,
+   function(center) --I of splitters
+      local ce = game.surfaces[1].create_entity --save typing
+      if s_clearArea(center) == false then return end
 
+      ce{name="splitter",position={center.x+(-0.5),center.y+(-2.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="splitter",position={center.x+(1.5),center.y+(-2.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="splitter",position={center.x+(-0.5),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="splitter",position={center.x+(1.5),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="splitter",position={center.x+(0.5),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="splitter",position={center.x+(0.5),center.y+(1.0)},direction=defines.direction.south,force=game.forces.neutral}
+   end,
 }
 
 function spawnSmallRuins(center)
