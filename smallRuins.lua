@@ -191,6 +191,80 @@ local s_ruins = {
         ce{name = "splitter", position = {center.x+(0.5),center.y+(-1.0)}, direction = direct.south, force = fN}
         ce{name = "splitter", position = {center.x+(0.5),center.y+(1.0)}, direction = direct.south, force = fN}
     end,
+    function(center) -- small mining
+        local ce = game.surfaces[1].create_entity --save typing
+        if s_clearArea(center) == false then return end
+        ce{name="electric-mining-drill",position={center.x+(-2.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="electric-mining-drill",position={center.x+(1.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(0.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+    end,
+    function(center) -- small dual splitter
+        local ce = game.surfaces[1].create_entity --save typing
+        if s_clearArea(center) == false then return end
+
+        ce{name="transport-belt",position={center.x+(1.0),center.y+(-1.0)},force=game.forces.neutral}
+        ce{name="splitter",position={center.x+(0.0),center.y+(-0.5)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="splitter",position={center.x+(-1.0),center.y+(0.5)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-2.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-2.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(1.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(1.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(0.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(2.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(2.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+
+    end,
+    function(center) --smeltery
+        local ce = game.surfaces[1].create_entity --save typing
+        if s_clearArea(center) == false then return end
+        ce{name="small-electric-pole",position={center.x+(-3.0),center.y+(-2.0)},force=game.forces.neutral}
+        ce{name="stone-furnace",position={center.x+(-1.5),center.y+(-2.5)},force=game.forces.neutral}
+        ce{name="stone-furnace",position={center.x+(1.5),center.y+(-2.5)},force=game.forces.neutral}
+        ce{name="small-electric-pole",position={center.x+(3.0),center.y+(-2.0)},force=game.forces.neutral}
+        ce{name="small-lamp",position={center.x+(-3.0),center.y+(0.0)},force=game.forces.neutral}
+        ce{name="inserter",position={center.x+(-1.0),center.y+(-1.0)},force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-1.0),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="inserter",position={center.x+(2.0),center.y+(-1.0)},force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(2.0),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-3.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-1.0),center.y+(2.0)},force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(0.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(2.0),center.y+(2.0)},force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(3.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="inserter",position={center.x+(-1.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="inserter",position={center.x+(2.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
+    end,
+    function(center) --small gears setup
+        local ce = game.surfaces[1].create_entity --save typing
+        if s_clearArea(center) == false then return end
+        ce{name="transport-belt",position={center.x+(0.0),center.y+(-3.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(0.0),center.y+(-2.0)},force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(-1.0),center.y+(-2.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(2.0),center.y+(-3.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(1.0),center.y+(-3.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(1.0),center.y+(-2.0)},direction=defines.direction.west,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(3.0),center.y+(-2.0)},direction=defines.direction.east,force=game.forces.neutral}
+        ce{name="transport-belt",position={center.x+(3.0),center.y+(-3.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="assembling-machine-2",position={center.x+(-2.0),center.y+(1.0)},force=game.forces.neutral}
+        ce{name="medium-electric-pole",position={center.x+(0.0),center.y+(-1.0)},force=game.forces.neutral}
+        ce{name="fast-inserter",position={center.x+(-1.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="assembling-machine-2",position={center.x+(1.0),center.y+(1.0)},force=game.forces.neutral}
+        ce{name="fast-inserter",position={center.x+(1.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="fast-inserter",position={center.x+(-2.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="fast-inserter",position={center.x+(-3.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="fast-inserter",position={center.x+(0.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
+        ce{name="medium-electric-pole",position={center.x+(-1.0),center.y+(3.0)},force=game.forces.neutral}
+        ce{name="fast-inserter",position={center.x+(1.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
+
+    end,
 }
 
 function spawnSmallRuins(center)
