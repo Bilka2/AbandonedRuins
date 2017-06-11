@@ -7,27 +7,44 @@ require("largeRuins")
 
 --Minimum spawn distance - Change to give yourself more breathing room at spawn. Default 200.
 local MINIMUM_DISTANCE_FROM_SPAWN = 200
+local smallChance = 0.1
+local mediumChance = 0.05
+local largeChance = 0.02
+
 
 --- BEGIN SCRIPTING
+
+--function that will return true 'percent' of the time.
+function probability(percent)
+   return math.random() <= percent
+end
+
 script.on_event({defines.events.on_chunk_generated},
    function (e)
       local center = {x=(e.area.left_top.x+e.area.right_bottom.x)/2, y=(e.area.left_top.y+e.area.right_bottom.y)/2}
       if math.abs(center.x) < MINIMUM_DISTANCE_FROM_SPAWN and math.abs(center.y) < MINIMUM_DISTANCE_FROM_SPAWN then return end --too close to spawn
 
-      local probabilityCounter = math.random(100)
-
-      if probabilityCounter <= 65 then
-         --do nothing, don't want these spammed everywhere
-      elseif probabilityCounter > 65 and probabilityCounter <= 85 then --20% chance
+      if probability(smallChance) then
          --spawn small ruin
          --game.print("A small ruin was spawned at " .. center.x .. "," .. center.y)
+
+         --random variance so they aren't always chunk aligned
+         center.x + math.random(-5,5)
+         center.y + math.random(-5,5)
+
+
          spawnSmallRuins(center)
-
-      elseif probabilityCounter > 85 and probabilityCounter <= 95 then --10% chance
+      elseif probability(mediumChance) then
          --spawn medium ruin
-         --game.print("A medium ruin was spawned at " .. center.x .. "," .. center.y)
+         game.print("A medium ruin was spawned at " .. center.x .. "," .. center.y)
 
-      elseif probabilityCounter > 95 then --5% chance
+         --random variance so they aren't always chunk aligned
+         center.x + math.random(-5,5)
+         center.y + math.random(-5,5)
+
+         spawnMediumRuins(center)
+
+      elseif probability(largeChance) then
          --spawn large ruin
          --game.print("A large ruin was spawned at " .. center.x .. "," .. center.y)
       end

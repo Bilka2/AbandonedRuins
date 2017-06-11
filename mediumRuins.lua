@@ -31,9 +31,133 @@ end
 
 local m_ruins = {
    function(center) --power setup
-
+      local ce = game.surfaces[1].create_entity --save typing
+      if m_clearArea(center) == false then return end
+      ce{name="medium-electric-pole",position={center.x+(3.0),center.y+(-6.0)},force=game.forces.neutral}
+      ce{name="steam-engine",position={center.x+(-4.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="medium-electric-pole",position={center.x+(-1.0),center.y+(-3.0)},force=game.forces.neutral}
+      ce{name="steam-engine",position={center.x+(-1.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="steam-engine",position={center.x+(2.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="boiler",position={center.x+(-4.0),center.y+(3.5)},force=game.forces.neutral}
+      ce{name="boiler",position={center.x+(-1.0),center.y+(3.5)},force=game.forces.neutral}
+      ce{name="boiler",position={center.x+(2.0),center.y+(3.5)},force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-5.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="burner-inserter",position={center.x+(-4.0),center.y+(5.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-3.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-4.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="burner-inserter",position={center.x+(-1.0),center.y+(5.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-1.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-2.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(1.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(0.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="burner-inserter",position={center.x+(2.0),center.y+(5.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(2.0),center.y+(6.0)},direction=defines.direction.east,force=game.forces.neutral}
+   end,
+   function(center) --biter defense setup
+      local ce = game.surfaces[1].create_entity --save typing
+      if m_clearArea(center) == false then return end
+      ce{name="stone-rock",position={center.x+(-6.5),center.y+(-5.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-4.5),center.y+(-6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-2.5),center.y+(-6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-0.5),center.y+(-6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(1.5),center.y+(-6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(3.5),center.y+(-6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(5.5),center.y+(-6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-6.5),center.y+(-3.5)},force=game.forces.neutral}
+      ce{name="biter-spawner",position={center.x+(2.0),center.y+(-3.0)},force=game.forces.enemy}
+      ce{name="stone-rock",position={center.x+(6.5),center.y+(-4.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-6.5),center.y+(-1.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(6.5),center.y+(-2.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-6.5),center.y+(0.5)},force=game.forces.neutral}
+      ce{name="biter-spawner",position={center.x+(2.0),center.y+(1.0)},force=game.forces.enemy}
+      ce{name="stone-rock",position={center.x+(6.5),center.y+(-0.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-6.5),center.y+(2.5)},force=game.forces.neutral}
+      ce{name="biter-spawner",position={center.x+(-2.0),center.y+(2.0)},force=game.forces.enemy}
+      ce{name="stone-rock",position={center.x+(6.5),center.y+(1.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-6.5),center.y+(4.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(6.5),center.y+(3.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-5.5),center.y+(6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-3.5),center.y+(6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-1.5),center.y+(6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(0.5),center.y+(6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(2.5),center.y+(6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(4.5),center.y+(6.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(6.5),center.y+(6.5)},force=game.forces.neutral}
 
    end,
+   function(center) -- mountain range
+      local ce = game.surfaces[1].create_entity --save typing
+      if m_clearArea(center) == false then return end
+      ce{name="stone-rock",position={center.x+(-7.5),center.y+(-0.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-3.5),center.y+(-0.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(0.5),center.y+(-0.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(4.5),center.y+(-0.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-5.5),center.y+(1.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(-1.5),center.y+(1.5)},force=game.forces.neutral}
+      ce{name="stone-rock",position={center.x+(2.5),center.y+(1.5)},force=game.forces.neutral}
+   end,
+   function(center) --small oil setup
+      local ce = game.surfaces[1].create_entity --save typing
+      if m_clearArea(center) == false then return end
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(-4.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-4.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-1.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="storage-tank",position={center.x+(1.0),center.y+(-3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(0.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(1.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(3.0),center.y+(-4.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(2.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(3.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(4.0),center.y+(-5.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(4.0),center.y+(-4.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(-2.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(-3.0)},force=game.forces.neutral}
+      ce{name="storage-tank",position={center.x+(-2.0),center.y+(-2.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(3.0),center.y+(-3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(4.0),center.y+(-3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(-1.0)},force=game.forces.neutral}
+      ce{name="pipe-to-ground",position={center.x+(1.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="pipe",position={center.x+(0.0),center.y+(-1.0)},force=game.forces.neutral}
+      ce{name="pipe",position={center.x+(1.0),center.y+(-1.0)},force=game.forces.neutral}
+      ce{name="pipe",position={center.x+(2.0),center.y+(-1.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(4.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(2.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(1.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(4.0),center.y+(1.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(4.0),center.y+(2.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-5.0),center.y+(3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(-4.0),center.y+(3.0)},force=game.forces.neutral}
+      ce{name="pipe-to-ground",position={center.x+(1.0),center.y+(4.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(1.0),center.y+(3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(0.0),center.y+(3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(3.0),center.y+(3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(2.0),center.y+(3.0)},force=game.forces.neutral}
+      ce{name="stone-wall",position={center.x+(4.0),center.y+(3.0)},force=game.forces.neutral}
+   end,
+   function(center) -- assembling line
+      local ce = game.surfaces[1].create_entity --save typing
+      if m_clearArea(center) == false then return end
+      ce{name="assembling-machine-1",position={center.x+(-3.0),center.y+(-2.0)},force=game.forces.neutral}
+      ce{name="inserter",position={center.x+(-1.0),center.y+(-2.0)},direction=defines.direction.west,force=game.forces.neutral}
+      ce{name="assembling-machine-1",position={center.x+(1.0),center.y+(-2.0)},force=game.forces.neutral}
+      ce{name="inserter",position={center.x+(3.0),center.y+(-2.0)},direction=defines.direction.west,force=game.forces.neutral}
+      ce{name="assembling-machine-1",position={center.x+(5.0),center.y+(-2.0)},force=game.forces.neutral}
+      ce{name="inserter",position={center.x+(-3.0),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
+      ce{name="small-electric-pole",position={center.x+(-1.0),center.y+(-1.0)},force=game.forces.neutral}
+      ce{name="small-electric-pole",position={center.x+(3.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="inserter",position={center.x+(5.0),center.y+(0.0)},force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-5.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-6.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-3.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="transport-belt",position={center.x+(-4.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="iron-chest",position={center.x+(2.0),center.y+(2.0)},force=game.forces.neutral}
+      ce{name="inserter",position={center.x+(3.0),center.y+(2.0)},direction=defines.direction.east,force=game.forces.neutral}
+      ce{name="assembling-machine-1",position={center.x+(5.0),center.y+(2.0)},force=game.forces.neutral}
+
+   end,
+
 }
 
 function spawnMediumRuins(center)
