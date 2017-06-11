@@ -2,6 +2,8 @@ require("smallRuins")
 require("mediumRuins")
 require("largeRuins")
 
+local DEBUG = false --used for debug, users should not enable
+
 -- USER CONFIG VARS
 -- These *must* match the server that you are playing on, and must not be changed during runtime, otherwise desyncs will occur.
 
@@ -26,7 +28,9 @@ script.on_event({defines.events.on_chunk_generated},
 
       if probability(smallChance) then
          --spawn small ruin
-         --game.print("A small ruin was spawned at " .. center.x .. "," .. center.y)
+         if DEBUG then
+            game.print("A small ruin was spawned at " .. center.x .. "," .. center.y)
+         end
 
          --random variance so they aren't always chunk aligned
          center.x = center.x + math.random(-10,10)
@@ -36,7 +40,9 @@ script.on_event({defines.events.on_chunk_generated},
          --spawnSmallRuins(center)
       elseif probability(mediumChance) then
          --spawn medium ruin
-         game.print("A medium ruin was spawned at " .. center.x .. "," .. center.y)
+         if DEBUG then
+            game.print("A medium ruin was spawned at " .. center.x .. "," .. center.y)
+         end
 
          --random variance so they aren't always chunk aligned
          center.x = center.x + math.random(-5,5)
@@ -46,7 +52,10 @@ script.on_event({defines.events.on_chunk_generated},
 
       elseif probability(largeChance) then
          --spawn large ruin
-         --game.print("A large ruin was spawned at " .. center.x .. "," .. center.y)
+         if DEBUG then
+            game.print("A large ruin was spawned at " .. center.x .. "," .. center.y)
+         end
+         spawnLargeRuins(center)
       end
    end
 )
