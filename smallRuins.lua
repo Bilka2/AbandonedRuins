@@ -1,15 +1,3 @@
---[[
-    This is a table of functions, that when called with an area and center position, will spawn different ruins.
-    If you want to add more ruins, simply observe the format, and create it accordingly.
-    Remember that the server must also share this config, exactly, to prevent desyncs.
-    Format:
-
-    function(center)
-    --code to spawn entities relative to the center
-    end,
-
---]]
-
 
 --checks for spawning validity and if valid, clears space for the spawn
 function s_clearArea(center)
@@ -30,279 +18,31 @@ function s_clearArea(center)
     return true
 end
 
-local s_ruins = {
-    function(center) --land mine bunker
+local s_ruins = {}
 
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "stone-wall", position = {center.x-2,center.y}, force = fN}
-        ce{name = "stone-wall", position = {center.x-2,center.y-1}, force = fN}
-        ce{name = "stone-wall", position = {center.x-2,center.y-2}, force = fN}
-        ce{name = "stone-wall", position = {center.x+1,center.y-1}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2,center.y-2}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2,center.y-1}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2,center.y}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2,center.y+1}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2,center.y+2}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2,center.y+3}, force = fN}
-        ce{name = "stone-wall", position = {center.x+1,center.y+3}, force = fN}
-        ce{name = "stone-wall", position = {center.x, center.y+3}, force = fN}
+table.insert(s_ruins, require("smallRuins.crossOfPipes"))
+table.insert(s_ruins, require("smallRuins.diagonalWall"))
+table.insert(s_ruins, require("smallRuins.gateWall"))
+table.insert(s_ruins, require("smallRuins.gears"))
+table.insert(s_ruins, require("smallRuins.harmlessTurret"))
+table.insert(s_ruins, require("smallRuins.landMineBunker"))
+table.insert(s_ruins, require("smallRuins.miningSetup"))
+table.insert(s_ruins, require("smallRuins.railSection"))
+table.insert(s_ruins, require("smallRuins.randomWalls"))
+table.insert(s_ruins, require("smallRuins.researchStation"))
+table.insert(s_ruins, require("smallRuins.rockStash"))
+table.insert(s_ruins, require("smallRuins.smallDestroyedSetup"))
+table.insert(s_ruins, require("smallRuins.smallDualSplitter"))
+table.insert(s_ruins, require("smallRuins.smallMining"))
+table.insert(s_ruins, require("smallRuins.smallMountain"))
+table.insert(s_ruins, require("smallRuins.smallSmelting"))
+table.insert(s_ruins, require("smallRuins.smeltery"))
+table.insert(s_ruins, require("smallRuins.splitterI"))
+table.insert(s_ruins, require("smallRuins.victoryPoles"))
 
-        ce{name = "land-mine", position = {center.x, center.y}, force = game.forces.enemy} --trap
-
-    end,
-    function(center)  --small smelting station
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "stone-furnace", position = {center.x-2,center.y-2}, force = fN}
-        local chest = ce{name = "wooden-chest", position = {center.x, center.y-1}, force = fN}
-        chest.insert{name = "coal", count=5}
-        chest.insert{name = "iron-ore", count=20}
-    end,
-    function(center) --small destroyed setup
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "assembling-machine-1", position = {center.x+0.5,center.y+2.5}, force = fN}.damage(150,"neutral","physical")
-        ce{name = "inserter", position = {center.x+2.5,center.y+1.5}, force = fN}.damage(25,"neutral","physical")
-        ce{name = "inserter", position = {center.x+0.5,center.y-1.5}, force = fN}.damage(17,"neutral","physical")
-
-        ce{name = "transport-belt", position = {center.x-1.5,center.y+1}, force = fN}.damage(25,"neutral","physical")
-        ce{name = "transport-belt", position = {center.x-1.5,center.y}, force = fN}
-        ce{name = "transport-belt", position = {center.x-1.5,center.y-1}, force = fN}.damage(15,"neutral","physical")
-    end,
-    function(center) --random walls
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "stone-wall", position = {center.x-2.5,center.y-2.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+0.5,center.y-2.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x-1.5,center.y-1.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2.5,center.y+1.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x-1.5,center.y-0.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2.5,center.y-0.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+1.5,center.y+0.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+1.5,center.y+1.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x-0.5,center.y+2.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+2.5,center.y+2.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x-2.5,center.y+3.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x-1.5,center.y+3.5}, force = fN}
-    end,
-    function(center) --harmless turret
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "gun-turret", position = {center.x+1,center.y}, force = game.forces.enemy}.damage(323,"neutral","physical")
-    end,
-    function(center) --suspicious rock, stash
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        local chest = ce{name = "wooden-chest", position = {center.x, center.y}, force = fN}
-        chest.insert{name = "engine-unit", count=8}
-        chest.insert{name = "iron-plate", count=20}
-        chest.insert{name = "steel-plate", count=5}
-        ce{name = "stone-rock", position = {center.x, center.y}, force = fN}
-    end,
-    function(center) --randomly damaged diagonal wall
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "stone-wall", position = {center.x-2.5,center.y+3.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x-2.5,center.y+2.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x-1.5,center.y+2.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x-1.5,center.y+1.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x-0.5,center.y+1.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x-0.5,center.y+0.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x, center.y}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x+0.5,center.y-0.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x+1.5,center.y-0.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x+1.5,center.y-1.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x+2.5,center.y-1.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x+2.5,center.y-2.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-        ce{name = "stone-wall", position = {center.x+3.5,center.y-2.5}, force = fN}.damage(math.random(0,400),"neutral","physical")
-    end,
-
-    function(center) --section of wall with gate
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "stone-wall", position = {center.x+0.5,center.y-2.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+0.5,center.y-1.5}, force = fN}
-
-        ce{name = "gate", position = {center.x+0.5,center.y-0.5}, force = fN}
-        ce{name = "gate", position = {center.x+0.5,center.y+0.5}, force = fN}
-        ce{name = "gate", position = {center.x+0.5,center.y+1.5}, force = fN}
-
-        ce{name = "stone-wall", position = {center.x+0.5,center.y+2.5}, force = fN}
-        ce{name = "stone-wall", position = {center.x+0.5,center.y+3.5}, force = fN}
-    end,
-    function(center) --small mountain
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "stone-rock", position = {center.x-1,center.y-1}, force = fN}
-        ce{name = "stone-rock", position = {center.x+1,center.y-1}, force = fN}
-        ce{name = "stone-rock", position = {center.x-1,center.y+1}, force = fN}
-        ce{name = "stone-rock", position = {center.x+1,center.y+1}, force = fN}
-    end,
-    function(center) --research station
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "lab", position = {center.x+1.5,center.y-0.5}, force = fN}
-        ce{name = "wooden-chest", position = {center.x-1.5,center.y+0.5}, force = fN}.insert{name = "science-pack-1", count=20}
-    end,
-    function(center) --mining setup
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "electric-mining-drill", position = {center.x+(0.0),center.y+(0.0)}, direction = direct.south, force = fN}
-        ce{name = "wooden-chest", position = {center.x+(0.0),center.y+(2.0)}, force = fN}
-    end,
-    function(center) -- cross of pipes
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "pipe-to-ground", position = {center.x+(-2.0),center.y+(0.0)}, direction = direct.east, force = fN}
-        ce{name = "pipe", position = {center.x+(-1.0),center.y+(0.0)}, force = fN}
-        ce{name = "pipe", position = {center.x+(1.0),center.y+(0.0)}, force = fN}
-        ce{name = "pipe-to-ground", position = {center.x+(0.0),center.y+(-1.0)}, direction = direct.south, force = fN}
-        ce{name = "pipe", position = {center.x+(0.0),center.y+(0.0)}, force = fN}
-        ce{name = "pipe-to-ground", position = {center.x+(2.0),center.y+(0.0)}, direction = direct.west, force = fN}
-        ce{name = "pipe-to-ground", position = {center.x+(0.0),center.y+(1.0)}, force = fN}
-    end,
-    function(center) --section of rails
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "straight-rail", position = {center.x+(-2.0),center.y+(0.0)}, direction = direct.east, force = fN}
-        ce{name = "straight-rail", position = {center.x+(0.0),center.y+(0.0)}, direction = direct.east, force = fN}
-        ce{name = "straight-rail", position = {center.x+(2.0),center.y+(0.0)}, direction = direct.east, force = fN}
-    end,
-    function(center) --victory poles
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name = "small-electric-pole", position = {center.x+(0.0),center.y+(-2.0)}, force = fN}
-        ce{name = "small-electric-pole", position = {center.x+(-2.0),center.y+(0.0)}, force = fN}
-        ce{name = "medium-electric-pole", position = {center.x+(0.0),center.y+(-1.0)}, force = fN}
-        ce{name = "small-electric-pole", position = {center.x+(2.0),center.y+(0.0)}, force = fN}
-        ce{name = "small-electric-pole", position = {center.x+(0.0),center.y+(1.0)}, force = fN}
-    end,
-    function(center) --I of splitters
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-
-        ce{name = "splitter", position = {center.x+(-0.5),center.y+(-2.0)}, direction = direct.south, force = fN}
-        ce{name = "splitter", position = {center.x+(1.5),center.y+(-2.0)}, direction = direct.south, force = fN}
-        ce{name = "splitter", position = {center.x+(-0.5),center.y+(0.0)}, direction = direct.south, force = fN}
-        ce{name = "splitter", position = {center.x+(1.5),center.y+(0.0)}, direction = direct.south, force = fN}
-        ce{name = "splitter", position = {center.x+(0.5),center.y+(-1.0)}, direction = direct.south, force = fN}
-        ce{name = "splitter", position = {center.x+(0.5),center.y+(1.0)}, direction = direct.south, force = fN}
-    end,
-    function(center) -- small mining
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name="electric-mining-drill",position={center.x+(-2.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="electric-mining-drill",position={center.x+(1.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(0.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-    end,
-    function(center) -- small dual splitter
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-
-        ce{name="transport-belt",position={center.x+(1.0),center.y+(-1.0)},force=game.forces.neutral}
-        ce{name="splitter",position={center.x+(0.0),center.y+(-0.5)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="splitter",position={center.x+(-1.0),center.y+(0.5)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-2.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-2.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(1.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(1.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(0.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(2.0),center.y+(0.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(2.0),center.y+(1.0)},direction=defines.direction.east,force=game.forces.neutral}
-
-    end,
-    function(center) --smeltery
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name="small-electric-pole",position={center.x+(-3.0),center.y+(-2.0)},force=game.forces.neutral}
-        ce{name="stone-furnace",position={center.x+(-1.5),center.y+(-2.5)},force=game.forces.neutral}
-        ce{name="stone-furnace",position={center.x+(1.5),center.y+(-2.5)},force=game.forces.neutral}
-        ce{name="small-electric-pole",position={center.x+(3.0),center.y+(-2.0)},force=game.forces.neutral}
-        ce{name="small-lamp",position={center.x+(-3.0),center.y+(0.0)},force=game.forces.neutral}
-        ce{name="inserter",position={center.x+(-1.0),center.y+(-1.0)},force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-1.0),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="inserter",position={center.x+(2.0),center.y+(-1.0)},force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(2.0),center.y+(0.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-3.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-1.0),center.y+(2.0)},force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(0.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(2.0),center.y+(2.0)},force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(1.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(2.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(3.0),center.y+(1.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="inserter",position={center.x+(-1.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="inserter",position={center.x+(2.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
-    end,
-    function(center) --small gears setup
-        local ce = game.surfaces[1].create_entity --save typing
-        if s_clearArea(center) == false then return end
-        local fN = game.forces.neutral
-        local direct = defines.direction
-        ce{name="transport-belt",position={center.x+(0.0),center.y+(-3.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(0.0),center.y+(-2.0)},force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(-1.0),center.y+(-2.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(2.0),center.y+(-3.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(1.0),center.y+(-3.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(1.0),center.y+(-2.0)},direction=defines.direction.west,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(3.0),center.y+(-2.0)},direction=defines.direction.east,force=game.forces.neutral}
-        ce{name="transport-belt",position={center.x+(3.0),center.y+(-3.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="assembling-machine-2",position={center.x+(-2.0),center.y+(1.0)},force=game.forces.neutral}
-        ce{name="medium-electric-pole",position={center.x+(0.0),center.y+(-1.0)},force=game.forces.neutral}
-        ce{name="fast-inserter",position={center.x+(-1.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="assembling-machine-2",position={center.x+(1.0),center.y+(1.0)},force=game.forces.neutral}
-        ce{name="fast-inserter",position={center.x+(1.0),center.y+(-1.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="fast-inserter",position={center.x+(-2.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="fast-inserter",position={center.x+(-3.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="fast-inserter",position={center.x+(0.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
-        ce{name="medium-electric-pole",position={center.x+(-1.0),center.y+(3.0)},force=game.forces.neutral}
-        ce{name="fast-inserter",position={center.x+(1.0),center.y+(3.0)},direction=defines.direction.south,force=game.forces.neutral}
-
-    end,
-}
 
 function spawnSmallRuins(center)
-    s_ruins[math.random(#s_ruins)](center) --call a random function
+    if s_clearArea(center) then
+        s_ruins[math.random(#s_ruins)](center) --call a random function
+    end
 end
