@@ -1,6 +1,6 @@
 require("smallRuins")
---require("mediumRuins")
---require("largeRuins")
+require("mediumRuins")
+require("largeRuins")
 
 local DEBUG = true --used for debug, users should not enable
 

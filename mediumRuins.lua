@@ -30,6 +30,10 @@ table.insert(m_ruins, require("mediumRuins.queenNest"))
 table.insert(m_ruins, require("mediumRuins.roughPerimeter2"))
 table.insert(m_ruins, require("mediumRuins.roughPerimeter"))
 table.insert(m_ruins, require("mediumRuins.smallOilSetup"))
+table.insert(m_ruins, require("mediumRuins.overgrownFort"))
+table.insert(m_ruins, require("mediumRuins.radarOutpost"))
+table.insert(m_ruins, require("mediumRuins.railCrossing"))
+table.insert(m_ruins, require("mediumRuins.treeFortTrapped"))
 
 
 function spawnMediumRuins(center)
