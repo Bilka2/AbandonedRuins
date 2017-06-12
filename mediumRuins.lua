@@ -21,12 +21,12 @@ end
 local m_ruins = {}
 
 table.insert(m_ruins, require("mediumRuins.assemblingLine"))
-table.insert(m_ruins, require("mediumRuins.biterDefense"))
+--table.insert(m_ruins, require("mediumRuins.biterDefense"))
 table.insert(m_ruins, require("mediumRuins.encampment"))
 table.insert(m_ruins, require("mediumRuins.mountainRange"))
 table.insert(m_ruins, require("mediumRuins.pipeChain"))
 table.insert(m_ruins, require("mediumRuins.powerSetup"))
-table.insert(m_ruins, require("mediumRuins.queenNest"))
+--table.insert(m_ruins, require("mediumRuins.queenNest"))
 table.insert(m_ruins, require("mediumRuins.roughPerimeter2"))
 table.insert(m_ruins, require("mediumRuins.roughPerimeter"))
 table.insert(m_ruins, require("mediumRuins.smallOilSetup"))
