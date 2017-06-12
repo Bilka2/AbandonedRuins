@@ -10,7 +10,7 @@ function m_clearArea(center)
     end
 
     for index, entity in pairs(game.surfaces[1].find_entities({{center.x-8,center.y-8},{center.x+8,center.y+8}})) do
-        if not entity.type == "resource" then --don't destroy ores
+        if entity.type ~= "resource" then --don't destroy ores
             entity.destroy()
         end
     end
@@ -32,8 +32,14 @@ table.insert(m_ruins, require("mediumRuins.roughPerimeter"))
 table.insert(m_ruins, require("mediumRuins.smallOilSetup"))
 table.insert(m_ruins, require("mediumRuins.overgrownFort"))
 table.insert(m_ruins, require("mediumRuins.radarOutpost"))
-table.insert(m_ruins, require("mediumRuins.railCrossing"))
+--table.insert(m_ruins, require("mediumRuins.railCrossing"))
 table.insert(m_ruins, require("mediumRuins.treeFortTrapped"))
+table.insert(m_ruins, require("mediumRuins.treeIsland"))
+table.insert(m_ruins, require("mediumRuins.treeRing"))
+table.insert(m_ruins, require("mediumRuins.roughFort"))
+table.insert(m_ruins, require("mediumRuins.storageArea"))
+--table.insert(m_ruins, require("mediumRuins.helipad"))
+table.insert(m_ruins, require("mediumRuins.militaryField"))
 
 
 function spawnMediumRuins(center)

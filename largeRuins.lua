@@ -9,7 +9,7 @@ function l_clearArea(center)
     end
 
     for index, entity in pairs(game.surfaces[1].find_entities({{center.x-16,center.y-16},{center.x+16,center.y+16}})) do
-        if not entity.type == "resource" then --don't destroy ores
+        if entity.type ~= "resource" then --don't destroy ores
             entity.destroy()
         end
     end
@@ -24,6 +24,8 @@ table.insert(l_ruins, require("largeRuins.destroyedFort"))
 table.insert(l_ruins, require("largeRuins.earlyGame"))
 table.insert(l_ruins, require("largeRuins.mainBus"))
 table.insert(l_ruins, require("largeRuins.orchard"))
+table.insert(l_ruins, require("largeRuins.walledOrchard"))
+table.insert(l_ruins, require("largeRuins.walledGrotto"))
 
 
 function spawnLargeRuins(center)
