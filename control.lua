@@ -45,3 +45,9 @@ script.on_event({defines.events.on_chunk_generated},
         end
     end
 )
+
+script.on_init(
+    function()
+        math.randomseed(game.surfaces[1].map_gen_settings.seed) --set the random seed to the map seed, so ruins are the same-ish with each generation.
+    end
+)
