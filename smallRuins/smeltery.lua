@@ -1,6 +1,6 @@
 
-return function(center) --smeltery
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) --smeltery
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name="small-electric-pole", position={center.x + (-3.0), center.y + (-2.0)}, force=game.forces.neutral}

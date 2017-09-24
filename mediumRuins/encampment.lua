@@ -1,5 +1,5 @@
-return function(center) --encampment
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) --encampment
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
 

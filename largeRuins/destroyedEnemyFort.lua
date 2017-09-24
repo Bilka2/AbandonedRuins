@@ -1,5 +1,5 @@
-return function(center) --destroyed enemy fort
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) --destroyed enemy fort
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
 

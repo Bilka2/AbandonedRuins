@@ -1,5 +1,5 @@
-return function(center)  --small smelting station
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface)  --small smelting station
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "stone-furnace", position = {center.x-2, center.y-2}, force = fN}

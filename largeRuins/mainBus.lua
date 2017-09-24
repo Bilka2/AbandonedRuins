@@ -1,5 +1,5 @@
-return function(center) --main buses
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) --main buses
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
 

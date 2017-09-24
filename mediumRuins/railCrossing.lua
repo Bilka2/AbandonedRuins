@@ -1,6 +1,6 @@
 
-return function(center)
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface)
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (-5.5)}, force = game.forces.neutral}

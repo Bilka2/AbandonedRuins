@@ -1,15 +1,15 @@
 
 --checks for spawning validity and if valid, clears space for the spawn
-function s_clearArea(center)
+function s_clearArea(center, surface)
     for y = center.y-4, center.y+4 do --fail if any water in area
         for x = center.x-4, center.x+4 do
-            if game.surfaces[1].get_tile(x, y).name == "water" or game.surfaces[1].get_tile(x, y).name == "deepwater" then
+            if surface.get_tile(x, y).name == "water" or surface.get_tile(x, y).name == "deepwater" then
                 return false
             end
         end
     end
 
-    for index, entity in pairs(game.surfaces[1].find_entities({{center.x-4,center.y-4},{center.x+4,center.y+4}})) do
+    for index, entity in pairs(surface.find_entities({{center.x-4,center.y-4},{center.x+4,center.y+4}})) do
         if entity.type ~= "resource" and entity.type ~= "tree" then --don't destroy ores or trees
             entity.destroy()
         end
@@ -42,8 +42,8 @@ table.insert(s_ruins, require("smallRuins.splitterI"))
 table.insert(s_ruins, require("smallRuins.victoryPoles"))
 
 
-function spawnSmallRuins(center)
-    if s_clearArea(center) then
-        s_ruins[math.random(#s_ruins)](center) --call a random function
+function spawnSmallRuins(center, surface)
+    if s_clearArea(center, surface) then
+        s_ruins[math.random(#s_ruins)](center, surface) --call a random function
     end
 end

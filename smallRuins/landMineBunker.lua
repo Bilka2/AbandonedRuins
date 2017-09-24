@@ -1,5 +1,5 @@
-return function(center) --land mine bunker
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) --land mine bunker
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "stone-wall", position = {center.x-2, center.y}, force = fN}

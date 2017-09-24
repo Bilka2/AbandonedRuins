@@ -1,15 +1,15 @@
 
 --checks for spawning validity and if valid, clears space for the spawn
-function m_clearArea(center)
+function m_clearArea(center, surface)
     for y = center.y-8, center.y+8 do --fail if any water in area
         for x = center.x-8, center.x+8 do
-            if game.surfaces[1].get_tile(x, y).name == "water" or game.surfaces[1].get_tile(x, y).name == "deepwater" then
+            if surface.get_tile(x, y).name == "water" or surface.get_tile(x, y).name == "deepwater" then
                 return false
             end
         end
     end
 
-    for index, entity in pairs(game.surfaces[1].find_entities({{center.x-8,center.y-8},{center.x+8,center.y+8}})) do
+    for index, entity in pairs(surface.find_entities({{center.x-8,center.y-8},{center.x+8,center.y+8}})) do
         if entity.type ~= "resource" then --don't destroy ores
             entity.destroy()
         end
@@ -42,8 +42,8 @@ table.insert(m_ruins, require("mediumRuins.storageArea"))
 table.insert(m_ruins, require("mediumRuins.militaryField"))
 
 
-function spawnMediumRuins(center)
-    if m_clearArea(center) then
-        m_ruins[math.random(#m_ruins)](center) --call a random function
+function spawnMediumRuins(center, surface)
+    if m_clearArea(center, surface) then
+        m_ruins[math.random(#m_ruins)](center, surface) --call a random function
     end
 end

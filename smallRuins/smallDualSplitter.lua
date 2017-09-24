@@ -1,6 +1,6 @@
 
-return function(center) -- small dual splitter
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) -- small dual splitter
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
 

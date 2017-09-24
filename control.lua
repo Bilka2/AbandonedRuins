@@ -24,7 +24,7 @@ script.on_event({defines.events.on_chunk_generated},
             center.x = center.x + math.random(-10,10)
             center.y = center.y + math.random(-10,10)
 
-            spawnSmallRuins(center)
+            spawnSmallRuins(center, e.surface)
         elseif probability(settings.global["ruins-medium-ruin-chance"].value) then
             --spawn medium ruin
             if DEBUG then
@@ -35,13 +35,13 @@ script.on_event({defines.events.on_chunk_generated},
             center.x = center.x + math.random(-5,5)
             center.y = center.y + math.random(-5,5)
 
-            spawnMediumRuins(center)
+            spawnMediumRuins(center, e.surface)
         elseif probability(settings.global["ruins-large-ruin-chance"].value) then
             --spawn large ruin
             if DEBUG then
                 game.print("A large ruin was spawned at " .. center.x .. "," .. center.y)
             end
-            spawnLargeRuins(center)
+            spawnLargeRuins(center, e.surface)
         end
     end
 )

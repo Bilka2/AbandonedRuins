@@ -1,6 +1,6 @@
 
-return function(center) --queen nest
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) --queen nest
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
 
     ce{name = "stone-rock", position = {center.x + (-6.5), center.y + (-6.5)}, force = fN}

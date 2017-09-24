@@ -1,5 +1,5 @@
-return function(center) --random walls
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface) --random walls
+    local ce = surface.create_entity --save typing
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "stone-wall", position = {center.x-2.5, center.y-2.5}, force = fN}

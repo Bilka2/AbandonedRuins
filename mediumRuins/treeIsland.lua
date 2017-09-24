@@ -1,12 +1,12 @@
-return function(center)
-    local ce = game.surfaces[1].create_entity --save typing
+return function(center, surface)
+    local ce = surface.create_entity --save typing
 
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "tree-05", position = {center.x + (-1.5), center.y + (-2.5)}, force = game.forces.neutral}
     ce{name = "tree-05", position = {center.x + (0.5), center.y + (-2.5)}, force = game.forces.neutral}
 
-    game.surfaces[1].set_tiles({
+    surface.set_tiles({
             {name = "water", position = {center.x + (-5.0), center.y + (-5.0)}},
             {name = "water", position = {center.x + (-5.0), center.y + (-4.0)}},
             {name = "water", position = {center.x + (-5.0), center.y + (-3.0)}},
