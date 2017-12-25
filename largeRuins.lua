@@ -9,7 +9,7 @@ function l_clearArea(center, surface)
     end
 
     for index, entity in pairs(surface.find_entities({{center.x-16,center.y-16},{center.x+16,center.y+16}})) do
-        if entity.type ~= "resource" then --don't destroy ores
+        if entity.type ~= "resource" and entity.valid then --don't destroy ores, cliffs might become invalid after we destroy their neighbours, so check .valid
             entity.destroy()
         end
     end
