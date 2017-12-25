@@ -10,7 +10,7 @@ function s_clearArea(center, surface)
     end
 
     for index, entity in pairs(surface.find_entities({{center.x-4,center.y-4},{center.x+4,center.y+4}})) do
-        if entity.type ~= "resource" and entity.type ~= "tree" and entity.valid then --don't destroy ores or trees, cliffs might become invalid after we destroy their neighbours, so check .valid
+        if entity.valid and entity.type ~= "resource" and entity.type ~= "tree" then --don't destroy ores or trees, cliffs might become invalid after we destroy their neighbours, so check .valid
             entity.destroy()
         end
     end
