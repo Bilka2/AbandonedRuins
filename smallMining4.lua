@@ -1,0 +1,10 @@
+return function(center, surface) -- small mining
+    local ce = surface.create_entity --save typing
+    local fN = game.forces.neutral
+    local direct = defines.direction
+    ce{name="burner-mining-drill", position={center.x + (1.0), center.y + (3.0)}, direction=defines.direction.north, force=game.forces.neutral}
+    ce{name="transport-belt", position={center.x + (-1.0), center.y + (1.0)}, direction=defines.direction.west, force=game.forces.neutral}
+    ce{name="transport-belt", position={center.x + (-3.0), center.y + (1.0)}, direction=defines.direction.west, force=game.forces.neutral}
+    ce{name="transport-belt", position={center.x + (1.0), center.y + (1.0)}, direction=defines.direction.west, force=game.forces.neutral}
+    ce{name="transport-belt", position={center.x + (2.0), center.y + (1.0)}, direction=defines.direction.west, force=game.forces.neutral}
+end
