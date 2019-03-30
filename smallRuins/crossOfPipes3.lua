@@ -1,6 +1,9 @@
 
 return function(center, surface) -- cross of pipes
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "pipe-to-ground", position = {center.x + (-4.0), center.y + (0.0)}, direction = direct.east, force = fN}

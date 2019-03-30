@@ -1,5 +1,8 @@
 return function(center, surface) --small gears setup
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name="transport-belt", position={center.x + (0.0), center.y + (-3.0)}, direction=defines.direction.east, force=game.forces.neutral}

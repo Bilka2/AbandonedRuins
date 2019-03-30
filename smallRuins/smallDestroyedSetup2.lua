@@ -1,6 +1,9 @@
 
 return function(center, surface) --small destroyed setup
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "assembling-machine-1", position = {center.x + 2.5, center.y + 0.5}, force = fN}.damage(118,"neutral","physical")

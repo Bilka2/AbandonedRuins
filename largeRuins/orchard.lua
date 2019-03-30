@@ -1,7 +1,10 @@
 
 return function(center, surface) --orchard
     local randomTree = "tree-0" .. tostring(math.random(1, 9))
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
 
     ce{name = randomTree, position = {center.x + (-12.5), center.y + (-12.5)}, force = fN}

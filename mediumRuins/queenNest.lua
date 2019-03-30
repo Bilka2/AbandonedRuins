@@ -1,6 +1,9 @@
 
 return function(center, surface) --queen nest
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
 
     ce{name = "rock-big", position = {center.x + (-6.5), center.y + (-6.5)}, force = fN}

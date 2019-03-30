@@ -1,6 +1,9 @@
 
 return function(center, surface) --rough perimeter
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
 
     ce{name = "rock-big", position = {center.x + (-5.5), center.y + (-5.5)}, force = fN}

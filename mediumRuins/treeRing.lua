@@ -1,5 +1,8 @@
 return function(center, surface)
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
 
     ce{name = "tree-05", position = {center.x + (-2.5), center.y + (-5.5)}, force = game.forces.neutral}

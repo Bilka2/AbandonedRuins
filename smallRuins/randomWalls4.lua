@@ -1,5 +1,8 @@
 return function(center, surface) --random walls
-    local ce = surface.create_entity --save typing
+    local ce = function(params)
+        params.raise_built = true
+        return surface.create_entity(params)
+    end
     local fN = game.forces.neutral
     local direct = defines.direction
     ce{name = "wooden-chest", position = {center.x, center.y}, force = fN}.insert{name = "firearm-magazine", count = math.random(1, 300)}
