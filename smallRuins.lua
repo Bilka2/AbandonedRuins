@@ -1,17 +1,15 @@
 
 --checks for spawning validity and if valid, clears space for the spawn
 function s_clearArea(center, surface)
-    for y = center.y-4, center.y+4 do --fail if any water in area
-        for x = center.x-4, center.x+4 do
-            if surface.get_tile(x, y).name == "water" or surface.get_tile(x, y).name == "deepwater" then
-                return false
-            end
-        end
+    --exclude tiles that we shouldn't spawn on
+    local radius = 4
+    if surface.count_tiles_filtered{ area = {{center.x-radius, center.y-radius}, {center.x+radius, center.y+radius}}, limit = 1, collision_mask = "item-layer" } == 1 then
+        return false
     end
 
-    for index, entity in pairs(surface.find_entities({{center.x-4,center.y-4},{center.x+4,center.y+4}})) do
-        if entity.valid and entity.type ~= "resource" and entity.type ~= "tree" then --don't destroy ores or trees, cliffs might become invalid after we destroy their neighbours, so check .valid
-            entity.destroy()
+    for index, entity in pairs(surface.find_entities({{center.x-radius,center.y-radius},{center.x+radius,center.y+radius}})) do
+        if entity.valid and entity.type ~= "resource" and entity.type ~= "tree" then --don't destroy ores or trees
+            entity.destroy({do_cliff_correction=true})
         end
     end
 
