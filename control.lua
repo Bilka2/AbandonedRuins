@@ -2,14 +2,14 @@ require("smallRuins")
 require("mediumRuins")
 require("largeRuins")
 
-local DEBUG = false --used for debug, users should not enable
+local DEBUG = true --used for debug, users should not enable
 
 --function that will return true 'percent' of the time.
 function probability(percent)
     return math.random() <= percent
 end
 
-script.on_event({defines.events.on_chunk_generated},
+script.on_event(defines.events.on_chunk_generated,
     function (e)
         local center = {x=(e.area.left_top.x+e.area.right_bottom.x)/2, y=(e.area.left_top.y+e.area.right_bottom.y)/2}
         if math.abs(center.x) < settings.global["ruins-min-distance-from-spawn"].value and math.abs(center.y) < settings.global["ruins-min-distance-from-spawn"].value then return end --too close to spawn

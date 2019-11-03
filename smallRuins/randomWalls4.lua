@@ -5,15 +5,30 @@ return function(center, surface) --random walls
     end
     local fN = game.forces.neutral
     local direct = defines.direction
-    ce{name = "wooden-chest", position = {center.x, center.y}, force = fN}.insert{name = "firearm-magazine", count = math.random(1, 300)}
+    local e = ce{name = "wooden-chest", position = {center.x, center.y}, force = fN}
+    if e then
+      e.insert{name = "firearm-magazine", count = math.random(1, 300)}
+    end
     ce{name = "stone-wall", position = {center.x-2.5, center.y-0.5}, force = fN}
     ce{name = "stone-wall", position = {center.x-2.5, center.y + 1.5}, force = fN}
     ce{name = "stone-wall", position = {center.x-2.5, center.y + 2.5}, force = fN}
     ce{name = "stone-wall", position = {center.x + 2.5, center.y-0.5}, force = fN}
-    ce{name = "stone-wall", position = {center.x + 2.5, center.y + 0.5}, force = fN}.damage(22,"neutral","physical")
-    ce{name = "stone-wall", position = {center.x + 2.5, center.y + 1.5}, force = fN}.damage(46,"neutral","physical")
-    ce{name = "stone-wall", position = {center.x + 2.5, center.y + 2.5}, force = fN}.damage(68,"neutral","physical")
+    local e = ce{name = "stone-wall", position = {center.x + 2.5, center.y + 0.5}, force = fN}
+    if e then
+      e.damage(22,"neutral","physical")
+    end
+    local e = ce{name = "stone-wall", position = {center.x + 2.5, center.y + 1.5}, force = fN}
+    if e then
+      e.damage(46,"neutral","physical")
+    end
+    local e = ce{name = "stone-wall", position = {center.x + 2.5, center.y + 2.5}, force = fN}
+    if e then
+      e.damage(68,"neutral","physical")
+    end
     ce{name = "stone-wall", position = {center.x-0.5, center.y-2.5}, force = fN}
     ce{name = "stone-wall", position = {center.x + 0.5, center.y-2.5}, force = fN}
-    ce{name = "stone-wall", position = {center.x + 0.5, center.y + 2.5}, force = fN}.damage(25,"neutral","physical")
+    local e = ce{name = "stone-wall", position = {center.x + 0.5, center.y + 2.5}, force = fN}
+    if e then
+      e.damage(25,"neutral","physical")
+    end
 end

@@ -6,5 +6,5 @@ return function(center, surface) --victory poles
     end
     local fN = game.forces.neutral
     ce{name = "medium-electric-pole", position = {center.x + (0.0), center.y + (-1.0)}, force = fN}
-    ce{name="small-lamp", position={center.x + (-1.0), center.y + (-1.0)}, force=game.forces.neutral}
+    ce{name="small-lamp", position={center.x + (-1.0), center.y + (-1.0)}, force = fN}
 end

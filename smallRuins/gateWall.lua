@@ -4,6 +4,7 @@ return function(center, surface) --section of wall with gate
         return surface.create_entity(params)
     end
     local fN = game.forces.neutral
+    local direct = defines.direction
     ce{name = "stone-wall", position = {center.x + 0.5, center.y-2.5}, force = fN}
     ce{name = "stone-wall", position = {center.x + 0.5, center.y-1.5}, force = fN}
 

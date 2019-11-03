@@ -6,8 +6,10 @@ return function(center, surface) --suspicious rock, stash
     end
     local fN = game.forces.neutral
     local chest = ce{name = "wooden-chest", position = {center.x+1, center.y+1}, force = fN}
-    chest.insert{name = "engine-unit", count=8}
-    chest.insert{name = "iron-plate", count=20}
-    chest.insert{name = "steel-plate", count=5}
+    if chest then
+      chest.insert{name = "engine-unit", count=8}
+      chest.insert{name = "iron-plate", count=20}
+      chest.insert{name = "steel-plate", count=5}
+    end
     ce{name = "rock-big", position = {center.x, center.y}, force = fN}
 end

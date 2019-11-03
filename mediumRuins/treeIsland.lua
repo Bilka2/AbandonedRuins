@@ -6,8 +6,8 @@ return function(center, surface)
 
     local fN = game.forces.neutral
     local direct = defines.direction
-    ce{name = "tree-05", position = {center.x + (-1.5), center.y + (-2.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (0.5), center.y + (-2.5)}, force = game.forces.neutral}
+    ce{name = "tree-05", position = {center.x + (-1.5), center.y + (-2.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (0.5), center.y + (-2.5)}, force = fN}
 
     surface.set_tiles({
             {name = "water", position = {center.x + (-5.0), center.y + (-5.0)}},

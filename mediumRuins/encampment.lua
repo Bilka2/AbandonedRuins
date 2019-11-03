@@ -43,7 +43,10 @@ return function(center, surface) --encampment
     ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (0.0)}, force = fN}
     ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (0.0)}, force = fN}
     ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (0.0)}, force = fN}
-    ce{name = "wooden-chest", position = {center.x + (-1.0), center.y + (1.0)}, force = fN}.insert{name = "raw-fish", count = 30}
+    local e = ce{name = "wooden-chest", position = {center.x + (-1.0), center.y + (1.0)}, force = fN}
+    if e then
+      e.insert{name = "raw-fish", count = 30}
+    end
     ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (0.0)}, force = fN}
     ce{name = "stone-wall", position = {center.x + (0.0), center.y + (1.0)}, force = fN}
     ce{name = "stone-wall", position = {center.x + (0.0), center.y + (0.0)}, force = fN}

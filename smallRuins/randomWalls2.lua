@@ -7,7 +7,10 @@ return function(center, surface) --random walls
     local direct = defines.direction
     ce{name = "stone-wall", position = {center.x-2.5, center.y-2.5}, force = fN}
     ce{name = "stone-wall", position = {center.x + 0.5, center.y-2.5}, force = fN}
-    ce{name = "stone-wall", position = {center.x-1.5, center.y-0.5}, force = fN}.damage(12,"neutral","physical")
+    local e = ce{name = "stone-wall", position = {center.x-1.5, center.y-0.5}, force = fN}
+    if e then
+      e.damage(12,"neutral","physical")
+    end
     ce{name = "stone-wall", position = {center.x + 2.5, center.y-0.5}, force = fN}
     ce{name = "stone-wall", position = {center.x-0.5, center.y + 2.5}, force = fN}
     ce{name = "stone-wall", position = {center.x-2.5, center.y + 3.5}, force = fN}

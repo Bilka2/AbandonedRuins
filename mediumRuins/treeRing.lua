@@ -5,18 +5,18 @@ return function(center, surface)
     end
     local fN = game.forces.neutral
 
-    ce{name = "tree-05", position = {center.x + (-2.5), center.y + (-5.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (0.5), center.y + (-6.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (3.5), center.y + (-5.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (-4.5), center.y + (-3.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (-2.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (-6.5), center.y + (-0.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (6.5), center.y + (0.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (-5.5), center.y + (2.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (3.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (-3.5), center.y + (5.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (0.5), center.y + (6.5)}, force = game.forces.neutral}
-    ce{name = "tree-05", position = {center.x + (3.5), center.y + (5.5)}, force = game.forces.neutral}
+    ce{name = "tree-05", position = {center.x + (-2.5), center.y + (-5.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (0.5), center.y + (-6.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (3.5), center.y + (-5.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (-4.5), center.y + (-3.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (5.5), center.y + (-2.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (-6.5), center.y + (-0.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (6.5), center.y + (0.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (-5.5), center.y + (2.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (5.5), center.y + (3.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (-3.5), center.y + (5.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (0.5), center.y + (6.5)}, force = fN}
+    ce{name = "tree-05", position = {center.x + (3.5), center.y + (5.5)}, force = fN}
 
     surface.set_tiles({
             {name = "water", position = {center.x + (-2.0), center.y + (-1.0)}},
