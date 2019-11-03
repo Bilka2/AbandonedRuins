@@ -2,7 +2,7 @@ require("smallRuins")
 require("mediumRuins")
 require("largeRuins")
 
-local DEBUG = true --used for debug, users should not enable
+local DEBUG = false --used for debug, users should not enable
 
 --function that will return true 'percent' of the time.
 function probability(percent)
