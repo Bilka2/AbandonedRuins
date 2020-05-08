@@ -1,5 +1,3 @@
-local util = require("utilities")
-
 local m_ruins = {}
 
 table.insert(m_ruins, require("mediumRuins.assemblingLine"))
@@ -23,9 +21,4 @@ table.insert(m_ruins, require("mediumRuins.storageArea"))
 --table.insert(m_ruins, require("mediumRuins.helipad"))
 table.insert(m_ruins, require("mediumRuins.militaryField"))
 
-
-function spawnMediumRuins(center, surface)
-    if util.clear_area(util.MEDIUM_RUIN_RADIUS, center, surface) then
-        m_ruins[math.random(#m_ruins)](center, surface) --call a random function
-    end
-end
+return m_ruins

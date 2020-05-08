@@ -1,5 +1,3 @@
-local util = require("utilities")
-
 local s_ruins = {}
 
 table.insert(s_ruins, require("smallRuins.crossOfPipes"))
@@ -96,9 +94,4 @@ table.insert(s_ruins, require("smallRuins.victoryPoles7"))
 table.insert(s_ruins, require("smallRuins.victoryPoles8"))
 table.insert(s_ruins, require("smallRuins.victoryPoles9"))
 
-
-function spawnSmallRuins(center, surface)
-    if util.clear_area(util.SMALL_RUIN_RADIUS, center, surface) then
-        s_ruins[math.random(#s_ruins)](center, surface) --call a random function
-    end
-end
+return s_ruins

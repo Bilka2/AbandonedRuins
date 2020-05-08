@@ -1,6 +1,7 @@
-require("smallRuins")
-require("mediumRuins")
-require("largeRuins")
+local util = require("utilities")
+local small_ruins = require("smallRuins")
+local medium_ruins = require("mediumRuins")
+local large_ruins = require("largeRuins")
 
 local DEBUG = false -- used for debug, users should not enable
 
@@ -39,7 +40,7 @@ script.on_event(defines.events.on_chunk_generated,
             center.x = center.x + math.random(-10,10)
             center.y = center.y + math.random(-10,10)
 
-            spawnSmallRuins(center, e.surface)
+            util.spawn_ruin(small_ruins, util.SMALL_RUIN_HALF_SIZE, center, e.surface)
         elseif spawnType <= global.spawnTable.medium then
             --spawn medium ruin
             if DEBUG then
@@ -50,13 +51,13 @@ script.on_event(defines.events.on_chunk_generated,
             center.x = center.x + math.random(-5,5)
             center.y = center.y + math.random(-5,5)
 
-            spawnMediumRuins(center, e.surface)
+            util.spawn_ruin(medium_ruins, util.MEDIUM_RUIN_HALF_SIZE, center, e.surface)
         elseif spawnType <= global.spawnTable.large then
             --spawn large ruin
             if DEBUG then
                 game.print("A large ruin was spawned at " .. center.x .. "," .. center.y)
             end
-            spawnLargeRuins(center, e.surface)
+            util.spawn_ruin(large_ruins, util.LARGE_RUIN_HALF_SIZE, center, e.surface)
         end
     end
 )
