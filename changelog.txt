@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.9
+Date: 08. 05. 2020
+  Minor Features:
+    - When all spawn chances are set to 1, now all types of ruins will spawn, instead of just small ruins.
+    - Code cleanup.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.8
 Date: 28. 04. 2020
   Minor Features:
