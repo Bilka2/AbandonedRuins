@@ -18,12 +18,21 @@ local function spawn_chances()
     global.spawn_table = {small = smallThreshold, medium = mediumThreshold, large = largeThreshold}
 end
 
-script.on_init(spawn_chances)
-script.on_configuration_changed(spawn_chances)
+local function init_globals()
+    spawn_chances()
+    if global.spawn_ruins == nil then
+        global.spawn_ruins = true
+    end
+end
+
+script.on_init(init_globals)
+script.on_configuration_changed(init_globals)
 script.on_event(defines.events.on_runtime_mod_setting_changed, spawn_chances)
 
 script.on_event(defines.events.on_chunk_generated,
     function (e)
+        if global.spawn_ruins == false then return end -- ruin spawning is disabled
+
         local center = util.get_center_of_chunk(e.position)
         if math.abs(center.x) < settings.global["ruins-min-distance-from-spawn"].value and math.abs(center.y) < settings.global["ruins-min-distance-from-spawn"].value then return end --too close to spawn
 
@@ -45,3 +54,9 @@ script.on_event(defines.events.on_chunk_generated,
         end
     end
 )
+
+remote.add_interface("AbandonedRuins",
+{
+    set_spawn_ruins = function(spawn_ruins) global.spawn_ruins = spawn_ruins end,
+    get_spawn_ruins = function() return global.spawn_ruins end
+})
