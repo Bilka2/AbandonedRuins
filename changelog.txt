@@ -3,6 +3,7 @@ Version: 0.3.0
 Date: ???
   Minor Features:
     - Updated to Factorio 1.0
+    - Added scenario that spawns all ruins, for mod debug.
     - Code cleanup.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.9

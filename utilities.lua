@@ -2,6 +2,7 @@ local util = {}
 util.SMALL_RUIN_HALF_SIZE = 8 / 2
 util.MEDIUM_RUIN_HALF_SIZE = 16 / 2
 util.LARGE_RUIN_HALF_SIZE = 32 / 2
+util.debugprint = __DebugAdapter and __DebugAdapter.print or function() end
 
 util.get_center_of_chunk = function(chunk_position)
   return {x = chunk_position.x * 32 + 16, y = chunk_position.y * 32 + 16}
@@ -24,6 +25,7 @@ end
 util.spawn_ruin = function(ruin, half_size, center, surface)
   if clear_area(half_size, center, surface) then
     ruin(center, surface)
+    util.debugprint("A ruin was spawned at " .. center.x .. "," .. center.y)
   end
 end
 
