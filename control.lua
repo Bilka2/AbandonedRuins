@@ -57,6 +57,11 @@ script.on_event(defines.events.on_chunk_generated,
 
 remote.add_interface("AbandonedRuins",
 {
-  set_spawn_ruins = function(spawn_ruins) global.spawn_ruins = spawn_ruins end,
+  set_spawn_ruins = function(spawn_ruins)
+      if type(spawn_ruins) ~= "boolean" then
+        error("Remote call parameter to set_spawn_ruins for AbandonedRuins must be a boolean value.")
+      end
+      global.spawn_ruins = spawn_ruins
+    end,
   get_spawn_ruins = function() return global.spawn_ruins end
 })
