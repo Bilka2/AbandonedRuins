@@ -5,20 +5,20 @@ return function(center, surface) --small gears setup
     end
     local fN = game.forces.neutral
     local direct = defines.direction
-    ce{name="fast-transport-belt", position={center.x + (-0.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name="fast-transport-belt", position={center.x + (-0.0), center.y + (2.0)}, force = fN}
-    ce{name="fast-transport-belt", position={center.x + (1.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    local e = ce{name="fast-transport-belt", position={center.x + (-2.0), center.y + (3.0)}, direction = direct.east, force = fN}
+    ce{name = "fast-transport-belt", position = {center.x + (-2.5), center.y + (3.5)}, direction = direct.east, force=fN}
+    ce{name = "fast-transport-belt", position = {center.x + (-2.5), center.y + (2.5)}, direction = direct.south, force=fN}
+    ce{name = "fast-transport-belt", position = {center.x + (-0.5), center.y + (2.5)}, direction = direct.east, force=fN}
+    local e = ce{name = "fast-transport-belt", position = {center.x + (-1.5), center.y + (3.5)}, direction = direct.east, force=fN}
     if e then
       e.damage(42,"neutral","physical")
     end
-    local e = ce{name="fast-transport-belt", position={center.x + (-1.0), center.y + (3.0)}, direction = direct.east, force = fN}
+    local e = ce{name = "fast-transport-belt", position = {center.x + (-0.5), center.y + (3.5)}, direction = direct.east, force=fN}
     if e then
       e.damage(18,"neutral","physical")
     end
-    ce{name="fast-transport-belt", position={center.x + (-1.0), center.y + (2.0)}, direction = direct.west, force = fN}
-    ce{name="fast-transport-belt", position={center.x + (-3.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name="fast-transport-belt", position={center.x + (-3.0), center.y + (3.0)}, direction = direct.south, force = fN}
+    ce{name = "fast-transport-belt", position = {center.x + (0.5), center.y + (3.5)}, force=fN}
+    ce{name = "fast-transport-belt", position = {center.x + (0.5), center.y + (2.5)}, direction = direct.east, force=fN}
+    ce{name = "fast-transport-belt", position = {center.x + (1.5), center.y + (2.5)}, direction = direct.east, force=fN}
     local e = ce{name="assembling-machine-2", position={center.x + (2.0), center.y + (-1.0)}, force = fN}
     if e then
       e.damage(98,"neutral","physical")

@@ -1,4 +1,3 @@
-
 return function(center, surface) -- cross of pipes
     local ce = function(params)
         params.raise_built = true
@@ -6,14 +5,14 @@ return function(center, surface) -- cross of pipes
     end
     local fN = game.forces.neutral
     local direct = defines.direction
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (-6.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (-5.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (-2.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (-1.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (0.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (1.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (3.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (4.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (6.0)}, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (0.0), center.y + (7.0)}, force = fN}
+    ce{name = "pipe", position = {center.x + (-1.5), center.y + (-3.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (-0.5), center.y + (-3.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (0.5), center.y + (-0.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (0.5), center.y + (-1.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (0.5), center.y + (1.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (0.5), center.y + (0.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (-0.5), center.y + (3.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (0.5), center.y + (3.5)}, force=fN}
+    ce{name = "pipe", position = {center.x + (2.5), center.y + (3.5)}, force=fN}
+    ce{name = "pipe-to-ground", position = {center.x + (3.5), center.y + (3.5)}, direction = direct.west, force=fN}
 end
