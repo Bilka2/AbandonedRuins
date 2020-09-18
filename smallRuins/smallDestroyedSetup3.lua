@@ -32,5 +32,4 @@ return function(center, surface) --small destroyed setup
     if e then
       e.damage(36,"neutral","physical")
     end
-    ce{name = "transport-belt", position = {center.x + 1.5, center.y + 4}, force = fN}
 end

@@ -16,15 +16,15 @@ return function(center, surface) --small destroyed setup
       e.damage(19,"neutral","physical")
     end
 
-    local e = ce{name = "transport-belt", position = {center.x + 1, center.y-1.5}, force = fN}
+    local e = ce{name = "transport-belt", position = {center.x + 1, center.y-1.5}, force = fN, direction = direct.east}
     if e then
       e.damage(12,"neutral","physical")
     end
-    local e = ce{name = "transport-belt", position = {center.x, center.y-1.5}, force = fN}
+    local e = ce{name = "transport-belt", position = {center.x, center.y-1.5}, force = fN, direction = direct.east}
     if e then
       e.damage(29,"neutral","physical")
     end
-    local e = ce{name = "transport-belt", position = {center.x-1, center.y-1.5}, force = fN}
+    local e = ce{name = "transport-belt", position = {center.x-1, center.y-1.5}, force = fN, direction = direct.east}
     if e then
       e.damage(6,"neutral","physical")
     end

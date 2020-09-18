@@ -7,7 +7,7 @@ return function(center, surface) -- small dual splitter
     local fN = game.forces.neutral
     local direct = defines.direction
 
-    local e = ce{name="transport-belt", position={center.x + (1.0), center.y + (-1.0)}, force = fN}
+    local e = ce{name="transport-belt", position={center.x + (1.0), center.y + (-1.0)}, force = fN, direction = direct.west}
     if e then
       e.damage(114,"neutral","physical")
     end
