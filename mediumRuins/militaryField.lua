@@ -42,7 +42,7 @@ return function(center, surface)
     ce{name = "stone-wall", position = {center.x + (2.0), center.y + (4.0)}, force = fN}
     ce{name = "stone-wall", position = {center.x + (5.0), center.y + (4.0)}, force = fN}
 
-    game.surfaces[1].set_tiles({
+    surface.set_tiles({
             {name = "concrete", position = {center.x + (-7.0), center.y + (-6.0)}},
             {name = "concrete", position = {center.x + (-7.0), center.y + (-5.0)}},
             {name = "concrete", position = {center.x + (-7.0), center.y + (-4.0)}},
