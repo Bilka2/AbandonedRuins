@@ -75,10 +75,5 @@ table.insert(s_ruins, require("smallRuins.victoryPoles"))
 table.insert(s_ruins, require("smallRuins.victoryPoles2"))
 table.insert(s_ruins, require("smallRuins.victoryPoles3"))
 table.insert(s_ruins, require("smallRuins.victoryPoles4"))
-table.insert(s_ruins, require("smallRuins.victoryPoles5"))
-table.insert(s_ruins, require("smallRuins.victoryPoles6"))
-table.insert(s_ruins, require("smallRuins.victoryPoles7"))
-table.insert(s_ruins, require("smallRuins.victoryPoles8"))
-table.insert(s_ruins, require("smallRuins.victoryPoles9"))
 
 return s_ruins
