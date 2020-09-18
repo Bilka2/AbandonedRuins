@@ -5,6 +5,36 @@ local small_ruins = require("__AbandonedRuins__/smallRuins")
 local medium_ruins = require("__AbandonedRuins__/mediumRuins")
 local large_ruins = require("__AbandonedRuins__/largeRuins")
 
+local SURFACE_NAME = "ruins"
+
+local function draw_dimensions(center, half_size, surface)
+  rendering.draw_line(
+  {
+    from = {center.x + 0.5, center.y},
+    to = {center.x - 0.5, center.y},
+    width = 2,
+    color = {b = 1},
+    surface = surface
+  })
+  rendering.draw_line(
+  {
+    from = {center.x, center.y + 0.5},
+    to = {center.x, center.y - 0.5},
+    width = 2,
+    color = {b = 1},
+    surface = surface
+  })
+  rendering.draw_rectangle(
+  {
+    left_top = {center.x - half_size, center.y - half_size},
+    right_bottom  = {center.x + half_size, center.y + half_size},
+    filled = false,
+    width = 2,
+    color = {g = 0.3, a = 0.3},
+    surface = surface
+  })
+end
+
 script.on_init(function()
   -- Disable normal spawning
   remote.call("AbandonedRuins", "set_spawn_ruins", false)
@@ -18,8 +48,7 @@ script.on_init(function()
   mgs.default_enable_all_autoplace_controls = false
   mgs.property_expression_names = {}
   mgs.property_expression_names.elevation = 10
-  mgs.property_expression_names.cliffiness = 10
-  local surface = game.create_surface("ruins", mgs)
+  local surface = game.create_surface(SURFACE_NAME, mgs)
   surface.request_to_generate_chunks({0, 0}, chunk_radius)
   surface.force_generate_chunk_requests()
 
@@ -33,7 +62,10 @@ script.on_init(function()
 
   for half_size, ruin_list in pairs(all_ruins) do
     for _, ruin in pairs(ruin_list) do
-      util.spawn_ruin(ruin, half_size, util.get_center_of_chunk({x = x, y = y}), surface)
+      local center = util.get_center_of_chunk({x = x, y = y})
+      util.spawn_ruin(ruin, half_size, center, surface)
+      draw_dimensions(center, half_size, surface)
+
       x = x + 1
       if (x >= chunk_radius) then
         x = -chunk_radius
@@ -48,5 +80,5 @@ script.on_event(defines.events.on_player_created, function(event)
   local player = game.get_player(event.player_index)
   player.toggle_map_editor()
   game.tick_paused = false
-  player.teleport({0, 0}, "ruins")
+  player.teleport({0, 0}, SURFACE_NAME)
 end)

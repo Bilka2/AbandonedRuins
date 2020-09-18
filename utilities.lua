@@ -25,13 +25,12 @@ end
 util.spawn_ruin = function(ruin, half_size, center, surface)
   if clear_area(half_size, center, surface) then
     ruin(center, surface)
-    util.debugprint("A ruin was spawned at " .. center.x .. "," .. center.y)
   end
 end
 
 util.spawn_random_ruin = function(ruins, half_size, center, surface)
-    --spawn a random ruin from the list
-    util.spawn_ruin(ruins[math.random(#ruins)], half_size, center, surface)
+  --spawn a random ruin from the list
+  util.spawn_ruin(ruins[math.random(#ruins)], half_size, center, surface)
 end
 
 return util
