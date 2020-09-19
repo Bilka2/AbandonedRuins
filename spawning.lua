@@ -16,6 +16,20 @@ local function clear_area(half_size, center, surface)
   return true
 end
 
+local function resolve_function_table_or_number(t)
+  if type(t) == "table" then
+    if t.type == "random" then
+      return math.random(t.min, t.max)
+    else
+      error("unrecognized function type")
+    end
+  elseif type(t) == "number" then
+    return t
+  else
+    error("received something that is not a number or table in resolve_function_table_or_number")
+  end
+end
+
 local function spawn_entity(entity, relative_position, center, surface, extra_options, prototypes)
   if not prototypes[entity] then
     util.debugprint(entity .. " does not exist") -- TODO Bilka: Maybe log instead
@@ -34,10 +48,15 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
   }
 
   if extra_options.dmg then
+    extra_options.dmg.dmg = resolve_function_table_or_number(extra_options.dmg.dmg)
     util.safe_damage(e, extra_options.dmg)
   end
   if extra_options.items then
-    util.safe_insert(e, extra_options.items)
+    local items = {}
+    for name, count in pairs(extra_options.items) do
+      items[name] = resolve_function_table_or_number(count)
+    end
+    util.safe_insert(e, items)
   end
 end
 
