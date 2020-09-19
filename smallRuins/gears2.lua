@@ -1,42 +1,24 @@
-return function(center, surface) --small gears setup
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "fast-transport-belt", position = {center.x + (-2.5), center.y + (3.5)}, direction = direct.east, force=fN}
-    ce{name = "fast-transport-belt", position = {center.x + (-2.5), center.y + (2.5)}, direction = direct.south, force=fN}
-    ce{name = "fast-transport-belt", position = {center.x + (-0.5), center.y + (2.5)}, direction = direct.east, force=fN}
-    local e = ce{name = "fast-transport-belt", position = {center.x + (-1.5), center.y + (3.5)}, direction = direct.east, force=fN}
-    if e then
-      e.damage(42,"neutral","physical")
-    end
-    local e = ce{name = "fast-transport-belt", position = {center.x + (-0.5), center.y + (3.5)}, direction = direct.east, force=fN}
-    if e then
-      e.damage(18,"neutral","physical")
-    end
-    ce{name = "fast-transport-belt", position = {center.x + (0.5), center.y + (3.5)}, force=fN}
-    ce{name = "fast-transport-belt", position = {center.x + (0.5), center.y + (2.5)}, direction = direct.east, force=fN}
-    ce{name = "fast-transport-belt", position = {center.x + (1.5), center.y + (2.5)}, direction = direct.east, force=fN}
-    local e = ce{name="assembling-machine-2", position={center.x + (2.0), center.y + (-1.0)}, force = fN, recipe = "iron-gear-wheel"}
-    if e then
-      e.damage(98,"neutral","physical")
-    end
-    ce{name="medium-electric-pole", position={center.x + (-0.0), center.y + (1.0)}, force = fN}
-    ce{name="fast-inserter", position={center.x + (1.0), center.y + (1.0)}, direction = direct.south, force = fN}
-    ce{name="assembling-machine-2", position={center.x + (-1.0), center.y + (-1.0)}, force = fN, recipe = "iron-gear-wheel"}
-    ce{name="fast-inserter", position={center.x + (-1.0), center.y + (1.0)}, direction = direct.south, force = fN}
-    local e = ce{name="fast-inserter", position={center.x + (2.0), center.y + (-3.0)}, direction = direct.south, force = fN}
-    if e then
-      e.damage(36,"neutral","physical")
-    end
-    local e = ce{name="fast-inserter", position={center.x + (3.0), center.y + (-3.0)}, direction = direct.south, force = fN}
-    if e then
-      e.damage(50,"neutral","physical")
-    end
-    ce{name="fast-inserter", position={center.x + (-0.0), center.y + (-3.0)}, direction = direct.south, force = fN}
-    ce{name="medium-electric-pole", position={center.x + (1.0), center.y + (-3.0)}, force = fN}
-    ce{name="fast-inserter", position={center.x + (-1.0), center.y + (-3.0)}, direction = direct.south, force = fN}
-
-end
+return
+{
+  entities =
+  {
+    {"fast-inserter", {x = -0.5, y = -2.5}, {dir = "south", }},
+    {"medium-electric-pole", {x = 1.5, y = -2.5}, {}},
+    {"fast-inserter", {x = 0.5, y = -2.5}, {dir = "south", }},
+    {"fast-inserter", {x = 3.5, y = -2.5}, {dir = "south", dmg = {dmg = 50}, }},
+    {"fast-inserter", {x = 2.5, y = -2.5}, {dir = "south", dmg = {dmg = 36}, }},
+    {"assembling-machine-2", {x = -0.5, y = -0.5}, {recipe = "iron-gear-wheel", }},
+    {"assembling-machine-2", {x = 2.5, y = -0.5}, {dmg = {dmg = {type = "random", min = 20, max = 130}}, recipe = "iron-gear-wheel", }},
+    {"fast-inserter", {x = -0.5, y = 1.5}, {dir = "south", }},
+    {"fast-inserter", {x = 1.5, y = 1.5}, {dir = "south", }},
+    {"medium-electric-pole", {x = 0.5, y = 1.5}, {}},
+    {"fast-transport-belt", {x = -2.5, y = 2.5}, {dir = "south", }},
+    {"fast-transport-belt", {x = -2.5, y = 3.5}, {dir = "east", }},
+    {"fast-transport-belt", {x = -0.5, y = 3.5}, {dir = "east", dmg = {dmg = {type = "random", min = 10, max = 50}}, }},
+    {"fast-transport-belt", {x = -1.5, y = 3.5}, {dir = "east", dmg = {dmg = {type = "random", min = 10, max = 50}}, }},
+    {"fast-transport-belt", {x = -0.5, y = 2.5}, {dir = "east", }},
+    {"fast-transport-belt", {x = 1.5, y = 2.5}, {dir = "east", }},
+    {"fast-transport-belt", {x = 0.5, y = 2.5}, {dir = "east", }},
+    {"fast-transport-belt", {x = 0.5, y = 3.5}, {}},
+  },
+}

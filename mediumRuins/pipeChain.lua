@@ -1,17 +1,13 @@
-
-return function(center, surface) --long chain of pipes
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-    ce{name = "pipe-to-ground", position = {center.x + (-1.0), center.y + (-7.0)}, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (-1.0), center.y + (-2.0)}, direction = direct.south, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (-7.0), center.y + (0.0)}, direction = direct.west, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (-1.0), center.y + (-1.0)}, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (4.0), center.y + (0.0)}, direction = direct.west, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (3.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (-1.0), center.y + (6.0)}, direction = direct.south, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"pipe-to-ground", {x = -0.5, y = -6.5}, {}},
+    {"pipe-to-ground", {x = -0.5, y = -0.5}, {}},
+    {"pipe-to-ground", {x = -0.5, y = -1.5}, {dir = "south", }},
+    {"pipe-to-ground", {x = -6.5, y = 0.5}, {dir = "west", }},
+    {"pipe-to-ground", {x = 3.5, y = 0.5}, {dir = "east", }},
+    {"pipe-to-ground", {x = 4.5, y = 0.5}, {dir = "west", }},
+    {"pipe-to-ground", {x = -0.5, y = 6.5}, {dir = "south", }},
+  },
+}

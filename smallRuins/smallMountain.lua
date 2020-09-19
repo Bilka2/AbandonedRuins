@@ -1,11 +1,10 @@
-return function(center, surface) --small mountain
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    ce{name = "rock-big", position = {center.x + (-1.76), center.y + (-1.15)}}
-    ce{name = "rock-big", position = {center.x + (0.4), center.y + (-0.64)}}
-    ce{name = "rock-big", position = {center.x + (-1.69), center.y + (1.17)}}
-    ce{name = "rock-big", position = {center.x + (1.68), center.y + (1.43)}}
-end
+return
+{
+  entities =
+  {
+    {"rock-big", {x = -2, y = -1}, {}},
+    {"rock-big", {x = 0.5, y = -0.5}, {}},
+    {"rock-big", {x = -1.5, y = 1}, {}},
+    {"rock-big", {x = 1.5, y = 1.5}, {}},
+  },
+}

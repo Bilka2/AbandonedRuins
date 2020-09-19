@@ -1,213 +1,210 @@
-return function(center, surface) --main buses
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-11.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-6.0), center.y + (-7.5)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-7.0), center.y + (-8.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (-9.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "underground-belt", position = {center.x + (-5.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (-8.0)}, force = fN}
-    ce{name = "splitter", position = {center.x + (-3.0), center.y + (-7.5)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (0.0), center.y + (-8.5)}, direction = direct.east, force = fN}
-    ce{name = "underground-belt", position = {center.x + (-1.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (10.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (-8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (-9.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-11.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-11.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-7.0), center.y + (-6.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "underground-belt", position = {center.x + (-5.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (-6.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (-7.0)}, direction = direct.south, force = fN}
-    ce{name = "underground-belt", position = {center.x + (-1.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (10.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (10.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (-7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-11.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-7.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-7.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-5.0), center.y + (-2.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (0.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (5.0), center.y + (-2.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (10.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (10.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-11.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-7.0), center.y + (1.5)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-6.0), center.y + (2.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "underground-belt", position = {center.x + (-5.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (1.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (2.0)}, force = fN}
-    ce{name = "underground-belt", position = {center.x + (-1.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (0.0), center.y + (1.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (10.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-11.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-11.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-7.0), center.y + (3.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (4.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (3.0)}, direction = direct.south, force = fN}
-    ce{name = "splitter", position = {center.x + (0.0), center.y + (3.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (10.0), center.y + (4.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (3.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-7.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-7.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "splitter", position = {center.x + (-5.0), center.y + (7.5)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (0.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (8.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (7.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (11.0), center.y + (8.0)}, direction = direct.east, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"transport-belt", {x = -12.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = -10.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = -8.5}, {dir = "east", }},
+    {"splitter", {x = -6.5, y = -8}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = -8.5}, {dir = "south", }},
+    {"transport-belt", {x = -0.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = -8.5}, {dir = "east", }},
+    {"splitter", {x = 0.5, y = -8}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = 5.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = -8.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = -10.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = -7.5}, {dir = "east", }},
+    {"splitter", {x = -6.5, y = -6}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = -7.5}, {dir = "east", }},
+    {"underground-belt", {x = -4.5, y = -6.5}, {dir = "east", }},
+    {"underground-belt", {x = -4.5, y = -7.5}, {dir = "east", }},
+    {"splitter", {x = -5.5, y = -7}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = -6.5}, {dir = "east", }},
+    {"splitter", {x = -2.5, y = -7}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = -7.5}, {dir = "east", }},
+    {"underground-belt", {x = -0.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = -6.5}, {dir = "south", }},
+    {"underground-belt", {x = -0.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = -7.5}, {}},
+    {"transport-belt", {x = 1.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 10.5, y = -6.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = 10.5, y = -7.5}, {dir = "east", }},
+    {"transport-belt", {x = -10.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = -5.5}, {}},
+    {"transport-belt", {x = -0.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 5.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = 10.5, y = -5.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = -6.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = -2.5}, {dir = "east", }},
+    {"splitter", {x = -4.5, y = -2}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 0.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = -2.5}, {dir = "east", }},
+    {"splitter", {x = 5.5, y = -2}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 10.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -10.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -6.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -2.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -0.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 10.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -10.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = 1.5}, {dir = "east", }},
+    {"splitter", {x = -6.5, y = 2}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 1.5}, {dir = "south", }},
+    {"transport-belt", {x = -0.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = 1.5}, {dir = "east", }},
+    {"splitter", {x = 0.5, y = 2}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 5.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = 10.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = -10.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = 2.5}, {dir = "east", }},
+    {"splitter", {x = -6.5, y = 4}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = 2.5}, {dir = "east", }},
+    {"underground-belt", {x = -4.5, y = 2.5}, {dir = "east", }},
+    {"splitter", {x = -5.5, y = 3}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = 3.5}, {dir = "south", }},
+    {"underground-belt", {x = -0.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = 2.5}, {}},
+    {"transport-belt", {x = 1.5, y = 3.5}, {dir = "east", }},
+    {"splitter", {x = 0.5, y = 4}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = 5.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = 3.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = 2.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = -10.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 4.5}, {}},
+    {"transport-belt", {x = -0.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = 5.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = 10.5, y = 4.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -6.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = 7.5}, {dir = "east", }},
+    {"splitter", {x = -4.5, y = 8}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -2.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -0.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = 0.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = 5.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = 7.5}, {dir = "east", }},
+    {"transport-belt", {x = -12.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -11.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -9.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -6.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -0.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 5.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 4.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 7.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 6.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = 8.5}, {dir = "east", }},
+    {"transport-belt", {x = 11.5, y = 8.5}, {dir = "east", }},
+  },
+}

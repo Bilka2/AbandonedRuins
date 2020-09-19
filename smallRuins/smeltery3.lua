@@ -1,44 +1,27 @@
-return function(center, surface) --smeltery
-  local ce = function(params)
-      params.raise_built = true
-      return surface.create_entity(params)
-  end
-  local fN = game.forces.neutral
-  local direct = defines.direction
-  ce{name = "inserter", position = {center.x + (-2.5), center.y + (-2.5)}, force=fN}
-  ce{name = "stone-furnace", position = {center.x + (-1), center.y + (-3)}, force=fN}
-  ce{name = "small-electric-pole", position = {center.x + (3.5), center.y + (-2.5)}, force=fN}
-  ce{name = "small-lamp", position = {center.x + (-2.5), center.y + (-0.5)}, force=fN}
-  ce{name = "transport-belt", position = {center.x + (-0.5), center.y + (-0.5)}, direction = direct.south, force=fN}
-  ce{name = "inserter", position = {center.x + (-0.5), center.y + (-1.5)}, force=fN}
-  ce{name = "transport-belt", position = {center.x + (2.5), center.y + (-0.5)}, direction = direct.south, force=fN}
-  ce{name = "inserter", position = {center.x + (2.5), center.y + (-1.5)}, force=fN}
-  ce{name = "transport-belt", position = {center.x + (-2.5), center.y + (0.5)}, direction = direct.west, force=fN}
-  ce{name = "transport-belt", position = {center.x + (-0.5), center.y + (1.5)}, force=fN}
-  ce{name = "transport-belt", position = {center.x + (-0.5), center.y + (0.5)}, direction = direct.west, force=fN}
-  ce{name = "transport-belt", position = {center.x + (-1.5), center.y + (0.5)}, direction = direct.west, force=fN}
-  ce{name = "transport-belt", position = {center.x + (1.5), center.y + (0.5)}, direction = direct.west, force=fN}
-  local e = ce{name = "transport-belt", position = {center.x + (0.5), center.y + (0.5)}, direction = direct.west, force=fN}
-  if e then
-    e.damage(14,"neutral","physical")
-  end
-  local e = ce{name = "transport-belt", position = {center.x + (2.5), center.y + (1.5)}, force=fN}
-  if e then
-    e.damage(84,"neutral","physical")
-  end
-  ce{name = "transport-belt", position = {center.x + (3.5), center.y + (0.5)}, direction = direct.west, force=fN}
-  local e = ce{name = "transport-belt", position = {center.x + (2.5), center.y + (0.5)}, direction = direct.west, force=fN}
-  if e then
-    e.damage(35,"neutral","physical")
-  end
-  local e = ce{name = "inserter", position = {center.x + (-0.5), center.y + (2.5)}, direction = direct.south, force=fN}
-  if e then
-    e.damage(49,"neutral","physical")
-  end
-  ce{name = "stone-furnace", position = {center.x + (1), center.y + (3)}, force=fN}
-  local e = ce{name = "small-electric-pole", position = {center.x + (3.5), center.y + (3.5)}, force=fN}
-  if e then
-    e.damage(7,"neutral","physical")
-  end
-  ce{name = "inserter", position = {center.x + (2.5), center.y + (2.5)}, direction = direct.south, force=fN}
-end
+return
+{
+  entities =
+  {
+    {"inserter", {x = -2.5, y = -2.5}, {}},
+    {"stone-furnace", {x = -1, y = -3}, {}},
+    {"small-electric-pole", {x = 3.5, y = -2.5}, {}},
+    {"small-lamp", {x = -2.5, y = -0.5}, {}},
+    {"inserter", {x = -0.5, y = -1.5}, {}},
+    {"transport-belt", {x = -0.5, y = -0.5}, {dir = "south", }},
+    {"inserter", {x = 2.5, y = -1.5}, {}},
+    {"transport-belt", {x = 2.5, y = -0.5}, {dir = "south", }},
+    {"transport-belt", {x = -2.5, y = 0.5}, {dir = "west", }},
+    {"transport-belt", {x = -1.5, y = 0.5}, {dir = "west", }},
+    {"transport-belt", {x = -0.5, y = 0.5}, {dir = "west", }},
+    {"transport-belt", {x = -0.5, y = 1.5}, {}},
+    {"transport-belt", {x = 0.5, y = 0.5}, {dir = "west", dmg = {dmg = {type = "random", min = 10, max = 50}}, }},
+    {"transport-belt", {x = 1.5, y = 0.5}, {dir = "west", }},
+    {"transport-belt", {x = 2.5, y = 0.5}, {dir = "west", dmg = {dmg = {type = "random", min = 10, max = 50}}, }},
+    {"transport-belt", {x = 3.5, y = 0.5}, {dir = "west", }},
+    {"transport-belt", {x = 2.5, y = 1.5}, {dmg = {dmg = 84}, }},
+    {"inserter", {x = -0.5, y = 2.5}, {dir = "south", dmg = {dmg = {type = "random", min = 10, max = 40}}, }},
+    {"stone-furnace", {x = 1, y = 3}, {}},
+    {"inserter", {x = 2.5, y = 2.5}, {dir = "south", }},
+    {"small-electric-pole", {x = 3.5, y = 3.5}, {dmg = {dmg = {type = "random", min = 1, max = 16}}, }},
+  },
+}

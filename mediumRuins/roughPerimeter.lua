@@ -1,46 +1,43 @@
-
-return function(center, surface) --rough perimeter
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-
-    ce{name = "rock-big", position = {center.x + (-5.5), center.y + (-5.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (5.5), center.y + (-5.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-5.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-1.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-5.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (2.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-4.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-5.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-3.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-5.0), center.y + (-1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (0.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (-0.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (1.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (6.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (1.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-5.5), center.y + (3.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (3.5), center.y + (4.5)}, force = fN}
-    ce{name = "gate", position = {center.x + (6.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (6.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-0.5), center.y + (6.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (5.0)}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"rock-big", {x = 5.98, y = -5.34}, {}},
+    {"rock-big", {x = -4.88, y = -4.87}, {}},
+    {"rock-big", {x = -1.18, y = -4.48}, {}},
+    {"stone-wall", {x = -3.5, y = -4.5}, {}},
+    {"stone-wall", {x = -2.5, y = -4.5}, {}},
+    {"stone-wall", {x = 0.5, y = -4.5}, {}},
+    {"stone-wall", {x = 1.5, y = -4.5}, {}},
+    {"rock-big", {x = 3.02, y = -4.46}, {}},
+    {"stone-wall", {x = 4.5, y = -4.5}, {}},
+    {"stone-wall", {x = -4.5, y = -2.5}, {}},
+    {"stone-wall", {x = -4.5, y = -3.5}, {}},
+    {"stone-wall", {x = 6.5, y = -2.5}, {}},
+    {"stone-wall", {x = 6.5, y = -3.5}, {}},
+    {"gate", {x = -4.5, y = -0.5}, {}},
+    {"gate", {x = -4.5, y = -1.5}, {}},
+    {"rock-big", {x = 6.66, y = -0.16}, {}},
+    {"stone-wall", {x = 6.5, y = -1.5}, {}},
+    {"stone-wall", {x = -4.5, y = 1.5}, {}},
+    {"stone-wall", {x = -4.5, y = 0.5}, {}},
+    {"stone-wall", {x = 6.5, y = 1.5}, {}},
+    {"rock-big", {x = -4.5, y = 3.78}, {}},
+    {"stone-wall", {x = -4.5, y = 2.5}, {}},
+    {"gate", {x = 6.5, y = 3.5}, {}},
+    {"gate", {x = 6.5, y = 2.5}, {}},
+    {"stone-wall", {x = -4.5, y = 5.5}, {}},
+    {"rock-big", {x = 0.05, y = 6.39}, {}},
+    {"stone-wall", {x = 1.5, y = 5.5}, {}},
+    {"rock-big", {x = 4.04, y = 4.91}, {}},
+    {"stone-wall", {x = 2.5, y = 5.5}, {}},
+    {"stone-wall", {x = 5.5, y = 5.5}, {}},
+    {"stone-wall", {x = 6.5, y = 5.5}, {}},
+    {"stone-wall", {x = 6.5, y = 4.5}, {}},
+    {"stone-wall", {x = -4.5, y = 6.5}, {}},
+    {"stone-wall", {x = -2.5, y = 6.5}, {}},
+    {"stone-wall", {x = -3.5, y = 6.5}, {}},
+    {"stone-wall", {x = -1.5, y = 6.5}, {}},
+    {"stone-wall", {x = 1.5, y = 6.5}, {}},
+  },
+}

@@ -1,48 +1,42 @@
-
-return function(center, surface)
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-1.0)}, force = fN}
-    ce{name = "radar", position = {center.x + (0.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (-2.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (4.0), center.y + (-1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (1.0)}, force = fN}
-    local e = ce{name = "gun-turret", position = {center.x + (-3.5), center.y + (0.5)}, force = game.forces.enemy}
-    if e then
-      e.insert{name = "firearm-magazine", count = 5}
-    end
-    ce{name = "medium-electric-pole", position = {center.x + (-2.0), center.y + (0.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (4.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (2.0)}, force = fN}
-    ce{name = "medium-electric-pole", position = {center.x + (4.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (2.0)}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"stone-wall", {x = -5.5, y = -2.5}, {}},
+    {"stone-wall", {x = -4.5, y = -2.5}, {}},
+    {"stone-wall", {x = -2.5, y = -2.5}, {}},
+    {"stone-wall", {x = -3.5, y = -2.5}, {}},
+    {"stone-wall", {x = -1.5, y = -2.5}, {}},
+    {"stone-wall", {x = -0.5, y = -2.5}, {}},
+    {"stone-wall", {x = 0.5, y = -2.5}, {}},
+    {"stone-wall", {x = 1.5, y = -2.5}, {}},
+    {"stone-wall", {x = -5.5, y = -0.5}, {}},
+    {"stone-wall", {x = -5.5, y = -1.5}, {}},
+    {"radar", {x = 0.5, y = 0.5}, {}},
+    {"stone-wall", {x = 1.5, y = -1.5}, {}},
+    {"stone-wall", {x = 2.5, y = -1.5}, {}},
+    {"stone-wall", {x = 3.5, y = -1.5}, {}},
+    {"stone-wall", {x = 4.5, y = -1.5}, {}},
+    {"gate", {x = 4.5, y = -0.5}, {}},
+    {"stone-wall", {x = -5.5, y = 1.5}, {}},
+    {"stone-wall", {x = -5.5, y = 0.5}, {}},
+    {"gun-turret", {x = -3, y = 1}, {force = "enemy", items = {["firearm-magazine"] = 5}, }},
+    {"medium-electric-pole", {x = -1.5, y = 0.5}, {}},
+    {"stone-wall", {x = 4.5, y = 1.5}, {}},
+    {"gate", {x = 4.5, y = 0.5}, {}},
+    {"stone-wall", {x = -5.5, y = 3.5}, {}},
+    {"stone-wall", {x = -5.5, y = 2.5}, {}},
+    {"stone-wall", {x = -4.5, y = 3.5}, {}},
+    {"stone-wall", {x = -2.5, y = 3.5}, {}},
+    {"stone-wall", {x = -3.5, y = 3.5}, {}},
+    {"stone-wall", {x = -0.5, y = 3.5}, {}},
+    {"stone-wall", {x = -1.5, y = 3.5}, {}},
+    {"stone-wall", {x = 1.5, y = 3.5}, {}},
+    {"stone-wall", {x = 0.5, y = 3.5}, {}},
+    {"stone-wall", {x = 3.5, y = 2.5}, {}},
+    {"stone-wall", {x = 3.5, y = 3.5}, {}},
+    {"stone-wall", {x = 2.5, y = 3.5}, {}},
+    {"stone-wall", {x = 4.5, y = 2.5}, {}},
+    {"medium-electric-pole", {x = 4.5, y = 3.5}, {}},
+  },
+}

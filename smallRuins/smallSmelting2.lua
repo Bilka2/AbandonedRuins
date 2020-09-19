@@ -1,14 +1,8 @@
-return function(center, surface)  --small smelting station
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "stone-furnace", position = {center.x-2.5, center.y-2.5}, force = fN}
-    local chest = ce{name = "wooden-chest", position = {center.x-2, center.y}, force = fN}
-    if chest then
-      chest.insert{name = "coal", count = math.random(1, 10)}
-      chest.insert{name = "copper-ore", count = math.random(1, 40)}
-    end
-end
+return
+{
+  entities =
+  {
+    {"stone-furnace", {x = -2, y = -2}, {}},
+    {"wooden-chest", {x = -1.5, y = 0.5}, {items = {coal = {type = "random", min = 1, max = 10}, ["copper-ore"] = {type = "random", min = 1, max = 40}}, }},
+  },
+}

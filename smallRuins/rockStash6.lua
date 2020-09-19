@@ -1,10 +1,8 @@
-
-return function(center, surface) --suspicious rock, stash
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    ce{name = "wooden-chest", position = {center.x+1, center.y+1}, force = fN}
-    ce{name = "rock-big", position = {center.x, center.y}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"rock-big", {x = 0, y = 0}, {}},
+    {"wooden-chest", {x = 1.5, y = 1.5}, {}},
+  },
+}

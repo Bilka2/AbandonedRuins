@@ -1,48 +1,44 @@
-return function(center, surface)
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-
-    ce{name = "tree-05", position = {center.x + (-2.5), center.y + (-5.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (0.5), center.y + (-6.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (3.5), center.y + (-5.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-4.5), center.y + (-3.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (-2.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-6.5), center.y + (-0.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (6.5), center.y + (0.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-5.5), center.y + (2.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (3.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-3.5), center.y + (5.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (0.5), center.y + (6.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (3.5), center.y + (5.5)}, force = fN}
-
-    surface.set_tiles({
-            {name = "water", position = {center.x + (-2.0), center.y + (-1.0)}},
-            {name = "water", position = {center.x + (-2.0), center.y + (2.0)}},
-            {name = "water", position = {center.x + (-1.0), center.y + (-2.0)}},
-            {name = "water", position = {center.x + (-1.0), center.y + (-1.0)}},
-            {name = "water", position = {center.x + (-1.0), center.y + (0.0)}},
-            {name = "water", position = {center.x + (-1.0), center.y + (1.0)}},
-            {name = "water", position = {center.x + (0.0), center.y + (-2.0)}},
-            {name = "water", position = {center.x + (0.0), center.y + (-1.0)}},
-            {name = "water", position = {center.x + (0.0), center.y + (0.0)}},
-            {name = "water", position = {center.x + (0.0), center.y + (1.0)}},
-            {name = "water", position = {center.x + (0.0), center.y + (2.0)}},
-            {name = "water", position = {center.x + (1.0), center.y + (-3.0)}},
-            {name = "water", position = {center.x + (1.0), center.y + (-2.0)}},
-            {name = "water", position = {center.x + (1.0), center.y + (-1.0)}},
-            {name = "water", position = {center.x + (1.0), center.y + (0.0)}},
-            {name = "water", position = {center.x + (1.0), center.y + (1.0)}},
-            {name = "water", position = {center.x + (1.0), center.y + (2.0)}},
-            {name = "water", position = {center.x + (2.0), center.y + (-2.0)}},
-            {name = "water", position = {center.x + (2.0), center.y + (-1.0)}},
-            {name = "water", position = {center.x + (2.0), center.y + (0.0)}},
-            {name = "water", position = {center.x + (2.0), center.y + (1.0)}},
-            {name = "water", position = {center.x + (2.0), center.y + (2.0)}},
-            {name = "water", position = {center.x + (3.0), center.y + (0.0)}},
-                               }, true)
-
-
-end
+return
+{
+  entities =
+  {
+    {"tree-05", {x = 0.5, y = -6.5}, {}},
+    {"tree-05", {x = -2.5, y = -5.5}, {}},
+    {"tree-05", {x = 3.5, y = -5.5}, {}},
+    {"tree-05", {x = -4.5, y = -3.5}, {}},
+    {"tree-05", {x = 5.5, y = -2.5}, {}},
+    {"tree-05", {x = -6.5, y = -0.5}, {}},
+    {"tree-05", {x = 6.5, y = 0.5}, {}},
+    {"tree-05", {x = -5.5, y = 2.5}, {}},
+    {"tree-05", {x = 5.5, y = 3.5}, {}},
+    {"tree-05", {x = -3.5, y = 5.5}, {}},
+    {"tree-05", {x = 3.5, y = 5.5}, {}},
+    {"tree-05", {x = 0.5, y = 6.5}, {}},
+  },
+  tiles =
+  {
+    {"water", {x = -2, y = -1}},
+    {"water", {x = -2, y = 2}},
+    {"water", {x = -1, y = -2}},
+    {"water", {x = -1, y = -1}},
+    {"water", {x = -1, y = 0}},
+    {"water", {x = -1, y = 1}},
+    {"water", {x = 0, y = -2}},
+    {"water", {x = 0, y = -1}},
+    {"water", {x = 0, y = 0}},
+    {"water", {x = 0, y = 1}},
+    {"water", {x = 0, y = 2}},
+    {"water", {x = 1, y = -3}},
+    {"water", {x = 1, y = -2}},
+    {"water", {x = 1, y = -1}},
+    {"water", {x = 1, y = 0}},
+    {"water", {x = 1, y = 1}},
+    {"water", {x = 1, y = 2}},
+    {"water", {x = 2, y = -2}},
+    {"water", {x = 2, y = -1}},
+    {"water", {x = 2, y = 0}},
+    {"water", {x = 2, y = 1}},
+    {"water", {x = 2, y = 2}},
+    {"water", {x = 3, y = 0}},
+  }
+}

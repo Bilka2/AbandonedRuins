@@ -1,212 +1,197 @@
-return function(center, surface) --destroyed enemy fort
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-    ce{name = "stone-wall", position = {center.x + (-15.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-13.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-10.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-9.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-8.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (9.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (8.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (11.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (13.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (14.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-16.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-14.0)}, force = fN}
-    local e = ce{name = "gun-turret", position = {center.x + (-12.5), center.y + (-12.5)}, force = game.forces.enemy}
-    if e then
-      e.insert{name = "firearm-magazine", count = 2}
-    end
-    ce{name = "fast-inserter", position = {center.x + (-11.0), center.y + (-13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-7.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (0.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (3.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (-13.0)}, direction = direct.east, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (10.0), center.y + (-13.0)}, direction = direct.west, force = fN}
-    local e = ce{name = "gun-turret", position = {center.x + (11.5), center.y + (-12.5)}, force = game.forces.enemy}
-    if e then
-      e.insert{name = "firearm-magazine", count = 2}
-    end
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-14.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-13.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-11.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-13.0), center.y + (-11.0)}, direction = direct.south, force = fN}
-    ce{name = "underground-belt", position = {center.x + (-11.0), center.y + (-12.0)}, direction = direct.west, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-9.0), center.y + (-11.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-12.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (-12.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (-12.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (-12.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (-12.0)}, direction = direct.east, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-4.0), center.y + (-11.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (-12.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (-12.0)}, direction = direct.east, force = fN}
-    ce{name = "medium-electric-pole", position = {center.x + (10.0), center.y + (-11.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (12.0), center.y + (-11.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-11.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-12.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-9.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-10.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-9.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-10.0)}, force = fN}
-    ce{name = "assembling-machine-2", position = {center.x + (-8.0), center.y + (-9.0)}, force = fN}
-    ce{name = "assembling-machine-2", position = {center.x + (-4.0), center.y + (-9.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-10.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-9.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-9.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-8.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-7.0), center.y + (-7.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-8.0), center.y + (-7.0)}, force = fN}
-    ce{name = "medium-electric-pole", position = {center.x + (-6.0), center.y + (-7.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-5.0), center.y + (-7.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-4.0), center.y + (-7.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-8.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-7.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-8.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-5.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-5.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-6.0)}, force = fN}
-    ce{name = "assembling-machine-2", position = {center.x + (-9.0), center.y + (-5.0)}, force = fN}
-    ce{name = "assembling-machine-2", position = {center.x + (-6.0), center.y + (-5.0)}, force = fN}
-    ce{name = "assembling-machine-2", position = {center.x + (-3.0), center.y + (-5.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-6.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-5.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-3.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-3.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-4.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-8.0), center.y + (-3.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-7.0), center.y + (-3.0)}, force = fN}
-    ce{name = "medium-electric-pole", position = {center.x + (-6.0), center.y + (-3.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-5.0), center.y + (-3.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-4.0), center.y + (-3.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-3.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (-2.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-1.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (-2.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-9.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-10.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-7.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (-2.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (-1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (0.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (1.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (1.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (2.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (3.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (2.0)}, force = fN}
-    ce{name = "lab", position = {center.x + (2.0), center.y + (4.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (2.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (3.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (5.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (4.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (5.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (7.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (7.0)}, force = fN}
-    ce{name = "lab", position = {center.x + (2.0), center.y + (7.0)}, force = fN}
-    ce{name = "lab", position = {center.x + (5.0), center.y + (7.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (7.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (8.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (9.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (9.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (8.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (8.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (9.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-13.0), center.y + (10.0)}, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (-12.0), center.y + (11.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-12.0), center.y + (10.0)}, direction = direct.west, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (12.0), center.y + (11.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (12.0), center.y + (10.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (11.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (13.0)}, force = fN}
-    local e = ce{name = "gun-turret", position = {center.x + (-11.5), center.y + (12.5)}, force = game.forces.enemy}
-    if e then
-      e.insert{name = "firearm-magazine", count = 2}
-    end
-    ce{name = "transport-belt", position = {center.x + (-7.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-8.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (0.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (4.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (5.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (7.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (6.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (9.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "transport-belt", position = {center.x + (8.0), center.y + (13.0)}, direction = direct.west, force = fN}
-    ce{name = "fast-inserter", position = {center.x + (10.0), center.y + (13.0)}, direction = direct.east, force = fN}
-    local e = ce{name = "gun-turret", position = {center.x + (11.5), center.y + (12.5)}, force = game.forces.enemy}
-    if e then
-      e.insert{name = "firearm-magazine", count = 2}
-    end
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (12.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-15.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-16.0), center.y + (14.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-13.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-14.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-11.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-9.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-10.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (7.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (9.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (11.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (10.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (14.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (15.0), center.y + (15.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (14.0), center.y + (15.0)}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"stone-wall", {x = -15.5, y = -15.5}, {}},
+    {"stone-wall", {x = -15.5, y = -14.5}, {}},
+    {"stone-wall", {x = -14.5, y = -15.5}, {}},
+    {"stone-wall", {x = -12.5, y = -15.5}, {}},
+    {"stone-wall", {x = -8.5, y = -15.5}, {}},
+    {"stone-wall", {x = -9.5, y = -15.5}, {}},
+    {"stone-wall", {x = -7.5, y = -15.5}, {}},
+    {"stone-wall", {x = -5.5, y = -15.5}, {}},
+    {"stone-wall", {x = -2.5, y = -15.5}, {}},
+    {"stone-wall", {x = -3.5, y = -15.5}, {}},
+    {"stone-wall", {x = -0.5, y = -15.5}, {}},
+    {"stone-wall", {x = -1.5, y = -15.5}, {}},
+    {"stone-wall", {x = 1.5, y = -15.5}, {}},
+    {"stone-wall", {x = 0.5, y = -15.5}, {}},
+    {"stone-wall", {x = 2.5, y = -15.5}, {}},
+    {"stone-wall", {x = 8.5, y = -15.5}, {}},
+    {"stone-wall", {x = 9.5, y = -15.5}, {}},
+    {"stone-wall", {x = 11.5, y = -15.5}, {}},
+    {"stone-wall", {x = 13.5, y = -15.5}, {}},
+    {"stone-wall", {x = 15.5, y = -14.5}, {}},
+    {"stone-wall", {x = 15.5, y = -15.5}, {}},
+    {"stone-wall", {x = 14.5, y = -15.5}, {}},
+    {"stone-wall", {x = -15.5, y = -13.5}, {}},
+    {"gun-turret", {x = -12, y = -12}, {force = "enemy", items = {["firearm-magazine"] = 2}, }},
+    {"fast-inserter", {x = -10.5, y = -12.5}, {dir = "west", }},
+    {"transport-belt", {x = -8.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = -6.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = -2.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = 0.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = 8.5, y = -12.5}, {dir = "east", }},
+    {"transport-belt", {x = 9.5, y = -12.5}, {dir = "east", }},
+    {"gun-turret", {x = 12, y = -12}, {force = "enemy", items = {["firearm-magazine"] = 2}, }},
+    {"fast-inserter", {x = 10.5, y = -12.5}, {dir = "west", }},
+    {"stone-wall", {x = 15.5, y = -12.5}, {}},
+    {"stone-wall", {x = 15.5, y = -13.5}, {}},
+    {"stone-wall", {x = -15.5, y = -10.5}, {}},
+    {"fast-inserter", {x = -12.5, y = -10.5}, {dir = "south", }},
+    {"underground-belt", {x = -10.5, y = -11.5}, {dir = "west", }},
+    {"transport-belt", {x = -9.5, y = -11.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = -11.5}, {dir = "east", }},
+    {"fast-inserter", {x = -8.5, y = -10.5}, {}},
+    {"transport-belt", {x = -7.5, y = -11.5}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = -11.5}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = -11.5}, {dir = "east", }},
+    {"transport-belt", {x = -2.5, y = -11.5}, {dir = "east", }},
+    {"fast-inserter", {x = -3.5, y = -10.5}, {}},
+    {"transport-belt", {x = -1.5, y = -11.5}, {dir = "east", }},
+    {"medium-electric-pole", {x = 10.5, y = -10.5}, {}},
+    {"fast-inserter", {x = 12.5, y = -10.5}, {}},
+    {"stone-wall", {x = 15.5, y = -11.5}, {}},
+    {"stone-wall", {x = 15.5, y = -10.5}, {}},
+    {"stone-wall", {x = -15.5, y = -9.5}, {}},
+    {"stone-wall", {x = -15.5, y = -8.5}, {}},
+    {"transport-belt", {x = -12.5, y = -9.5}, {}},
+    {"transport-belt", {x = -12.5, y = -8.5}, {}},
+    {"assembling-machine-2", {x = -7.5, y = -8.5}, {}},
+    {"assembling-machine-2", {x = -3.5, y = -8.5}, {}},
+    {"transport-belt", {x = 12.5, y = -8.5}, {dir = "south", }},
+    {"transport-belt", {x = 12.5, y = -9.5}, {dir = "south", }},
+    {"stone-wall", {x = 15.5, y = -8.5}, {}},
+    {"transport-belt", {x = -12.5, y = -7.5}, {}},
+    {"fast-inserter", {x = -7.5, y = -6.5}, {}},
+    {"fast-inserter", {x = -6.5, y = -6.5}, {}},
+    {"fast-inserter", {x = -4.5, y = -6.5}, {}},
+    {"medium-electric-pole", {x = -5.5, y = -6.5}, {}},
+    {"fast-inserter", {x = -3.5, y = -6.5}, {}},
+    {"transport-belt", {x = 12.5, y = -6.5}, {dir = "south", }},
+    {"transport-belt", {x = 12.5, y = -7.5}, {dir = "south", }},
+    {"stone-wall", {x = 15.5, y = -7.5}, {}},
+    {"stone-wall", {x = -15.5, y = -4.5}, {}},
+    {"stone-wall", {x = -15.5, y = -5.5}, {}},
+    {"transport-belt", {x = -12.5, y = -5.5}, {}},
+    {"transport-belt", {x = -12.5, y = -4.5}, {}},
+    {"assembling-machine-2", {x = -8.5, y = -4.5}, {}},
+    {"assembling-machine-2", {x = -5.5, y = -4.5}, {}},
+    {"assembling-machine-2", {x = -2.5, y = -4.5}, {}},
+    {"transport-belt", {x = 12.5, y = -4.5}, {dir = "south", }},
+    {"transport-belt", {x = 12.5, y = -5.5}, {dir = "south", }},
+    {"stone-wall", {x = 15.5, y = -4.5}, {}},
+    {"stone-wall", {x = 15.5, y = -5.5}, {}},
+    {"stone-wall", {x = -15.5, y = -2.5}, {}},
+    {"stone-wall", {x = -15.5, y = -3.5}, {}},
+    {"transport-belt", {x = -12.5, y = -3.5}, {}},
+    {"transport-belt", {x = -12.5, y = -2.5}, {}},
+    {"fast-inserter", {x = -6.5, y = -2.5}, {}},
+    {"fast-inserter", {x = -7.5, y = -2.5}, {}},
+    {"fast-inserter", {x = -4.5, y = -2.5}, {}},
+    {"medium-electric-pole", {x = -5.5, y = -2.5}, {}},
+    {"fast-inserter", {x = -3.5, y = -2.5}, {}},
+    {"transport-belt", {x = 12.5, y = -2.5}, {dir = "south", }},
+    {"stone-wall", {x = -15.5, y = -1.5}, {}},
+    {"transport-belt", {x = -12.5, y = -1.5}, {}},
+    {"transport-belt", {x = -12.5, y = -0.5}, {}},
+    {"transport-belt", {x = -9.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -8.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -7.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -6.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -5.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -2.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = -1.5}, {dir = "east", }},
+    {"transport-belt", {x = 12.5, y = -1.5}, {dir = "south", }},
+    {"stone-wall", {x = 15.5, y = -0.5}, {}},
+    {"stone-wall", {x = 15.5, y = -1.5}, {}},
+    {"stone-wall", {x = -15.5, y = 0.5}, {}},
+    {"stone-wall", {x = -15.5, y = 1.5}, {}},
+    {"transport-belt", {x = -12.5, y = 1.5}, {}},
+    {"transport-belt", {x = 12.5, y = 1.5}, {dir = "south", }},
+    {"stone-wall", {x = 15.5, y = 0.5}, {}},
+    {"stone-wall", {x = -15.5, y = 2.5}, {}},
+    {"stone-wall", {x = -15.5, y = 3.5}, {}},
+    {"transport-belt", {x = -12.5, y = 2.5}, {}},
+    {"transport-belt", {x = -12.5, y = 3.5}, {}},
+    {"lab", {x = 2.5, y = 4.5}, {}},
+    {"transport-belt", {x = 12.5, y = 3.5}, {dir = "south", }},
+    {"transport-belt", {x = 12.5, y = 2.5}, {dir = "south", }},
+    {"transport-belt", {x = -12.5, y = 5.5}, {}},
+    {"transport-belt", {x = 12.5, y = 5.5}, {dir = "south", }},
+    {"transport-belt", {x = 12.5, y = 4.5}, {dir = "south", }},
+    {"stone-wall", {x = 15.5, y = 4.5}, {}},
+    {"stone-wall", {x = 15.5, y = 5.5}, {}},
+    {"stone-wall", {x = -15.5, y = 7.5}, {}},
+    {"transport-belt", {x = -12.5, y = 7.5}, {}},
+    {"lab", {x = 2.5, y = 7.5}, {}},
+    {"lab", {x = 5.5, y = 7.5}, {}},
+    {"transport-belt", {x = 12.5, y = 7.5}, {dir = "south", }},
+    {"stone-wall", {x = -15.5, y = 9.5}, {}},
+    {"stone-wall", {x = -15.5, y = 8.5}, {}},
+    {"transport-belt", {x = -12.5, y = 8.5}, {}},
+    {"transport-belt", {x = -12.5, y = 9.5}, {}},
+    {"transport-belt", {x = 12.5, y = 8.5}, {dir = "south", }},
+    {"stone-wall", {x = 15.5, y = 9.5}, {}},
+    {"transport-belt", {x = -12.5, y = 10.5}, {}},
+    {"transport-belt", {x = -11.5, y = 10.5}, {dir = "west", }},
+    {"fast-inserter", {x = -11.5, y = 11.5}, {dir = "south", }},
+    {"transport-belt", {x = 12.5, y = 10.5}, {dir = "south", }},
+    {"fast-inserter", {x = 12.5, y = 11.5}, {}},
+    {"stone-wall", {x = 15.5, y = 11.5}, {}},
+    {"stone-wall", {x = -15.5, y = 13.5}, {}},
+    {"gun-turret", {x = -11, y = 13}, {force = "enemy", items = {["firearm-magazine"] = 2}, }},
+    {"transport-belt", {x = -7.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = -6.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = -5.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = -4.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = -3.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = -2.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = -1.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = -0.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = 0.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = 5.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = 4.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = 6.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = 7.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = 8.5, y = 13.5}, {dir = "west", }},
+    {"transport-belt", {x = 9.5, y = 13.5}, {dir = "west", }},
+    {"gun-turret", {x = 12, y = 13}, {force = "enemy", items = {["firearm-magazine"] = 2}, }},
+    {"fast-inserter", {x = 10.5, y = 13.5}, {dir = "east", }},
+    {"stone-wall", {x = 15.5, y = 12.5}, {}},
+    {"stone-wall", {x = -15.5, y = 14.5}, {}},
+    {"stone-wall", {x = -15.5, y = 15.5}, {}},
+    {"stone-wall", {x = -14.5, y = 15.5}, {}},
+    {"stone-wall", {x = -13.5, y = 15.5}, {}},
+    {"stone-wall", {x = -12.5, y = 15.5}, {}},
+    {"stone-wall", {x = -10.5, y = 15.5}, {}},
+    {"stone-wall", {x = -9.5, y = 15.5}, {}},
+    {"stone-wall", {x = -8.5, y = 15.5}, {}},
+    {"stone-wall", {x = -6.5, y = 15.5}, {}},
+    {"stone-wall", {x = -4.5, y = 15.5}, {}},
+    {"stone-wall", {x = -5.5, y = 15.5}, {}},
+    {"stone-wall", {x = -3.5, y = 15.5}, {}},
+    {"stone-wall", {x = -0.5, y = 15.5}, {}},
+    {"stone-wall", {x = -1.5, y = 15.5}, {}},
+    {"stone-wall", {x = 3.5, y = 15.5}, {}},
+    {"stone-wall", {x = 5.5, y = 15.5}, {}},
+    {"stone-wall", {x = 6.5, y = 15.5}, {}},
+    {"stone-wall", {x = 7.5, y = 15.5}, {}},
+    {"stone-wall", {x = 9.5, y = 15.5}, {}},
+    {"stone-wall", {x = 10.5, y = 15.5}, {}},
+    {"stone-wall", {x = 11.5, y = 15.5}, {}},
+    {"stone-wall", {x = 14.5, y = 15.5}, {}},
+    {"stone-wall", {x = 15.5, y = 15.5}, {}},
+    {"stone-wall", {x = 15.5, y = 14.5}, {}},
+  },
+}

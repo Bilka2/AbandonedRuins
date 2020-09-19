@@ -1,31 +1,12 @@
-
-return function(center, surface) --small destroyed setup
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    local e = ce{name = "assembling-machine-1", position = {center.x + 2.5, center.y + 0.5}, force = fN}
-    if e then
-      e.damage(118,"neutral","physical")
-    end
-    ce{name = "inserter", position = {center.x + 1.5, center.y + 2.5}, force = fN}
-    local e = ce{name = "inserter", position = {center.x-1.5, center.y + 0.5}, force = fN}
-    if e then
-      e.damage(19,"neutral","physical")
-    end
-
-    local e = ce{name = "transport-belt", position = {center.x + 1, center.y-1.5}, force = fN, direction = direct.east}
-    if e then
-      e.damage(12,"neutral","physical")
-    end
-    local e = ce{name = "transport-belt", position = {center.x, center.y-1.5}, force = fN, direction = direct.east}
-    if e then
-      e.damage(29,"neutral","physical")
-    end
-    local e = ce{name = "transport-belt", position = {center.x-1, center.y-1.5}, force = fN, direction = direct.east}
-    if e then
-      e.damage(6,"neutral","physical")
-    end
-end
+return
+{
+  entities =
+  {
+    {"transport-belt", {x = -0.5, y = -1.5}, {dir = "east", dmg = {dmg = {type = "random", min = 5, max = 25}}, }},
+    {"transport-belt", {x = 0.5, y = -1.5}, {dir = "east", dmg = {dmg = {type = "random", min = 5, max = 35}}, }},
+    {"transport-belt", {x = 1.5, y = -1.5}, {dir = "east", dmg = {dmg = {type = "random", min = 5, max = 35}}, }},
+    {"assembling-machine-1", {x = 2.5, y = 0.5}, {dmg = {dmg = {type = "random", min = 50, max = 150}}, }},
+    {"inserter", {x = -1.5, y = 0.5}, {dmg = {dmg = {type = "random", min = 5, max = 35}}, }},
+    {"inserter", {x = 1.5, y = 2.5}, {}},
+  },
+}

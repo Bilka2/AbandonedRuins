@@ -1,17 +1,15 @@
-
-return function(center, surface) -- mountain range
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-    ce{name = "rock-big", position = {center.x + (-7.5), center.y + (-0.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-3.5), center.y + (-0.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (0.5), center.y + (-0.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (4.5), center.y + (-0.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-5.5), center.y + (1.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-1.5), center.y + (1.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (2.5), center.y + (1.5)}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"rock-big", {x = -6.79, y = -0.57}, {}},
+    {"rock-big", {x = -3.91, y = -0.68}, {}},
+    {"rock-big", {x = -0.07, y = -0.32}, {}},
+    {"rock-big", {x = 3.75, y = -0.49}, {}},
+    {"rock-big", {x = 6.92, y = -0.70}, {}},
+    {"rock-big", {x = -4.98, y = 1.34}, {}},
+    {"rock-big", {x = -2.19, y = 1.23}, {}},
+    {"rock-big", {x = 1.97, y = 1.43}, {}},
+    {"rock-big", {x = 5.77, y = 1.23}, {}},
+  },
+}

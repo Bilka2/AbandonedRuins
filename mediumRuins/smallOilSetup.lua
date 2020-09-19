@@ -1,45 +1,42 @@
-return function(center, surface) --small oil setup
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (-5.0)}, force = fN}
-    ce{name = "storage-tank", position = {center.x + (1.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-3.0)}, force = fN}
-    ce{name = "storage-tank", position = {center.x + (-2.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-1.0)}, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (1.0), center.y + (0.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (-1.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (1.0), center.y + (-1.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (2.0), center.y + (-1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (3.0)}, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (1.0), center.y + (4.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (3.0)}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"stone-wall", {x = -4.5, y = -4.5}, {}},
+    {"stone-wall", {x = -3.5, y = -4.5}, {}},
+    {"stone-wall", {x = -0.5, y = -4.5}, {}},
+    {"stone-wall", {x = 1.5, y = -4.5}, {}},
+    {"stone-wall", {x = 0.5, y = -4.5}, {}},
+    {"stone-wall", {x = 3.5, y = -4.5}, {}},
+    {"stone-wall", {x = 2.5, y = -4.5}, {}},
+    {"stone-wall", {x = 4.5, y = -4.5}, {}},
+    {"stone-wall", {x = -4.5, y = -2.5}, {}},
+    {"stone-wall", {x = -4.5, y = -3.5}, {}},
+    {"storage-tank", {x = -1.5, y = -1.5}, {}},
+    {"storage-tank", {x = 1.5, y = -2.5}, {}},
+    {"stone-wall", {x = 3.5, y = -2.5}, {}},
+    {"stone-wall", {x = 3.5, y = -3.5}, {}},
+    {"stone-wall", {x = 4.5, y = -2.5}, {}},
+    {"stone-wall", {x = 4.5, y = -3.5}, {}},
+    {"stone-wall", {x = -4.5, y = -0.5}, {}},
+    {"stone-wall", {x = -4.5, y = -1.5}, {}},
+    {"pipe", {x = 1.5, y = -0.5}, {}},
+    {"pipe", {x = 0.5, y = -0.5}, {}},
+    {"pipe", {x = 2.5, y = -0.5}, {}},
+    {"stone-wall", {x = -4.5, y = 1.5}, {}},
+    {"stone-wall", {x = -4.5, y = 0.5}, {}},
+    {"pipe-to-ground", {x = 1.5, y = 0.5}, {}},
+    {"stone-wall", {x = 4.5, y = 1.5}, {}},
+    {"stone-wall", {x = 4.5, y = 0.5}, {}},
+    {"stone-wall", {x = -4.5, y = 3.5}, {}},
+    {"stone-wall", {x = -4.5, y = 2.5}, {}},
+    {"stone-wall", {x = -3.5, y = 3.5}, {}},
+    {"stone-wall", {x = 0.5, y = 3.5}, {}},
+    {"stone-wall", {x = 1.5, y = 3.5}, {}},
+    {"stone-wall", {x = 2.5, y = 3.5}, {}},
+    {"stone-wall", {x = 3.5, y = 3.5}, {}},
+    {"stone-wall", {x = 4.5, y = 3.5}, {}},
+    {"stone-wall", {x = 4.5, y = 2.5}, {}},
+    {"pipe-to-ground", {x = 1.5, y = 4.5}, {dir = "south", }},
+  },
+}

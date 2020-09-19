@@ -1,27 +1,24 @@
-return function(center, surface) --small gears setup
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name="transport-belt", position={center.x + (0.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name="transport-belt", position={center.x + (0.0), center.y + (-2.0)}, force = fN}
-    ce{name="transport-belt", position={center.x + (-1.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name="transport-belt", position={center.x + (2.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name="transport-belt", position={center.x + (1.0), center.y + (-3.0)}, direction = direct.east, force = fN}
-    ce{name="transport-belt", position={center.x + (1.0), center.y + (-2.0)}, direction = direct.west, force = fN}
-    ce{name="transport-belt", position={center.x + (3.0), center.y + (-2.0)}, direction = direct.east, force = fN}
-    ce{name="transport-belt", position={center.x + (3.0), center.y + (-3.0)}, direction = direct.south, force = fN}
-    ce{name="assembling-machine-2", position={center.x + (-2.0), center.y + (1.0)}, force = fN, recipe = "iron-gear-wheel"}
-    ce{name="medium-electric-pole", position={center.x + (0.0), center.y + (-1.0)}, force = fN}
-    ce{name="fast-inserter", position={center.x + (-1.0), center.y + (-1.0)}, direction = direct.south, force = fN}
-    ce{name="assembling-machine-2", position={center.x + (1.0), center.y + (1.0)}, force = fN, recipe = "iron-gear-wheel"}
-    ce{name="fast-inserter", position={center.x + (1.0), center.y + (-1.0)}, direction = direct.south, force = fN}
-    ce{name="fast-inserter", position={center.x + (-2.0), center.y + (3.0)}, direction = direct.south, force = fN}
-    ce{name="fast-inserter", position={center.x + (-3.0), center.y + (3.0)}, direction = direct.south, force = fN}
-    ce{name="fast-inserter", position={center.x + (0.0), center.y + (3.0)}, direction = direct.south, force = fN}
-    ce{name="medium-electric-pole", position={center.x + (-1.0), center.y + (3.0)}, force = fN}
-    ce{name="fast-inserter", position={center.x + (1.0), center.y + (3.0)}, direction = direct.south, force = fN}
-
-end
+return
+{
+  entities =
+  {
+    {"transport-belt", {x = 1.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 0.5, y = -2.5}, {dir = "east", }},
+    {"transport-belt", {x = 3.5, y = -2.5}, {dir = "south", }},
+    {"transport-belt", {x = 2.5, y = -2.5}, {dir = "east", }},
+    {"fast-inserter", {x = -0.5, y = -0.5}, {dir = "south", }},
+    {"transport-belt", {x = -0.5, y = -1.5}, {dir = "east", }},
+    {"fast-inserter", {x = 1.5, y = -0.5}, {dir = "south", }},
+    {"medium-electric-pole", {x = 0.5, y = -0.5}, {}},
+    {"transport-belt", {x = 1.5, y = -1.5}, {dir = "west", }},
+    {"transport-belt", {x = 0.5, y = -1.5}, {}},
+    {"transport-belt", {x = 3.5, y = -1.5}, {dir = "east", }},
+    {"assembling-machine-2", {x = -1.5, y = 1.5}, {recipe = "iron-gear-wheel", }},
+    {"assembling-machine-2", {x = 1.5, y = 1.5}, {recipe = "iron-gear-wheel", }},
+    {"fast-inserter", {x = -2.5, y = 3.5}, {dir = "south", }},
+    {"medium-electric-pole", {x = -0.5, y = 3.5}, {}},
+    {"fast-inserter", {x = -1.5, y = 3.5}, {dir = "south", }},
+    {"fast-inserter", {x = 1.5, y = 3.5}, {dir = "south", }},
+    {"fast-inserter", {x = 0.5, y = 3.5}, {dir = "south", }},
+  },
+}

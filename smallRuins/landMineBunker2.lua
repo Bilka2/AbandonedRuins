@@ -1,19 +1,15 @@
-return function(center, surface) --land mine bunker
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "stone-wall", position = {center.x-2, center.y}, force = fN}
-    ce{name = "stone-wall", position = {center.x-2, center.y-1}, force = fN}
-    ce{name = "stone-wall", position = {center.x + 2, center.y-2}, force = fN}
-    ce{name = "stone-wall", position = {center.x + 2, center.y-1}, force = fN}
-    ce{name = "stone-wall", position = {center.x + 2, center.y}, force = fN}
-    ce{name = "stone-wall", position = {center.x + 2, center.y + 2}, force = fN}
-    ce{name = "stone-wall", position = {center.x + 1, center.y + 3}, force = fN}
-    ce{name = "stone-wall", position = {center.x, center.y + 3}, force = fN}
-
-    ce{name = "land-mine", position = {center.x + 1, center.y + 1}, force = game.forces.enemy} --trap
-
-end
+return
+{
+  entities =
+  {
+    {"stone-wall", {x = -1.5, y = -0.5}, {}},
+    {"stone-wall", {x = 2.5, y = -0.5}, {}},
+    {"stone-wall", {x = 2.5, y = -1.5}, {}},
+    {"stone-wall", {x = -1.5, y = 0.5}, {}},
+    {"land-mine", {x = 1, y = 1}, {force = "enemy", }},
+    {"stone-wall", {x = 2.5, y = 0.5}, {}},
+    {"stone-wall", {x = 0.5, y = 3.5}, {}},
+    {"stone-wall", {x = 1.5, y = 3.5}, {}},
+    {"stone-wall", {x = 2.5, y = 2.5}, {}},
+  },
+}

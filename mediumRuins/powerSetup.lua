@@ -1,28 +1,25 @@
-return function(center, surface) --power setup
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-    ce{name = "medium-electric-pole", position = {center.x + (3.0), center.y + (-6.0)}, force = fN}
-    ce{name = "steam-engine", position = {center.x + (-4.0), center.y + (0.0)}, force = fN}
-    ce{name = "medium-electric-pole", position = {center.x + (-1.0), center.y + (-3.0)}, force = fN}
-    ce{name = "steam-engine", position = {center.x + (-1.0), center.y + (0.0)}, force = fN}
-    ce{name = "steam-engine", position = {center.x + (2.0), center.y + (0.0)}, force = fN}
-    ce{name = "boiler", position = {center.x + (-4.0), center.y + (3.5)}, force = fN}
-    ce{name = "boiler", position = {center.x + (-1.0), center.y + (3.5)}, force = fN}
-    ce{name = "boiler", position = {center.x + (2.0), center.y + (3.5)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "burner-inserter", position = {center.x + (-4.0), center.y + (5.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "burner-inserter", position = {center.x + (-1.0), center.y + (5.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-1.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-2.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (1.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (0.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "burner-inserter", position = {center.x + (2.0), center.y + (5.0)}, direction = direct.south, force = fN}
-    ce{name = "transport-belt", position = {center.x + (2.0), center.y + (6.0)}, direction = direct.east, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"medium-electric-pole", {x = 3.5, y = -5.5}, {}},
+    {"medium-electric-pole", {x = -0.5, y = -2.5}, {}},
+    {"steam-engine", {x = -3.5, y = 0.5}, {}},
+    {"steam-engine", {x = -0.5, y = 0.5}, {}},
+    {"steam-engine", {x = 2.5, y = 0.5}, {}},
+    {"boiler", {x = -3.5, y = 4}, {}},
+    {"boiler", {x = -0.5, y = 4}, {}},
+    {"boiler", {x = 2.5, y = 4}, {}},
+    {"burner-inserter", {x = -3.5, y = 5.5}, {dir = "south", }},
+    {"burner-inserter", {x = -0.5, y = 5.5}, {dir = "south", }},
+    {"burner-inserter", {x = 2.5, y = 5.5}, {dir = "south", }},
+    {"transport-belt", {x = -4.5, y = 6.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 6.5}, {dir = "east", }},
+    {"transport-belt", {x = -2.5, y = 6.5}, {dir = "east", }},
+    {"transport-belt", {x = -1.5, y = 6.5}, {dir = "east", }},
+    {"transport-belt", {x = -0.5, y = 6.5}, {dir = "east", }},
+    {"transport-belt", {x = 0.5, y = 6.5}, {dir = "east", }},
+    {"transport-belt", {x = 1.5, y = 6.5}, {dir = "east", }},
+    {"transport-belt", {x = 2.5, y = 6.5}, {dir = "east", }},
+  },
+}

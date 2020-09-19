@@ -1,14 +1,9 @@
-
-return function(center, surface) --victory poles
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    ce{name = "small-electric-pole", position = {center.x + (0.0), center.y + (-2.0)}, force = fN}
-    ce{name = "small-electric-pole", position = {center.x + (0.0), center.y + (1.0)}, force = fN}
-    local e = ce{name="small-lamp", position={center.x + (1.0), center.y + (1.0)}, force = fN}
-    if e then
-      e.damage(44,"neutral","physical")
-    end
-end
+return
+{
+  entities =
+  {
+    {"small-electric-pole", {x = 0.5, y = -1.5}, {}},
+    {"small-lamp", {x = 1.5, y = 1.5}, {dmg = {dmg = {type = "random", min = 10, max = 50}}, }},
+    {"small-electric-pole", {x = 0.5, y = 1.5}, {}},
+  },
+}

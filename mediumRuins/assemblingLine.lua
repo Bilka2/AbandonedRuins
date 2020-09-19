@@ -1,27 +1,22 @@
-
-return function(center, surface) -- assembling line
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-    ce{name = "assembling-machine-1", position = {center.x + (-3.0), center.y + (-2.0)}, force = fN}
-    ce{name = "inserter", position = {center.x + (-1.0), center.y + (-2.0)}, direction = direct.west, force = fN}
-    ce{name = "assembling-machine-1", position = {center.x + (1.0), center.y + (-2.0)}, force = fN}
-    ce{name = "inserter", position = {center.x + (3.0), center.y + (-2.0)}, direction = direct.west, force = fN}
-    ce{name = "assembling-machine-1", position = {center.x + (5.0), center.y + (-2.0)}, force = fN}
-    ce{name = "inserter", position = {center.x + (-3.0), center.y + (0.0)}, direction = direct.south, force = fN}
-    ce{name = "small-electric-pole", position = {center.x + (-1.0), center.y + (-1.0)}, force = fN}
-    ce{name = "small-electric-pole", position = {center.x + (3.0), center.y + (0.0)}, force = fN}
-    ce{name = "inserter", position = {center.x + (5.0), center.y + (0.0)}, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-5.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-6.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-3.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "transport-belt", position = {center.x + (-4.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "iron-chest", position = {center.x + (2.0), center.y + (2.0)}, force = fN}
-    ce{name = "inserter", position = {center.x + (3.0), center.y + (2.0)}, direction = direct.east, force = fN}
-    ce{name = "assembling-machine-1", position = {center.x + (5.0), center.y + (2.0)}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"assembling-machine-1", {x = -2.5, y = -1.5}, {}},
+    {"assembling-machine-1", {x = 1.5, y = -1.5}, {}},
+    {"assembling-machine-1", {x = 5.5, y = -1.5}, {}},
+    {"small-electric-pole", {x = -0.5, y = -0.5}, {}},
+    {"inserter", {x = -0.5, y = -1.5}, {dir = "west", }},
+    {"inserter", {x = 3.5, y = -1.5}, {dir = "west", }},
+    {"transport-belt", {x = -5.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -4.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -3.5, y = 1.5}, {dir = "east", }},
+    {"transport-belt", {x = -2.5, y = 1.5}, {dir = "east", }},
+    {"inserter", {x = -2.5, y = 0.5}, {dir = "south", }},
+    {"small-electric-pole", {x = 3.5, y = 0.5}, {}},
+    {"assembling-machine-1", {x = 5.5, y = 2.5}, {}},
+    {"inserter", {x = 5.5, y = 0.5}, {}},
+    {"inserter", {x = 3.5, y = 2.5}, {dir = "east", }},
+    {"iron-chest", {x = 2.5, y = 2.5}, {}},
+  },
+}

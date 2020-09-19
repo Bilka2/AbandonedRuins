@@ -1,18 +1,16 @@
-return function(center, surface) -- cross of pipes
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "pipe", position = {center.x + (-1.5), center.y + (-3.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (-0.5), center.y + (-3.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (0.5), center.y + (-0.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (0.5), center.y + (-1.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (0.5), center.y + (1.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (0.5), center.y + (0.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (-0.5), center.y + (3.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (0.5), center.y + (3.5)}, force=fN}
-    ce{name = "pipe", position = {center.x + (2.5), center.y + (3.5)}, force=fN}
-    ce{name = "pipe-to-ground", position = {center.x + (3.5), center.y + (3.5)}, direction = direct.west, force=fN}
-end
+return
+{
+  entities =
+  {
+    {"pipe", {x = -0.5, y = -3.5}, {}},
+    {"pipe", {x = -1.5, y = -3.5}, {}},
+    {"pipe", {x = 0.5, y = -1.5}, {}},
+    {"pipe", {x = 0.5, y = -0.5}, {}},
+    {"pipe", {x = 0.5, y = 0.5}, {}},
+    {"pipe", {x = 0.5, y = 1.5}, {}},
+    {"pipe", {x = -0.5, y = 3.5}, {}},
+    {"pipe", {x = 0.5, y = 3.5}, {}},
+    {"pipe-to-ground", {x = 3.5, y = 3.5}, {dir = "west", }},
+    {"pipe", {x = 2.5, y = 3.5}, {}},
+  },
+}

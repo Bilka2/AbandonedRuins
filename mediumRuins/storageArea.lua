@@ -1,125 +1,84 @@
-return function(center, surface)
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-
-    local fN = game.forces.neutral
-    local direct = defines.direction
-
-
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-6.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-2.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (-6.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-1.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (-5.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (-6.0), center.y + (-4.0)}, force = fN}
-    if e then
-      e.insert{name = "iron-plate", count = math.random(10, 200)}
-    end
-    ce{name = "wooden-chest", position = {center.x + (-4.0), center.y + (-5.0)}, force = fN}
-    ce{name = "wooden-chest", position = {center.x + (-5.0), center.y + (-4.0)}, force = fN}
-    ce{name = "wooden-chest", position = {center.x + (0.0), center.y + (-5.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (1.0), center.y + (-4.0)}, force = fN}
-    if e then
-      e.insert{name = "copper-plate", count = math.random(10, 200)}
-    end
-    ce{name = "wooden-chest", position = {center.x + (2.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (-3.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (-4.0), center.y + (-2.0)}, force = fN}
-    if e then
-      e.insert{name = "steel-plate", count = math.random(10, 200)}
-    end
-    ce{name = "iron-chest", position = {center.x + (-1.0), center.y + (-3.0)}, force = fN}
-    ce{name = "wooden-chest", position = {center.x + (1.0), center.y + (-3.0)}, force = fN}
-    local e = ce{name = "iron-chest", position = {center.x + (3.0), center.y + (-3.0)}, force = fN}
-    if e then
-      e.insert{name = "transport-belt", count = math.random(10, 70)}
-    end
-    ce{name = "iron-chest", position = {center.x + (3.0), center.y + (-2.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (5.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (-3.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-7.0), center.y + (0.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-7.0), center.y + (-1.0)}, force = fN}
-    local e = ce{name = "iron-chest", position = {center.x + (-6.0), center.y + (-1.0)}, force = fN}
-    if e then
-      e.insert{name = "iron-plate", count = math.random(10, 200)}
-    end
-    ce{name = "wooden-chest", position = {center.x + (-5.0), center.y + (0.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (-3.0), center.y + (0.0)}, force = fN}
-    if e then
-      e.insert{name = "iron-ore", count = math.random(50, 200)}
-    end
-    ce{name = "wooden-chest", position = {center.x + (-1.0), center.y + (-1.0)}, force = fN}
-    ce{name = "iron-chest", position = {center.x + (3.0), center.y + (0.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (5.0), center.y + (-1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (1.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (-6.0), center.y + (2.0)}, force = fN}
-    if e then
-      e.insert{name = "coal", count = math.random(10, 200)}
-    end
-    ce{name = "wooden-chest", position = {center.x + (-5.0), center.y + (2.0)}, force = fN}
-    ce{name = "wooden-chest", position = {center.x + (-4.0), center.y + (2.0)}, force = fN}
-    ce{name = "iron-chest", position = {center.x + (-3.0), center.y + (1.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (0.0), center.y + (1.0)}, force = fN}
-    if e then
-      e.insert{name = "stone", count = math.random(10, 200)}
-    end
-    ce{name = "wooden-chest", position = {center.x + (1.0), center.y + (2.0)}, force = fN}
-    ce{name = "wooden-chest", position = {center.x + (1.0), center.y + (1.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (3.0), center.y + (2.0)}, force = fN}
-    if e then
-      e.insert{name = "inserter", count = math.random(10, 20)}
-    end
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (3.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (-6.0), center.y + (4.0)}, force = fN}
-    if e then
-      e.insert{name = "copper-plate", count = math.random(10, 200)}
-    end
-    ce{name = "iron-chest", position = {center.x + (-4.0), center.y + (4.0)}, force = fN}
-    local e = ce{name = "wooden-chest", position = {center.x + (-3.0), center.y + (3.0)}, force = fN}
-    if e then
-      e.insert{name = "repair-pack", count = math.random(10, 20)}
-    end
-    ce{name = "wooden-chest", position = {center.x + (-2.0), center.y + (3.0)}, force = fN}
-    ce{name = "iron-chest", position = {center.x + (-1.0), center.y + (4.0)}, force = fN}
-    local e = ce{name = "iron-chest", position = {center.x + (2.0), center.y + (4.0)}, force = fN}
-    if e then
-      e.insert{name = "gun-turret", count = math.random(10, 20)}
-    end
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-7.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (6.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (0.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "gate", position = {center.x + (-1.0), center.y + (6.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (6.0)}, force = fN}
-end
+return
+{
+  entities =
+  {
+    {"stone-wall", {x = -6.5, y = -4.5}, {}},
+    {"stone-wall", {x = -6.5, y = -5.5}, {}},
+    {"stone-wall", {x = -4.5, y = -5.5}, {}},
+    {"stone-wall", {x = -5.5, y = -5.5}, {}},
+    {"wooden-chest", {x = -3.5, y = -4.5}, {}},
+    {"stone-wall", {x = -2.5, y = -5.5}, {}},
+    {"stone-wall", {x = -3.5, y = -5.5}, {}},
+    {"gate", {x = -0.5, y = -5.5}, {dir = "east", }},
+    {"gate", {x = -1.5, y = -5.5}, {dir = "east", }},
+    {"wooden-chest", {x = 0.5, y = -4.5}, {}},
+    {"stone-wall", {x = 1.5, y = -5.5}, {}},
+    {"stone-wall", {x = 0.5, y = -5.5}, {}},
+    {"stone-wall", {x = 3.5, y = -5.5}, {}},
+    {"stone-wall", {x = 2.5, y = -5.5}, {}},
+    {"stone-wall", {x = 5.5, y = -4.5}, {}},
+    {"stone-wall", {x = 5.5, y = -5.5}, {}},
+    {"stone-wall", {x = 4.5, y = -5.5}, {}},
+    {"stone-wall", {x = -6.5, y = -2.5}, {}},
+    {"stone-wall", {x = -6.5, y = -3.5}, {}},
+    {"wooden-chest", {x = -4.5, y = -3.5}, {}},
+    {"wooden-chest", {x = -5.5, y = -3.5}, {items = {["iron-plate"] = {type= "random", min = 10, max = 200}}, }},
+    {"iron-chest", {x = -0.5, y = -2.5}, {}},
+    {"wooden-chest", {x = 1.5, y = -2.5}, {}},
+    {"wooden-chest", {x = 1.5, y = -3.5}, {items = {["copper-plate"] = {type= "random", min = 10, max = 200}}, }},
+    {"iron-chest", {x = 3.5, y = -2.5}, {items = {["transport-belt"] = {type= "random", min = 10, max = 70}}, }},
+    {"wooden-chest", {x = 2.5, y = -3.5}, {}},
+    {"stone-wall", {x = 5.5, y = -2.5}, {}},
+    {"stone-wall", {x = 5.5, y = -3.5}, {}},
+    {"gate", {x = -6.5, y = -0.5}, {}},
+    {"stone-wall", {x = -6.5, y = -1.5}, {}},
+    {"iron-chest", {x = -5.5, y = -0.5}, {items = {["iron-plate"] = {type= "random", min = 10, max = 200}}, }},
+    {"wooden-chest", {x = -3.5, y = -1.5}, {items = {["steel-plate"] = {type= "random", min = 10, max = 200}}, }},
+    {"wooden-chest", {x = -0.5, y = -0.5}, {}},
+    {"iron-chest", {x = 3.5, y = -1.5}, {}},
+    {"gate", {x = 5.5, y = -0.5}, {}},
+    {"gate", {x = 5.5, y = -1.5}, {}},
+    {"stone-wall", {x = -6.5, y = 1.5}, {}},
+    {"gate", {x = -6.5, y = 0.5}, {}},
+    {"wooden-chest", {x = -4.5, y = 0.5}, {}},
+    {"iron-chest", {x = -2.5, y = 1.5}, {}},
+    {"wooden-chest", {x = -2.5, y = 0.5}, {items = {["iron-ore"] = {type= "random", min = 50, max = 200}}, }},
+    {"wooden-chest", {x = 1.5, y = 1.5}, {}},
+    {"wooden-chest", {x = 0.5, y = 1.5}, {items = {stone = {type= "random", min = 10, max = 200}}, }},
+    {"iron-chest", {x = 3.5, y = 0.5}, {}},
+    {"stone-wall", {x = 5.5, y = 1.5}, {}},
+    {"stone-wall", {x = 5.5, y = 0.5}, {}},
+    {"stone-wall", {x = -6.5, y = 3.5}, {}},
+    {"stone-wall", {x = -6.5, y = 2.5}, {}},
+    {"wooden-chest", {x = -4.5, y = 2.5}, {}},
+    {"wooden-chest", {x = -5.5, y = 2.5}, {items = {coal = {type= "random", min = 10, max = 200}}, }},
+    {"wooden-chest", {x = -2.5, y = 3.5}, {items = {["repair-pack"] = {type= "random", min = 10, max = 20}}, }},
+    {"wooden-chest", {x = -3.5, y = 2.5}, {}},
+    {"wooden-chest", {x = -1.5, y = 3.5}, {}},
+    {"wooden-chest", {x = 1.5, y = 2.5}, {}},
+    {"wooden-chest", {x = 3.5, y = 2.5}, {items = {inserter = {type= "random", min = 10, max = 20}}, }},
+    {"stone-wall", {x = 5.5, y = 3.5}, {}},
+    {"stone-wall", {x = 5.5, y = 2.5}, {}},
+    {"stone-wall", {x = -6.5, y = 5.5}, {}},
+    {"stone-wall", {x = -6.5, y = 4.5}, {}},
+    {"wooden-chest", {x = -5.5, y = 4.5}, {items = {["copper-plate"] = {type= "random", min = 10, max = 200}}, }},
+    {"iron-chest", {x = -3.5, y = 4.5}, {}},
+    {"iron-chest", {x = -0.5, y = 4.5}, {}},
+    {"iron-chest", {x = 2.5, y = 4.5}, {items = {["gun-turret"] = {type= "random", min = 10, max = 20}}, }},
+    {"stone-wall", {x = 5.5, y = 5.5}, {}},
+    {"stone-wall", {x = 5.5, y = 4.5}, {}},
+    {"stone-wall", {x = -6.5, y = 6.5}, {}},
+    {"stone-wall", {x = -4.5, y = 6.5}, {}},
+    {"stone-wall", {x = -5.5, y = 6.5}, {}},
+    {"stone-wall", {x = -2.5, y = 6.5}, {}},
+    {"stone-wall", {x = -3.5, y = 6.5}, {}},
+    {"gate", {x = -0.5, y = 6.5}, {dir = "east", }},
+    {"stone-wall", {x = -1.5, y = 6.5}, {}},
+    {"stone-wall", {x = 1.5, y = 6.5}, {}},
+    {"gate", {x = 0.5, y = 6.5}, {dir = "east", }},
+    {"stone-wall", {x = 3.5, y = 6.5}, {}},
+    {"stone-wall", {x = 2.5, y = 6.5}, {}},
+    {"stone-wall", {x = 5.5, y = 6.5}, {}},
+    {"stone-wall", {x = 4.5, y = 6.5}, {}},
+  },
+}
