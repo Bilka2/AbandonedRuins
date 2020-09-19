@@ -2,18 +2,11 @@ local util = require("utilities")
 
 local spawning = {}
 
-local function clear_area(half_size, center, surface)
-  local area = {{center.x-half_size, center.y-half_size}, {center.x+half_size, center.y+half_size}}
-  --exclude tiles that we shouldn't spawn on
-  if surface.count_tiles_filtered{ area = area, limit = 1, collision_mask = "item-layer" } == 1 then
-    return false
+local function no_corpse_fade(half_size, center, surface)
+  local area = util.area_from_center_and_half_size(half_size, center)
+  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"corpse"}})) do
+    entity.corpse_expires = false
   end
-
-  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"resource", "tree"}, invert = true})) do
-    entity.destroy({do_cliff_correction=true})
-  end
-
-  return true
 end
 
 local function resolve_function_table_or_number(t)
@@ -44,7 +37,7 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
   end
 
   if not prototypes[entity] then
-    util.debugprint(entity .. " does not exist") -- TODO Bilka: Maybe log instead
+    util.debugprint("entity " .. entity .. " does not exist")
     return
   end
 
@@ -92,6 +85,8 @@ local function spawn_tiles(tiles, center, surface)
     local pos = tile_info[2]
     if prototypes[name] then
       valid[#valid+1] = {name = name, position = {center.x + pos.x, center.y + pos.y}}
+    else
+      util.debugprint("tile " .. name .. " does not exist")
     end
   end
 
@@ -100,13 +95,28 @@ local function spawn_tiles(tiles, center, surface)
     true, -- correct_tiles,                Default: true
     true, -- remove_colliding_entities,    Default: true
     true, -- remove_colliding_decoratives, Default: true
-    true) -- raise_event                 , Default: false
+    true) -- raise_event,                  Default: false
+end
+
+local function clear_area(half_size, center, surface)
+  local area = util.area_from_center_and_half_size(half_size, center)
+  -- exclude tiles that we shouldn't spawn on
+  if surface.count_tiles_filtered{ area = area, limit = 1, collision_mask = "item-layer" } == 1 then
+    return false
+  end
+
+  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"resource", "tree"}, invert = true})) do
+    entity.destroy({do_cliff_correction=true})
+  end
+
+  return true
 end
 
 spawning.spawn_ruin = function(ruin, half_size, center, surface)
   if clear_area(half_size, center, surface) then
     spawn_entities(ruin.entities, center, surface)
     spawn_tiles(ruin.tiles, center, surface)
+    no_corpse_fade(half_size, center, surface)
   end
 end
 
