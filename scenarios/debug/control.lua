@@ -1,6 +1,7 @@
 if __DebugAdapter then __DebugAdapter.levelPath("AbandonedRuins","scenarios/debug/") end
 
 local util = require("__AbandonedRuins__/utilities")
+local spawning = require("__AbandonedRuins__/spawning")
 local small_ruins = require("__AbandonedRuins__/smallRuins")
 local medium_ruins = require("__AbandonedRuins__/mediumRuins")
 local large_ruins = require("__AbandonedRuins__/largeRuins")
@@ -63,7 +64,7 @@ script.on_init(function()
   for half_size, ruin_list in pairs(all_ruins) do
     for _, ruin in pairs(ruin_list) do
       local center = util.get_center_of_chunk({x = x, y = y})
-      util.spawn_ruin(ruin, half_size, center, surface)
+      spawning.spawn_ruin(ruin, half_size, center, surface)
       draw_dimensions(center, half_size, surface)
 
       x = x + 1

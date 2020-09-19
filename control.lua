@@ -1,4 +1,5 @@
 local util = require("utilities")
+local spawning = require("spawning")
 local small_ruins = require("smallRuins")
 local medium_ruins = require("mediumRuins")
 local large_ruins = require("largeRuins")
@@ -42,15 +43,15 @@ script.on_event(defines.events.on_chunk_generated,
       center.x = center.x + math.random(-10,10)
       center.y = center.y + math.random(-10,10)
 
-      util.spawn_random_ruin(small_ruins, util.SMALL_RUIN_HALF_SIZE, center, e.surface)
+      spawning.spawn_random_ruin(small_ruins, util.SMALL_RUIN_HALF_SIZE, center, e.surface)
     elseif spawn_type <= global.spawn_table.medium then --spawn medium ruin
       --random variance so they aren't always chunk aligned
       center.x = center.x + math.random(-5,5)
       center.y = center.y + math.random(-5,5)
 
-      util.spawn_random_ruin(medium_ruins, util.MEDIUM_RUIN_HALF_SIZE, center, e.surface)
+      spawning.spawn_random_ruin(medium_ruins, util.MEDIUM_RUIN_HALF_SIZE, center, e.surface)
     elseif spawn_type <= global.spawn_table.large then --spawn large ruin
-      util.spawn_random_ruin(large_ruins, util.LARGE_RUIN_HALF_SIZE, center, e.surface)
+      spawning.spawn_random_ruin(large_ruins, util.LARGE_RUIN_HALF_SIZE, center, e.surface)
     end
   end
 )
