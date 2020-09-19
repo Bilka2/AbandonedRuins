@@ -31,6 +31,18 @@ local function resolve_function_table_or_number(t)
 end
 
 local function spawn_entity(entity, relative_position, center, surface, extra_options, prototypes)
+  if type(entity) == "table" then
+    if entity.type == "random-of-entity-type" then
+      local entities = {}
+      for k in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = entity.entity_type}})) do
+        entities[#entities+1] = k
+      end
+      entity = entities[math.random(#entities)]
+    else
+      error("unrecognized function type")
+    end
+  end
+
   if not prototypes[entity] then
     util.debugprint(entity .. " does not exist") -- TODO Bilka: Maybe log instead
     return
