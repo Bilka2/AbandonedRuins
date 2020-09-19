@@ -14,7 +14,7 @@ local function draw_dimensions(center, half_size, surface)
     from = {center.x + 0.5, center.y},
     to = {center.x - 0.5, center.y},
     width = 2,
-    color = {b = 1},
+    color = {b = 0.5, a = 0.5},
     surface = surface
   })
   rendering.draw_line(
@@ -22,7 +22,7 @@ local function draw_dimensions(center, half_size, surface)
     from = {center.x, center.y + 0.5},
     to = {center.x, center.y - 0.5},
     width = 2,
-    color = {b = 1},
+    color = {b = 0.5, a = 0.5},
     surface = surface
   })
   rendering.draw_rectangle(
@@ -82,4 +82,5 @@ script.on_event(defines.events.on_player_created, function(event)
   player.toggle_map_editor()
   game.tick_paused = false
   player.teleport({0, 0}, SURFACE_NAME)
+  player.force = "neutral" -- TODO Bilka
 end)
