@@ -1,11 +1,15 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.3.0
+Version: 1.0.0
 Date: ???
-  Minor Features:
+  Features:
     - Updated to Factorio 1.0.
+    - Completely new ruin spawning algorithm and data structure.
     - Added scenario that spawns all ruins, for mod debug.
     - Added remote interface to disable ruin spawning.
-    - Code cleanup.
+  Bugfixes:
+    - Fixed that ruins could spawn in space in the Space Exploration mod (again).
+    - Fixed that my uses of set_tiles and entity.destroy were not raising events.
+    - Fixed that the military fort ruin sometimes spawned without concrete.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.9
 Date: 08. 05. 2020
