@@ -8,5 +8,7 @@ Explore them for loot, adventure, or entertainment, but beware, some still have 
 
 The ruin defenses can be set to be non-hostile in the mod settings. The spawn rates of ruins are also configurable.
 
-Want to add your own ruins to this mod or make a compatibility path for another mod?
-Check out <!--- the [ruin maker mod](https://mods.factorio.com/mod/ruin-maker), the [contributing guidelines](/docs/CONTRIBUTING.md) and --> the documentation of the [ruin data format](/docs/format.md).
+Want to add your own ruins to this mod or make a compatibility patch for another mod?
+Check out <!--- the [ruin maker mod](https://mods.factorio.com/mod/ruin-maker), the [contributing guidelines](docs/CONTRIBUTING.md) and --> the documentation of the [ruin data format](docs/format.md).
+
+The remote interfaces that this mod provides are described with comments at the end of [control.lua](control.lua#L81).

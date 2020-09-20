@@ -19,14 +19,17 @@ local function spawn_chances()
   global.spawn_table = {small = smallThreshold, medium = mediumThreshold, large = largeThreshold}
 end
 
-
-
 local function init()
   util.set_enemy_force_cease_fire(util.get_enemy_force(), not settings.global["AbandonedRuins-enemy-not-cease-fire"].value)
   spawn_chances()
   if global.spawn_ruins == nil then
     global.spawn_ruins = true
   end
+  global.excluded_surfaces = global.excluded_surfaces or {}
+  global.excluded_surfaces["beltlayer"] = true
+  global.excluded_surfaces["pipelayer"] = true
+  global.excluded_surfaces["Factory floor"] = true -- factorissimo
+  global.excluded_surfaces["ControlRoom"] = true -- mobile factory
 end
 
 script.on_init(init)
@@ -35,6 +38,8 @@ script.on_event(defines.events.on_runtime_mod_setting_changed, init)
 
 script.on_event(defines.events.on_chunk_generated,
   function (e)
+    if util.str_contains_any_from_table(e.surface.name, global.excluded_surfaces) then return end
+
     if global.spawn_ruins == false then return end -- ruin spawning is disabled
 
     local center = util.get_center_of_chunk(e.position)
@@ -75,11 +80,30 @@ end)
 
 remote.add_interface("AbandonedRuins",
 {
+  -- Set whether ruins should be spawned at all
   set_spawn_ruins = function(spawn_ruins)
-      if type(spawn_ruins) ~= "boolean" then
-        error("Remote call parameter to set_spawn_ruins for AbandonedRuins must be a boolean value.")
-      end
-      global.spawn_ruins = spawn_ruins
-    end,
-  get_spawn_ruins = function() return global.spawn_ruins end
+    if type(spawn_ruins) ~= "boolean" then
+      error("Remote call parameter to set_spawn_ruins for AbandonedRuins must be a boolean value.")
+    end
+    global.spawn_ruins = spawn_ruins
+  end,
+
+  -- Get whether ruins should be spawned at all
+  get_spawn_ruins = function() return global.spawn_ruins end,
+
+  -- Any surface whose name contains this string will not have ruins generated on it.
+  exclude_surface = function(name)
+    if type(name) ~= "string" then
+      error("Remote call parameter to exclude_surface for AbandonedRuins must be a string value.")
+    end
+    global.excluded_surfaces[name] = true
+  end,
+
+  -- You excluded a surface at some earlier point but you don't want it excluded anymore.
+  reinclude_surface = function(name)
+    if type(name) ~= "string" then
+      error("Remote call parameter to reinclude_surface for AbandonedRuins must be a string value.")
+    end
+    global.excluded_surfaces[name] = nil
+  end
 })

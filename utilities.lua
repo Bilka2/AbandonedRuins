@@ -14,6 +14,16 @@ util.area_from_center_and_half_size = function(half_size, center)
   return {{center.x - half_size, center.y - half_size}, {center.x + half_size, center.y + half_size}}
 end
 
+-- haystack is a string, needles is a table with key/values pairs of string = true. The value is ignored.
+util.str_contains_any_from_table = function(haystack, needles)
+  for needle in pairs(needles) do
+    if haystack:find(needle, 1, true) then -- plain find, no pattern
+      return true
+    end
+  end
+  return false
+end
+
 util.safe_insert = base_util.insert_safe -- (entity, item_dict: {name = count})
 
 util.safe_damage = function(entity, damage)
