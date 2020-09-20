@@ -10,6 +10,7 @@ Date: ???
     - Fixed that ruins could spawn in space in the Space Exploration mod (again).
     - Fixed that my uses of set_tiles and entity.destroy were not raising events.
     - Fixed that the military fort ruin sometimes spawned without concrete.
+    - Fixed that ruins could not be deconstructed (still wont show entities as selected during dragging).
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.9
 Date: 08. 05. 2020
