@@ -40,6 +40,10 @@ script.on_init(function()
   -- Disable normal spawning
   remote.call("AbandonedRuins", "set_spawn_ruins", false)
 
+  -- Make sure the custom enemy force exists:
+  --   This scenario on_init is called before the mod on_init which creates the force :/
+  assert(util.get_enemy_force())
+
   -- Set up the debug surface
   local total_ruins_amount = #small_ruins + #medium_ruins + #large_ruins
   local chunk_radius = math.ceil(math.sqrt(total_ruins_amount) / 2)
@@ -82,5 +86,5 @@ script.on_event(defines.events.on_player_created, function(event)
   player.toggle_map_editor()
   game.tick_paused = false
   player.teleport({0, 0}, SURFACE_NAME)
-  player.force = "neutral" -- TODO Bilka
+  player.force = "neutral"
 end)

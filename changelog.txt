@@ -4,7 +4,9 @@ Date: ???
   Features:
     - Updated to Factorio 1.0.
     - Completely new ruin spawning algorithm and data structure.
+    - Added a setting to make ruin defenses non-hostile.
     - Added scenario that spawns all ruins, for mod debug.
+  Scripting:
     - Added remote interface to disable ruin spawning.
   Bugfixes:
     - Fixed that ruins could spawn in space in the Space Exploration mod (again).

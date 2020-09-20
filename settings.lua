@@ -1,10 +1,17 @@
 data:extend({
   {
+    type = "bool-setting",
+    name = "AbandonedRuins-enemy-not-cease-fire",
+    setting_type = "runtime-global",
+    default_value = true,
+    order = "a",
+  },
+  {
     type = "int-setting",
     name = "ruins-min-distance-from-spawn",
     setting_type = "runtime-global",
     default_value = 200,
-    order = "a",
+    order = "ab",
   },
   {
     type = "double-setting",

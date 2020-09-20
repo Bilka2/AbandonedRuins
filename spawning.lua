@@ -41,12 +41,17 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
     return
   end
 
+  local force = extra_options.force or "neutral"
+  if extra_options.force == "enemy" then
+    force = util.get_enemy_force()
+  end
+
   local e = surface.create_entity
   {
     name = entity,
     position = {center.x + relative_position.x, center.y + relative_position.y},
     direction = defines.direction[extra_options.dir] or defines.direction.north,
-    force = extra_options.force or "neutral",
+    force = force,
     raise_built = true,
     create_build_effect_smoke = false,
     recipe = extra_options.recipe

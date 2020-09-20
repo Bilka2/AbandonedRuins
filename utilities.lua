@@ -21,4 +21,35 @@ util.safe_damage = function(entity, damage)
   entity.damage(damage.dmg, damage.force or "neutral", damage.type or "physical")
 end
 
+util.set_enemy_force_cease_fire = function(enemy, bool)
+  for _, force in pairs(game.forces) do
+    if force ~= enemy then
+      force.set_cease_fire(enemy, bool)
+      enemy.set_cease_fire(force, bool)
+    end
+  end
+end
+
+local function setup_enemy_force()
+  local enemy = game.forces["AbandonedRuins:enemy"] or game.create_force("AbandonedRuins:enemy")
+
+  for _, force in pairs(game.forces) do
+    if force.ai_controllable then
+      force.set_friend(enemy, true)
+      enemy.set_friend(force, true)
+    end
+  end
+  util.set_enemy_force_cease_fire(enemy, false)
+
+  global.enemy_force = enemy
+  return enemy
+end
+
+util.get_enemy_force = function()
+  if (global.enemy_force and global.enemy_force.valid) then
+    return global.enemy_force
+  end
+  return setup_enemy_force()
+end
+
 return util

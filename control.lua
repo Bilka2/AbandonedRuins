@@ -19,16 +19,19 @@ local function spawn_chances()
   global.spawn_table = {small = smallThreshold, medium = mediumThreshold, large = largeThreshold}
 end
 
-local function init_globals()
+
+
+local function init()
+  util.set_enemy_force_cease_fire(util.get_enemy_force(), not settings.global["AbandonedRuins-enemy-not-cease-fire"].value)
   spawn_chances()
   if global.spawn_ruins == nil then
     global.spawn_ruins = true
   end
 end
 
-script.on_init(init_globals)
-script.on_configuration_changed(init_globals)
-script.on_event(defines.events.on_runtime_mod_setting_changed, spawn_chances)
+script.on_init(init)
+script.on_configuration_changed(init)
+script.on_event(defines.events.on_runtime_mod_setting_changed, init)
 
 script.on_event(defines.events.on_chunk_generated,
   function (e)
