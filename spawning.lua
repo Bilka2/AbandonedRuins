@@ -14,12 +14,12 @@ local function resolve_function_table_or_number(t)
     if t.type == "random" then
       return math.random(t.min, t.max)
     else
-      error("unrecognized function type")
+      error("Unrecognized number_function type: " .. t.type)
     end
   elseif type(t) == "number" then
     return t
   else
-    error("received something that is not a number or table in resolve_function_table_or_number")
+    error("received something that is not a number or table as number_function")
   end
 end
 
@@ -32,7 +32,7 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
       end
       entity = entities[math.random(#entities)]
     else
-      error("unrecognized function type")
+      error("Unrecognized entity_function type: " .. entity.type)
     end
   end
 
