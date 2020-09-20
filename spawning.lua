@@ -76,7 +76,7 @@ local function spawn_entities(entities, center, surface)
   local prototypes = game.entity_prototypes
 
   for _, entity_info in pairs(entities) do
-    spawn_entity(entity_info[1], entity_info[2], center, surface, entity_info[3], prototypes)
+    spawn_entity(entity_info[1], entity_info[2], center, surface, entity_info[3] or {}, prototypes)
   end
 end
 
