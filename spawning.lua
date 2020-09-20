@@ -110,8 +110,10 @@ local function clear_area(half_size, center, surface)
     return false
   end
 
-  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"resource", "tree"}, invert = true})) do
-    entity.destroy({do_cliff_correction = true, raise_destroy = true})
+  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"resource"}, invert = true})) do
+    if (entity.valid and entity.type ~= "tree") or math.random() < 0.6 then
+      entity.destroy({do_cliff_correction = true, raise_destroy = true})
+    end
   end
 
   return true
