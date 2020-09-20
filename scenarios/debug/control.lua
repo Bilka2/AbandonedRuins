@@ -2,9 +2,9 @@ if __DebugAdapter then __DebugAdapter.levelPath("AbandonedRuins","scenarios/debu
 
 local util = require("__AbandonedRuins__/utilities")
 local spawning = require("__AbandonedRuins__/spawning")
-local small_ruins = require("__AbandonedRuins__/smallRuins")
-local medium_ruins = require("__AbandonedRuins__/mediumRuins")
-local large_ruins = require("__AbandonedRuins__/largeRuins")
+local small_ruins = require("__AbandonedRuins__/ruins/smallRuins")
+local medium_ruins = require("__AbandonedRuins__/ruins/mediumRuins")
+local large_ruins = require("__AbandonedRuins__/ruins/largeRuins")
 
 local SURFACE_NAME = "ruins"
 

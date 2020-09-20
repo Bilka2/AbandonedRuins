@@ -1,8 +1,8 @@
 local util = require("utilities")
 local spawning = require("spawning")
-local small_ruins = require("smallRuins")
-local medium_ruins = require("mediumRuins")
-local large_ruins = require("largeRuins")
+local small_ruins = require("ruins/smallRuins")
+local medium_ruins = require("ruins/mediumRuins")
+local large_ruins = require("ruins/largeRuins")
 
 local function spawn_chances()
   local smallChance = settings.global["ruins-small-ruin-chance"].value
