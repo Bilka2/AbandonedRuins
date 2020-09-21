@@ -1,6 +1,6 @@
 # The Ruins Mod
 
-***You weren't the first to come here... you won't be the last...***
+*You weren't the first to come here... you won't be the last...*
 
 Ruins adds a good amount of randomly spawning ruins to world generation. These ruins are destroyed fragments of bases, small forts, etc. There are three categories of ruins, small, medium, and large, with respective decreasing spawn chance per generated chunk.
 
