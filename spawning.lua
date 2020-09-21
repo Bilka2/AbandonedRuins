@@ -1,4 +1,5 @@
 local util = require("utilities")
+local expressions = require("expression_parsing")
 
 local spawning = {}
 
@@ -9,32 +10,8 @@ local function no_corpse_fade(half_size, center, surface)
   end
 end
 
-local function resolve_function_table_or_number(t)
-  if type(t) == "table" then
-    if t.type == "random" then
-      return math.random(t.min, t.max)
-    else
-      error("Unrecognized number_function type: " .. t.type)
-    end
-  elseif type(t) == "number" then
-    return t
-  else
-    error("received something that is not a number or table as number_function")
-  end
-end
-
-local function spawn_entity(entity, relative_position, center, surface, extra_options, prototypes)
-  if type(entity) == "table" then
-    if entity.type == "random-of-entity-type" then
-      local entities = {}
-      for k in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = entity.entity_type}})) do
-        entities[#entities+1] = k
-      end
-      entity = entities[math.random(#entities)]
-    else
-      error("Unrecognized entity_function type: " .. entity.type)
-    end
-  end
+local function spawn_entity(entity, relative_position, center, surface, extra_options, vars, prototypes)
+  entity = expressions.entity(entity, vars)
 
   if not prototypes[entity] then
     util.debugprint("entity " .. entity .. " does not exist")
@@ -58,25 +35,25 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
   }
 
   if extra_options.dmg then
-    extra_options.dmg.dmg = resolve_function_table_or_number(extra_options.dmg.dmg)
+    extra_options.dmg.dmg = expressions.number(extra_options.dmg.dmg, vars)
     util.safe_damage(e, extra_options.dmg)
   end
   if extra_options.items then
     local items = {}
     for name, count in pairs(extra_options.items) do
-      items[name] = resolve_function_table_or_number(count)
+      items[name] = expressions.number(count, vars)
     end
     util.safe_insert(e, items)
   end
 end
 
-local function spawn_entities(entities, center, surface)
+local function spawn_entities(entities, center, surface, vars)
   if not entities then return end
 
   local prototypes = game.entity_prototypes
 
   for _, entity_info in pairs(entities) do
-    spawn_entity(entity_info[1], entity_info[2], center, surface, entity_info[3] or {}, prototypes)
+    spawn_entity(entity_info[1], entity_info[2], center, surface, entity_info[3] or {}, vars, prototypes)
   end
 end
 
@@ -103,6 +80,23 @@ local function spawn_tiles(tiles, center, surface)
     true) -- raise_event,                  Default: false
 end
 
+local function parse_variables(vars)
+  if not vars then return end
+  local parsed = {}
+
+  for _, var in pairs(vars) do
+    if var.type == "entity-expression" then
+      parsed[var.name] = expressions.entity(var.value)
+    elseif var.type == "number-expression" then
+      parsed[var.name] = expressions.number(var.value)
+    else
+      error("Unrecognized variable type: " .. var.type)
+    end
+  end
+
+  return parsed
+end
+
 local function clear_area(half_size, center, surface)
   local area = util.area_from_center_and_half_size(half_size, center)
   -- exclude tiles that we shouldn't spawn on
@@ -111,7 +105,7 @@ local function clear_area(half_size, center, surface)
   end
 
   for _, entity in pairs(surface.find_entities_filtered({area = area, type={"resource"}, invert = true})) do
-    if (entity.valid and entity.type ~= "tree") or math.random() < 0.6 then
+    if (entity.valid and entity.type ~= "tree") or math.random() < (half_size / 14) then
       entity.destroy({do_cliff_correction = true, raise_destroy = true})
     end
   end
@@ -121,7 +115,8 @@ end
 
 spawning.spawn_ruin = function(ruin, half_size, center, surface)
   if clear_area(half_size, center, surface) then
-    spawn_entities(ruin.entities, center, surface)
+    local vars = parse_variables(ruin.variables)
+    spawn_entities(ruin.entities, center, surface, vars)
     spawn_tiles(ruin.tiles, center, surface)
     no_corpse_fade(half_size, center, surface)
   end

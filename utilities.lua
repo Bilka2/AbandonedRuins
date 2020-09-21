@@ -24,6 +24,14 @@ util.str_contains_any_from_table = function(haystack, needles)
   return false
 end
 
+-- extend table 1 with table 2
+-- no safety checks, very naive
+util.extend = function(table1, table2)
+  for k,v in pairs(table2) do
+    table1[k] = v
+  end
+end
+
 util.safe_insert = base_util.insert_safe -- (entity, item_dict: {name = count})
 
 util.safe_damage = function(entity, damage)
@@ -31,11 +39,11 @@ util.safe_damage = function(entity, damage)
   entity.damage(damage.dmg, damage.force or "neutral", damage.type or "physical")
 end
 
-util.set_enemy_force_cease_fire = function(enemy, bool)
+util.set_enemy_force_cease_fire = function(enemy, cease_fire)
   for _, force in pairs(game.forces) do
     if force ~= enemy then
-      force.set_cease_fire(enemy, bool)
-      enemy.set_cease_fire(force, bool)
+      force.set_cease_fire(enemy, cease_fire)
+      enemy.set_cease_fire(force, cease_fire)
     end
   end
 end

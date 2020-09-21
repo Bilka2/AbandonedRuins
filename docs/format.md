@@ -1,8 +1,9 @@
 # Ruin data format
 
 A .lua file for a ruin returns one huge dictionary (Lua table). This Lua table contains the following optional key/value pairs:
-* entities - Array of [entities](#Entity)
-* tiles - Array of [tiles](#Tile)
+* entities - Array of [Entities](#Entity) - The entities that are part of this ruin.
+* tiles - Array of [Tiles](#Tile) - The tiles that are part of this ruin.
+* variables - Array of [Variables](#Variable) - The variables that may be used for this ruin.
 
 ### Examples
 
@@ -49,7 +50,7 @@ return
 ## Entity
 
 An array:
-* [Entity expression](#Entity_expression) - Mandatory. - The first member specifies the entity name.
+* [Entity expression](#Entity-expression) - Mandatory. - The first member specifies the entity name.
 * [Position](#Position) - Mandatory. - The second member specifies the position of the entity, relative to the center of the ruin.
 * [Entity_options](#Entity_options) - Optional. - The third member specifies extra options for the entity creation, for example the entity force.
 
@@ -65,8 +66,8 @@ An array:
 ## Entity_options
 
 A table with the following optional key/value pairs:
-* force - string - Optional. - Name of the force the entity. Defaults to "neutral", use "enemy" for base defenses.
-* dir - string - Optional. - Direction the entity. Defaults to "north".
+* force - string - Optional. - Name of the force of the entity. Defaults to "neutral", use "enemy" for base defenses.
+* dir - string - Optional. - Direction of the entity. Defaults to "north".
 * items - [Items](#Items) - Optional. - Items inserted into the entity after spawning. Defaults to no items.
 * dmg - [Damage](#Damage) - Optional. - Damage the entity takes after spawning. Defaults to 0 physical damage from the neutral force.
 * recipe - string - Optional. - Name of the recipe of this assembling machine. Defaults to no recipe.
@@ -90,18 +91,110 @@ An array:
 `{"concrete", {x = -1, y = -1}}`<br>
 `{"water", {x = -1, y = -1}}`
 
-## Entity_expression
+## Variable
 
-An entity name (string) or a table with the following key/value pairs:
-* type - string - Mandatory. - Type of the entity expression. Available types: "random-of-entity-type" - random entity from the given entity_type
-* entity_type - string - Mandatory for type "random-of-entity-type". - Entity type of the random entity.
+Variable values are evaluated only once per ruin and can then be referenced in number and entity expression. In contrast, "raw" number and entity expressions are evaluated every time they are encountered.
+
+A table with the following key/value pairs:
+* name - string - Mandatory. - Name of the variable, used to reference the variable later.
+* type - string - Mandatory. - "number-expression" or "entity-expression", decides the type of "value".
+* value - [Entity expression](#Entity-expression) or [Number expression](#Number-expression) - Mandatory. - The value to be assigned to this variable. The type of this must be given by "type".
+
+Note:
+* If you define two variables with the same name, the second definition will overwrite the first definition.
+* Number and entity expression types that reference variables are not available to be assigned to a variable here.
+
+### Examples
+
+`{name = "random-inserter", type = "entity-expression", value = {type = "random-of-entity-type", entity_type = "inserter"}}`<br>
+`{name = "small-amount", type = "number-expression", value = {type = "random", min = 1, max = 12}}`
+
+These examples contain the entire ruin so that the usecase of variable is clear. You may also see their use in the ruins [orchard](ruins\largeRuins\orchard.lua) and [walledOrchard](ruins\largeRuins\walledOrchard.lua).
+
+```lua
+-- The will be the same amount of both magazines in the chest, but that amount is random for every ruin.
+return
+{
+  variables =
+  {
+    {name = "amount", type = "number-expression", value = {type = "random", min = 20, max = 62}}
+  },
+  entities =
+  {
+    {"wooden-chest", {x = 1.5, y = 1.5}, {items = {["firearm-magazine"] = {type = "variable", name = "amount"}, ["piercing-rounds-magazine"] = {type = "variable", name = "amount"}}}}
+  }
+}
+```
+```lua
+-- The chosen splitter will be random per ruin, but it will be the same splitters in the same ruin.
+-- So e.g. a ruin can be made of fast-splitters. The different splitter types won't mix in the same ruin.
+return
+{
+  variables =
+  {
+    {name = "random-splitter", type = "entity-expression", value = {type = "random-of-entity-type", entity_type = "splitter"}}
+  },
+  entities =
+  {
+    {{type = "variable", name = "random-splitter"}, {x = 1, y = -0.5}},
+    {{type = "variable", name = "random-splitter"}, {x = 0, y = 0.5}},
+    {{type = "variable", name = "random-splitter"}, {x = 1, y = 1.5}},
+    {{type = "variable", name = "random-splitter"}, {x = 2, y = 0.5}},
+  }
+}
+```
+
+## Entity-expression
+
+An entity name (string) or a table with the "type" key which as a string value. The rest of the table key/value pairs depend on the used type.
+Available types are "random-of-entity-type", "variable" and "random-variable", their behaviours are listed below.
+
+**type = "random-of-entity-type"**<br>
+Random entity of the given entity_type. Expected key/value pairs:
+* entity_type - string - Mandatory. - Entity type of the random entity.
+
+**type = "variable"**<br>
+A reference to a [Variable](#Variable) that was previously defined for this ruin. Expected key/value pairs:
+* name - string - Mandatory. - Name of the variable.
+
+**type = "random-variable"**<br>
+Random [Variable](#Variable) from the given list. Expected key/value pairs:
+* variables - array of strings - Mandatory. - Variable names. A random variable name is chosen from these.
 
 ### Examples
 
 `"stone-wall"`<br>
 `"fast-inserter"`<br>
 `{type = "random-of-entity-type", entity_type = "tree"}`<br>
-`{type = "random-of-entity-type", entity_type = "splitter"}`
+`{type = "random-of-entity-type", entity_type = "splitter"}`<br>
+`{type = "variable", name = "random-inserter"}`<br>
+`{type = "random-variable", variables = {"random-tree-1", "random-tree-2"}}`
+
+## Number-expression
+
+A number or a table with the "type" key which as a string value. The rest of the table key/value pairs depend on the used type.
+Available types are "random", "variable" and "random-variable", their behaviours are listed below.
+
+**type = "random"**<br>
+Random integer from math.random(). Expected key/value pairs:
+* min - number - Mandatory. - Inclusive lower bound on the random number.
+* max - number - Mandatory. - Inclusive upper bound on the random number.
+
+**type = "variable"**<br>
+A reference to a [Variable](#Variable) that was previously defined for this ruin. Expected key/value pairs:
+* name - string - Mandatory. - Name of the variable.
+
+**type = "random-variable"**<br>
+Random [Variable](#Variable) from the given list. Expected key/value pairs:
+* variables - array of strings - Mandatory. - Variable names. A random variable name is chosen from these.
+
+### Examples
+
+`20`<br>
+`0.92`<br>
+`{type = "random", min = 100, max = 300} -- gives ints`<br>
+`{type = "variable", name = "foo"}`<br>
+`{type = "random-variable", variables = {"foo", "bar"}}`
 
 ## Position
 
@@ -133,7 +226,7 @@ A string. Possible values are:
 
 A table with the following key/value pairs:
 
-* dmg - [Number expression](#Number_expression) - Mandatory. - The amount of damage to be done.
+* dmg - [Number expression](#Number-expression) - Mandatory. - The amount of damage to be done.
 * type - string - Optional. - Damage type. Defaults to "physical".
 * force - [ForceSpecification](https://lua-api.factorio.com/latest/Concepts.html#ForceSpecification) - Optional. - The force that will be doing the damage. Defaults to "neutral".
 
@@ -148,7 +241,7 @@ A table with the following key/value pairs:
 
 ## Items
 
-A dictionary of items names (strings) to [number expressions](#Number_expression).
+A dictionary of items names (strings) to [number expressions](#Number-expression).
 Numbers of items must be unsigned intergers.
 
 ### Examples
@@ -157,16 +250,3 @@ Numbers of items must be unsigned intergers.
 `{stone = {type = "random", min = 0, max = 12}}`<br>
 `{["iron-plate"] = 14, ["coal"] = 98, ["firearm-magazine"] = {type = "random", min = 100, max = 500}}`<br>
 `{["wood"] = {type = "random", min = 5, max = 50}, ["raw-fish"] = 20, ["copper-plate"] = {type = "random", min = 100, max = 300}}`
-
-## Number_expression
-
-A number or a table with the following key/value pairs:
-* type - string - Mandatory. - Type of the number expression. Available types: "random" - random number from math.random()
-* min - number - Mandatory for type "random". - Inclusive lower bound on the random number.
-* max - number - Mandatory for type "random". - Inclusive upper bound on the random number.
-
-### Examples
-
-`20`<br>
-`0.92`<br>
-`{type = "random", min = 100, max = 300} -- gives ints`
