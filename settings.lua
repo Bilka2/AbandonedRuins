@@ -39,5 +39,13 @@ data:extend({
     minimum_value = 0.0,
     maximum_value = 1.0,
     order = "b",
+  },
+  {
+    type = "string-setting",
+    name = "AbandonedRuins-set",
+    setting_type = "runtime-global",
+    allowed_values = {"base"},
+    default_value = "base",
+    order = "e",
   }
 })

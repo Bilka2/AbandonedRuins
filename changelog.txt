@@ -5,12 +5,15 @@ Date: ???
     - Updated to Factorio 1.0.
     - Completely new ruin spawning algorithm and data structure.
     - Added a setting to make ruin defenses non-hostile.
+    - Added a setting to select which ruin set to use.
+    - Added the ability for other mods to add their own ruin sets.
     - Added scenario that spawns all ruins, for mod debug.
   Changes:
     - Ruins in forests are now less overgrown.
   Scripting:
     - Added a remote interface to disable ruin spawning.
     - Added a remote interface to exclude surfaces from ruin generation.
+    - Added a remote interface for ruin sets.
   Bugfixes:
     - Fixed that ruins could spawn in space in the Space Exploration mod (again).
     - Fixed that my uses of set_tiles and entity.destroy were not raising events.

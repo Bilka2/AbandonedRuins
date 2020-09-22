@@ -1,8 +1,7 @@
 local util = require("utilities")
 local spawning = require("spawning")
-local small_ruins = require("ruins/smallRuins")
-local medium_ruins = require("ruins/mediumRuins")
-local large_ruins = require("ruins/largeRuins")
+local ruin_sets = {}
+ruin_sets.base = require("ruins/base_ruin_set")
 
 local function spawn_chances()
   local smallChance = settings.global["ruins-small-ruin-chance"].value
@@ -36,6 +35,10 @@ script.on_init(init)
 script.on_configuration_changed(init)
 script.on_event(defines.events.on_runtime_mod_setting_changed, init)
 
+local function spawn_ruin(size, center, surface)
+  spawning.spawn_random_ruin(ruin_sets[settings.global["AbandonedRuins-set"].value][size], util.ruin_half_sizes[size], center, surface)
+end
+
 script.on_event(defines.events.on_chunk_generated,
   function (e)
     if util.str_contains_any_from_table(e.surface.name, global.excluded_surfaces) then return end
@@ -51,15 +54,15 @@ script.on_event(defines.events.on_chunk_generated,
       center.x = center.x + math.random(-10,10)
       center.y = center.y + math.random(-10,10)
 
-      spawning.spawn_random_ruin(small_ruins, util.SMALL_RUIN_HALF_SIZE, center, e.surface)
+      spawn_ruin("small", center, e.surface)
     elseif spawn_type <= global.spawn_table.medium then --spawn medium ruin
       --random variance so they aren't always chunk aligned
       center.x = center.x + math.random(-5,5)
       center.y = center.y + math.random(-5,5)
 
-      spawning.spawn_random_ruin(medium_ruins, util.MEDIUM_RUIN_HALF_SIZE, center, e.surface)
+      spawn_ruin("medium", center, e.surface)
     elseif spawn_type <= global.spawn_table.large then --spawn large ruin
-      spawning.spawn_random_ruin(large_ruins, util.LARGE_RUIN_HALF_SIZE, center, e.surface)
+      spawn_ruin("large", center, e.surface)
     end
   end
 )
@@ -105,5 +108,33 @@ remote.add_interface("AbandonedRuins",
       error("Remote call parameter to reinclude_surface for AbandonedRuins must be a string value.")
     end
     global.excluded_surfaces[name] = nil
+  end,
+
+  -- !! ALWAYS call this in on_load and on_init. !!
+  -- !! The ruins sets are not save/loaded. !!
+  -- small_ruins, medium_ruins and large_ruins are each arrays of ruins.
+  -- The ruins should have the sizes given in util.ruin_half_sizes, e.g. ruins in the small_ruins array should be 8x8 tiles.
+  -- See also: docs/ruin_sets.md
+  add_ruin_set = function(name, small_ruins, medium_ruins, large_ruins)
+    assert(small_ruins and next(small_ruins))
+    assert(medium_ruins and next(medium_ruins))
+    assert(large_ruins and next(large_ruins))
+
+    ruin_sets[name] = {}
+    ruin_sets[name].small = small_ruins
+    ruin_sets[name].medium = medium_ruins
+    ruin_sets[name].large = large_ruins
+  end,
+
+  -- !! The ruins sets are not save/loaded. !!
+  -- returns {small = {<array of ruins>}, medium = {<array of ruins>}, large = {<array of ruins>}}
+  get_ruin_set = function(name)
+    return ruin_sets[name]
+  end,
+
+  -- !! The ruins sets are not save/loaded. !!
+  -- returns {small = {<array of ruins>}, medium = {<array of ruins>}, large = {<array of ruins>}}
+  get_current_ruin_set = function()
+    return ruin_sets[settings.global["AbandonedRuins-set"].value]
   end
 })

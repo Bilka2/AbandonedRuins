@@ -1,9 +1,12 @@
 local base_util = require("__core__/lualib/util")
 
 local util = {}
-util.SMALL_RUIN_HALF_SIZE = 8 / 2
-util.MEDIUM_RUIN_HALF_SIZE = 16 / 2
-util.LARGE_RUIN_HALF_SIZE = 32 / 2
+util.ruin_half_sizes =
+{
+  small = 8 / 2,
+  medium = 16 / 2,
+  large = 32 / 2
+}
 util.debugprint = __DebugAdapter and __DebugAdapter.print or function() end
 
 util.get_center_of_chunk = function(chunk_position)

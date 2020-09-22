@@ -2,9 +2,6 @@ if __DebugAdapter then __DebugAdapter.levelPath("AbandonedRuins","scenarios/debu
 
 local util = require("__AbandonedRuins__/utilities")
 local spawning = require("__AbandonedRuins__/spawning")
-local small_ruins = require("__AbandonedRuins__/ruins/smallRuins")
-local medium_ruins = require("__AbandonedRuins__/ruins/mediumRuins")
-local large_ruins = require("__AbandonedRuins__/ruins/largeRuins")
 
 local SURFACE_NAME = "ruins"
 
@@ -39,13 +36,16 @@ end
 script.on_init(function()
   -- Disable normal spawning
   remote.call("AbandonedRuins", "set_spawn_ruins", false)
+end)
 
-  -- Make sure the custom enemy force exists:
-  --   This scenario on_init is called before the mod on_init which creates the force :/
-  assert(util.get_enemy_force())
+
+script.on_event(defines.events.on_player_created, function(event)
+  -- This stuff is all here instead of on_init because this relies on other mod's on_init,
+  --  which run after the scenario on_init, but before scenario on_player_created
 
   -- Set up the debug surface
-  local total_ruins_amount = #small_ruins + #medium_ruins + #large_ruins
+  local ruin_set = remote.call("AbandonedRuins", "get_current_ruin_set")
+  local total_ruins_amount = #ruin_set.small + #ruin_set.medium + #ruin_set.large
   local chunk_radius = math.ceil(math.sqrt(total_ruins_amount) / 2)
   local mgs = {}
   mgs.width = chunk_radius * 2 * 32
@@ -58,18 +58,14 @@ script.on_init(function()
   surface.force_generate_chunk_requests()
 
   -- Spawn all ruins at once, small to big, top left to bottom right
-  local all_ruins = {}
-  all_ruins[util.SMALL_RUIN_HALF_SIZE] = small_ruins
-  all_ruins[util.MEDIUM_RUIN_HALF_SIZE] = medium_ruins
-  all_ruins[util.LARGE_RUIN_HALF_SIZE] = large_ruins
   local x = -chunk_radius
   local y = -chunk_radius
 
-  for half_size, ruin_list in pairs(all_ruins) do
+  for size, ruin_list in pairs(ruin_set) do
     for _, ruin in pairs(ruin_list) do
       local center = util.get_center_of_chunk({x = x, y = y})
-      spawning.spawn_ruin(ruin, half_size, center, surface)
-      draw_dimensions(center, half_size, surface)
+      spawning.spawn_ruin(ruin, util.ruin_half_sizes[size], center, surface)
+      draw_dimensions(center, util.ruin_half_sizes[size], surface)
 
       x = x + 1
       if (x >= chunk_radius) then
@@ -78,10 +74,8 @@ script.on_init(function()
       end
     end
   end
-end)
 
--- Enable map editor for the player
-script.on_event(defines.events.on_player_created, function(event)
+  -- Enable map editor for the player
   local player = game.get_player(event.player_index)
   player.toggle_map_editor()
   game.tick_paused = false

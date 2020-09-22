@@ -6,9 +6,12 @@ Ruins adds a good amount of randomly spawning ruins to world generation. These r
 
 Explore them for loot, adventure, or entertainment, but beware, some still have running defenses from the last player that landed on the planet, with more successful colonies having better defenses. The biters have deactivated these defenses towards themselves, but the turrets won't recognize you...
 
-The ruin defenses can be set to be non-hostile in the mod settings. The spawn rates of ruins are also configurable.
+The ruin defenses can be set to be non-hostile in the mod settings. The spawn rates of ruins are also configurable. Other mods can add their own set of ruins.
 
-Want to add your own ruins to this mod or make a compatibility patch for another mod?
+Want to add your ruins to this mod?
 Check out <!--- the [ruin maker mod](https://mods.factorio.com/mod/ruin-maker), the [contributing guidelines](docs/CONTRIBUTING.md) and --> the documentation of the [ruin data format](docs/format.md).
 
-The remote interfaces that this mod provides are described with comments at the end of [control.lua](control.lua#L81).
+Want to make your own ruin set?
+Check out the links above, the [ruin set](docs/ruin_sets.md) documentation and [The Ruins Mod - Krastorio2](https://github.com/Bilka2/AbandonedRuins-Krastorio2) as an example mod.
+
+The remote interfaces that this mod provides are described with comments at the end of [control.lua](control.lua#L84).
