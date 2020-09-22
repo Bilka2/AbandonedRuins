@@ -38,6 +38,9 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
     extra_options.dmg.dmg = expressions.number(extra_options.dmg.dmg, vars)
     util.safe_damage(e, extra_options.dmg)
   end
+  if extra_options.dead then
+    util.safe_die(e, extra_options.dead)
+  end
   if extra_options.items then
     local items = {}
     for name, count in pairs(extra_options.items) do

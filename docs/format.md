@@ -71,6 +71,7 @@ A table with the following optional key/value pairs:
 * items - [Items](#Items) - Optional. - Items inserted into the entity after spawning. Defaults to no items.
 * dmg - [Damage](#Damage) - Optional. - Damage the entity takes after spawning. Defaults to 0 physical damage from the neutral force.
 * recipe - string - Optional. - Name of the recipe of this assembling machine. Defaults to no recipe.
+* dead - float in range [0, 1] - Optional. - Chance that the entity spawns as dead.
 
 ### Examples
 

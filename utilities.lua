@@ -38,8 +38,13 @@ end
 util.safe_insert = base_util.insert_safe -- (entity, item_dict: {name = count})
 
 util.safe_damage = function(entity, damage)
-  if not entity then return end
+  if not (entity or entity.valid) then return end
   entity.damage(damage.dmg, damage.force or "neutral", damage.type or "physical")
+end
+
+util.safe_die = function(entity, chance)
+  if not (entity or entity.valid) then return end
+  if math.random() <= chance then entity.die() end
 end
 
 util.set_enemy_force_cease_fire = function(enemy, cease_fire)
