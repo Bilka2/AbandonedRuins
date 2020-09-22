@@ -4,6 +4,7 @@ Date: ???
   Features:
     - Updated to Factorio 1.0.
     - Completely new ruin spawning algorithm and data structure.
+    - Added 27 more ruins. 
     - Added a setting to make ruin defenses non-hostile.
     - Added a setting to select which ruin set to use.
     - Added the ability for other mods to add their own ruin sets.
