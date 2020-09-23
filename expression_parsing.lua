@@ -2,6 +2,14 @@ local util = require("utilities")
 
 local parsing = {}
 
+-- extend table 1 with table 2
+-- no safety checks, very naive
+local function extend(table1, table2)
+  for k,v in pairs(table2) do
+    table1[k] = v
+  end
+end
+
 local common_expressions =
 {
   ["variable"] = function(t, vars) return vars[t.name] end,
@@ -12,7 +20,7 @@ local number_expressions =
 {
   ["random"] = function(t) return math.random(t.min, t.max) end
 }
-util.extend(number_expressions, common_expressions)
+extend(number_expressions, common_expressions)
 
 local entity_expressions =
 {
@@ -24,7 +32,7 @@ local entity_expressions =
     return entities[math.random(#entities)]
   end
 }
-util.extend(entity_expressions, common_expressions)
+extend(entity_expressions, common_expressions)
 
 
 parsing.number = function(t, vars)

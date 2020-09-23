@@ -7,6 +7,7 @@ util.ruin_half_sizes =
   medium = 16 / 2,
   large = 32 / 2
 }
+
 util.debugprint = __DebugAdapter and __DebugAdapter.print or function() end
 
 util.get_center_of_chunk = function(chunk_position)
@@ -27,23 +28,15 @@ util.str_contains_any_from_table = function(haystack, needles)
   return false
 end
 
--- extend table 1 with table 2
--- no safety checks, very naive
-util.extend = function(table1, table2)
-  for k,v in pairs(table2) do
-    table1[k] = v
-  end
-end
-
 util.safe_insert = base_util.insert_safe -- (entity, item_dict: {name = count})
 
 util.safe_damage = function(entity, damage)
-  if not (entity or entity.valid) then return end
+  if not (entity and entity.valid) then return end
   entity.damage(damage.dmg, damage.force or "neutral", damage.type or "physical")
 end
 
 util.safe_die = function(entity, chance)
-  if not (entity or entity.valid) then return end
+  if not (entity and entity.valid) then return end
   if math.random() <= chance then entity.die() end
 end
 
