@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
-Date: ???
+Date: 2020-09-23
   Features:
     - Updated to Factorio 1.0.
     - Completely new ruin spawning algorithm and data structure.
