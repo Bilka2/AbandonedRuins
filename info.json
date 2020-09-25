@@ -10,8 +10,7 @@
   { 
     "scripts":
     {
-      "prepackage": "./scripts/extract_changes.sh",
-      "publish": "./scripts/github_release.sh"
+      "prepackage": "./scripts/extract_changes.sh"
     }
   }
 }

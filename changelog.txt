@@ -2,6 +2,9 @@
 Version: 1.0.2
 Date: ????
   Changes:
+    - Ruins are no longer deconstructable by default.
+    - Instead you have to claim them with a selection tool obtained with Shift + C or from the shortcut bar.
+    - After claiming a ruin, you can deconstruct it.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2020-09-24

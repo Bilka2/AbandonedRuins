@@ -67,17 +67,12 @@ script.on_event(defines.events.on_chunk_generated,
   end
 )
 
--- workaround for force restrictions with the standard decon planner
-script.on_event(defines.events.on_player_deconstructed_area, function(event)
-  local cursor_stack = game.get_player(event.player_index).cursor_stack
-  local item = nil
-  if cursor_stack and cursor_stack.valid_for_read and (cursor_stack.name == event.item) then
-    item = cursor_stack
-  end
-  if not event.alt then
-    event.surface.deconstruct_area{area= event.area, force= "neutral", player = event.player_index, item = item}
-  else
-    event.surface.cancel_deconstruct_area{area= event.area, force= "neutral", player = event.player_index, item = item}
+script.on_event({defines.events.on_player_selected_area, defines.events.on_player_alt_selected_area}, function(event)
+  if event.item ~= "AbandonedRuins-claim" then return end
+  for _, entity in pairs(event.entities) do
+    if entity.force.name == "neutral" then
+      entity.force = game.get_player(event.player_index).force
+    end
   end
 end)
 
