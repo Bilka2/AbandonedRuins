@@ -24,6 +24,7 @@ local function init()
   if global.spawn_ruins == nil then
     global.spawn_ruins = true
   end
+  global.ruin_queue = global.ruin_queue or {}
   global.excluded_surfaces = global.excluded_surfaces or {}
   global.excluded_surfaces["beltlayer"] = true
   global.excluded_surfaces["pipelayer"] = true
@@ -35,15 +36,30 @@ script.on_init(init)
 script.on_configuration_changed(init)
 script.on_event(defines.events.on_runtime_mod_setting_changed, init)
 
-local function spawn_ruin(size, center, surface)
-  spawning.spawn_random_ruin(ruin_sets[settings.global["AbandonedRuins-set"].value][size], util.ruin_half_sizes[size], center, surface)
+script.on_event(defines.events.on_tick,
+  function(event)
+    local ruins = global.ruin_queue[event.tick]
+    if not ruins then return end
+    for _, ruin in pairs(ruins) do
+      spawning.spawn_random_ruin(ruin_sets[settings.global["AbandonedRuins-set"].value][ruin.size], util.ruin_half_sizes[ruin.size], ruin.center, ruin.surface)
+    end
+    global.ruin_queue[event.tick] = nil
+  end
+)
+
+local function queue_ruin(tick, ruin)
+  local processing_tick = tick + 1
+  if not global.ruin_queue[processing_tick] then
+    global.ruin_queue[processing_tick] = {}
+  end
+  table.insert(global.ruin_queue[processing_tick], ruin)
 end
 
 script.on_event(defines.events.on_chunk_generated,
   function (e)
-    if util.str_contains_any_from_table(e.surface.name, global.excluded_surfaces) then return end
-
     if global.spawn_ruins == false then return end -- ruin spawning is disabled
+
+    if util.str_contains_any_from_table(e.surface.name, global.excluded_surfaces) then return end
 
     local center = util.get_center_of_chunk(e.position)
     if math.abs(center.x) < settings.global["ruins-min-distance-from-spawn"].value and math.abs(center.y) < settings.global["ruins-min-distance-from-spawn"].value then return end --too close to spawn
@@ -54,15 +70,15 @@ script.on_event(defines.events.on_chunk_generated,
       center.x = center.x + math.random(-10,10)
       center.y = center.y + math.random(-10,10)
 
-      spawn_ruin("small", center, e.surface)
+      queue_ruin(e.tick, {size = "small", center = center, surface = e.surface})
     elseif spawn_type <= global.spawn_table.medium then --spawn medium ruin
       --random variance so they aren't always chunk aligned
       center.x = center.x + math.random(-5,5)
       center.y = center.y + math.random(-5,5)
 
-      spawn_ruin("medium", center, e.surface)
+      queue_ruin(e.tick, {size = "medium", center = center, surface = e.surface})
     elseif spawn_type <= global.spawn_table.large then --spawn large ruin
-      spawn_ruin("large", center, e.surface)
+      queue_ruin(e.tick, {size = "large", center = center, surface = e.surface})
     end
   end
 )

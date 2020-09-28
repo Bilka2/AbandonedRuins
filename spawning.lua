@@ -117,7 +117,7 @@ local function clear_area(half_size, center, surface)
 end
 
 spawning.spawn_ruin = function(ruin, half_size, center, surface)
-  if clear_area(half_size, center, surface) then
+  if surface.valid and clear_area(half_size, center, surface) then
     local vars = parse_variables(ruin.variables)
     spawn_entities(ruin.entities, center, surface, vars)
     spawn_tiles(ruin.tiles, center, surface)
