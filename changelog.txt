@@ -3,6 +3,7 @@ Version: 1.0.4
 Date: ????
   Bugfixes:
     - Fixed a crash when a ruin was spawned with a invalid recipe.
+    - Fixed that the claim ruin control had no locale.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2020-09-28
