@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
-Date: ????
+Date: 2020-10-19
   Changes:
     - Replaced un-minable non-terrain tiles in ruins with minable tiles.
     - Hold Shift while using the "Claim ruin" tool to remove all remnants (corpses of structures) in the area.
