@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: ????
+  Changes:
+    - Replaced un-minable non-terrain tiles in ruins with minable tiles.
   Bugfixes:
     - Fixed a crash when a ruin was spawned with a invalid recipe.
     - Fixed that the claim ruin control had no locale.
