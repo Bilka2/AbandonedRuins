@@ -116,7 +116,7 @@ local function clear_area(half_size, center, surface)
     return false
   end
 
-  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"resource"}, invert = true})) do
+  for _, entity in pairs(surface.find_entities_filtered({area = area, type = {"resource"}, invert = true})) do
     if (entity.valid and entity.type ~= "tree") or math.random() < (half_size / 14) then
       entity.destroy({do_cliff_correction = true, raise_destroy = true})
     end

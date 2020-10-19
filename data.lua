@@ -13,7 +13,7 @@ data:extend
     selection_color = {1, 1, 1},
     alt_selection_color = {1, 1, 1},
     selection_mode = {"buildable-type", "not-same-force", "friend"},
-    alt_selection_mode = {"buildable-type", "not-same-force", "friend"},
+    alt_selection_mode = {"any-entity", "not-same-force", "friend"},
     selection_cursor_box_type = "train-visualization",
     alt_selection_cursor_box_type = "train-visualization",
     always_include_tiles = true,

@@ -85,10 +85,18 @@ script.on_event(defines.events.on_chunk_generated,
 
 script.on_event({defines.events.on_player_selected_area, defines.events.on_player_alt_selected_area}, function(event)
   if event.item ~= "AbandonedRuins-claim" then return end
-  local force = game.get_player(event.player_index).force
+
+  local claimants_force = game.get_player(event.player_index).force
   for _, entity in pairs(event.entities) do
     if entity.force.name == "neutral" then
-      entity.force = force
+      entity.force = claimants_force
+    end
+  end
+
+  if event.name == defines.events.on_player_alt_selected_area then
+    local remnants = event.surface.find_entities_filtered{area = event.area, type = {"corpse", "rail-remnants"}}
+    for _, remnant in pairs(remnants) do
+      remnant.destroy({raise_destroy = true})
     end
   end
 end)
