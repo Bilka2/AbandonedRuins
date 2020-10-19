@@ -23,6 +23,15 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
     force = util.get_enemy_force()
   end
 
+  local recipe
+  if extra_options.recipe then
+    if not game.recipe_prototypes[extra_options.recipe] then
+      util.debugprint("recipe " .. extra_options.recipe .. " does not exist")
+    else
+      recipe = extra_options.recipe
+    end
+  end
+
   local e = surface.create_entity
   {
     name = entity,
@@ -31,7 +40,7 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
     force = force,
     raise_built = true,
     create_build_effect_smoke = false,
-    recipe = extra_options.recipe
+    recipe = recipe
   }
 
   if extra_options.dmg then

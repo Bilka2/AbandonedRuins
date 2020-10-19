@@ -85,9 +85,10 @@ script.on_event(defines.events.on_chunk_generated,
 
 script.on_event({defines.events.on_player_selected_area, defines.events.on_player_alt_selected_area}, function(event)
   if event.item ~= "AbandonedRuins-claim" then return end
+  local force = game.get_player(event.player_index).force
   for _, entity in pairs(event.entities) do
     if entity.force.name == "neutral" then
-      entity.force = game.get_player(event.player_index).force
+      entity.force = force
     end
   end
 end)
