@@ -17,26 +17,26 @@ data:extend
     selection_cursor_box_type = "train-visualization",
     alt_selection_cursor_box_type = "train-visualization",
     always_include_tiles = true,
-    flags = {"only-in-cursor"}
+    flags = {"only-in-cursor", "spawnable"}
   },
   {
     type = "shortcut",
     name = "AbandonedRuins-claim",
-    action = "create-blueprint-item",
+    action = "spawn-item",
     icon =
     {
       filename = "__AbandonedRuins__/graphics/AbandonedRuins-claim-shortcut.png",
       size = 32
     },
-    item_to_create = "AbandonedRuins-claim",
+    item_to_spawn = "AbandonedRuins-claim",
     associated_control_input = "AbandonedRuins-claim"
   },
   {
     type = "custom-input",
     name = "AbandonedRuins-claim",
     key_sequence = "SHIFT + C",
-    item_to_create = "AbandonedRuins-claim",
-    action = "create-blueprint-item"
+    action = "spawn-item",
+    item_to_spawn = "AbandonedRuins-claim"
   }
 }
 
