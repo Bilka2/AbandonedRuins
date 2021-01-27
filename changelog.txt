@@ -4,6 +4,8 @@ Date: ????
   Features:
     - Updated to Factorio 1.1.
     - Added Finnish translation (by Sigma-One).
+  Bugfixes:
+    - Fixed that the ruins cease_fire status for forces that were created during gameplay was missing.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2020-10-19

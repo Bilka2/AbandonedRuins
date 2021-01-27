@@ -36,6 +36,13 @@ script.on_init(init)
 script.on_configuration_changed(init)
 script.on_event(defines.events.on_runtime_mod_setting_changed, init)
 
+script.on_event(defines.events.on_force_created,
+  function()
+    -- Set up the diplomacy for all forces, not just the newly created one.
+    util.set_enemy_force_diplomacy(util.get_enemy_force(), not settings.global["AbandonedRuins-enemy-not-cease-fire"].value)
+  end
+)
+
 script.on_event(defines.events.on_tick,
   function(event)
     local ruins = global.ruin_queue[event.tick]
