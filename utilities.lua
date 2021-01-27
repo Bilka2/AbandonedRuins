@@ -1,11 +1,19 @@
 local base_util = require("__core__/lualib/util")
 
 local util = {}
+
 util.ruin_half_sizes =
 {
   small = 8 / 2,
   medium = 16 / 2,
   large = 32 / 2
+}
+
+util.ruin_min_distance_multiplier =
+{
+  small = 1,
+  medium = 2.5,
+  large = 5
 }
 
 util.debugprint = __DebugAdapter and __DebugAdapter.print or function() end
