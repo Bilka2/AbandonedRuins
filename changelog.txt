@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.1
-Date: ????
+Date: 2021-02-01
   Bugfixes:
     - Fixed desync when spawning ruins that had already been spawned previously.
     - Fixed crash when claiming ruins due to weird mod interaction.
