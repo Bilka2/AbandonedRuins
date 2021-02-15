@@ -11,6 +11,8 @@ data:extend({
     name = "ruins-min-distance-from-spawn",
     setting_type = "runtime-global",
     default_value = 200,
+    minimum_value = 50,
+    maximum_value = 1000000,
     order = "ab",
   },
   {

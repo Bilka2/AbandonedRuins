@@ -2,6 +2,7 @@
 Version: 1.1.2
 Date: ????
   Changes:
+    - Added minimum and maximum values to the "Minimum distance from spawn" setting.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 2021-02-01
