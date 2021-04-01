@@ -1,7 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: ????
-  Changes:
+  Minor Features:
+    - Added custom on_entity_force_changed_event for mod compatibility, see end of control.lua. 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.3
 Date: 2021-02-25
