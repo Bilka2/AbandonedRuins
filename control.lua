@@ -121,6 +121,14 @@ script.on_event({defines.events.on_player_selected_area, defines.events.on_playe
   end
 end)
 
+script.on_event(defines.events.on_runtime_mod_setting_changed, function(event)
+  local setting = event.setting
+  if setting:find("^AbandonedRuins") or setting:find("^ruins") then
+    spawn_chances()
+    util.set_enemy_force_diplomacy(util.get_enemy_force(), not settings.global["AbandonedRuins-enemy-not-cease-fire"].value)    
+  end
+end)
+
 remote.add_interface("AbandonedRuins",
 {
   get_on_entity_force_changed_event = function() return on_entity_force_changed_event end,

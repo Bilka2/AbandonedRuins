@@ -2,6 +2,8 @@
 Version: 1.1.5
 Date: ????
   Changes:
+  Bugfixes:
+    - apply Map Mod settings if changed during game
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 2021-04-01
