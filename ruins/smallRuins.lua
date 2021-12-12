@@ -91,7 +91,5 @@ table.insert(s_ruins, require("__AbandonedRuins__/ruins/smallRuins/splitterI3"))
 table.insert(s_ruins, require("__AbandonedRuins__/ruins/smallRuins/swamp"))
 table.insert(s_ruins, require("__AbandonedRuins__/ruins/smallRuins/twinLasers"))
 table.insert(s_ruins, require("__AbandonedRuins__/ruins/smallRuins/twinTurrets"))
-table.insert(s_ruins, require("__AbandonedRuins__/ruins/smallRuins/victoryPoles"))
-table.insert(s_ruins, require("__AbandonedRuins__/ruins/smallRuins/victoryPoles2"))
 
 return s_ruins

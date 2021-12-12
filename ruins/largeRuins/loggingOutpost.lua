@@ -113,7 +113,7 @@ return
     {"stone-wall", {x = 0, y = 5}, {}},
     {"transport-belt-remnants", {x = 1, y = 4}, {}},
     {"transport-belt", {x = 1, y = 5}, {}},
-    {"small-electric-pole", {x = 10, y = 4}, {}},
+    {"small-electric-pole", {x = 10, y = 4}, {dead = 0.4}},
     {"stone-wall", {x = 15, y = 5}, {}},
     {"stone-wall", {x = 15, y = 4}, {}},
     {"tree-04-stump", {x = -11.96, y = 7.6}, {dir = "south", }},

@@ -3,7 +3,7 @@ return
   entities =
   {
     {"nuclear-reactor-remnants", {x = 3.5, y = -4.5}, {}},
-    {"medium-electric-pole", {x = 6.5, y = -7.5}, {dead = 0.4}},
+    {"medium-electric-pole", {x = 6.5, y = -7.5}, {dead = 1}},
     {"pipe", {x = -6.5, y = -4.5}, {dead = 0.4}},
     {"steam-turbine", {x = -3.5, y = -4.5}, {dir = "east", dead = 0.6}},
     {"heat-exchanger", {x = 0, y = -4.5}, {dir = "west", dead = 0.6}},

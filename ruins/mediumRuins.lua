@@ -1,8 +1,8 @@
 local m_ruins = {}
 
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/assemblingLine"))
-table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/chemicalPlant"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/centrifuges"))
+table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/chemicalPlant"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/encampment"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/helipad"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/militaryField"))

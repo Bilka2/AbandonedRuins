@@ -3,7 +3,7 @@ return
   entities =
   {
     {"wooden-chest", {x = -2.5, y = -3.5}, {items = {["copper-plate"] = {type = "random", min = 1, max = 40}}, }},
-    {"medium-electric-pole", {x = -2.5, y = -2.5}, {}},
+    {"medium-electric-pole", {x = -2.5, y = -2.5}, {dead = 1}},
     {"stone-furnace", {x = 2, y = -3}, {dmg = {dmg = 15}, }},
     {"transport-belt", {x = -0.5, y = -0.5}, {dir = "south", dmg = {dmg = {type = "random", min = 10, max = 50}}, }},
     {"inserter", {x = -0.5, y = -1.5}, {dmg = {dmg = 60}, }},
@@ -18,7 +18,7 @@ return
     {"transport-belt", {x = 3.5, y = 0.5}, {dir = "west", }},
     {"transport-belt", {x = 2.5, y = 0.5}, {dir = "west", }},
     {"transport-belt", {x = 2.5, y = 1.5}, {}},
-    {"medium-electric-pole", {x = -2.5, y = 3.5}, {dmg = {dmg = {type = "random", min = 10, max = 50}}, }},
+    {"medium-electric-pole", {x = -2.5, y = 3.5}, {dead = 1}},
     {"inserter", {x = -0.5, y = 2.5}, {dir = "south", }},
     {"inserter", {x = 2.5, y = 2.5}, {dir = "south", }},
   },

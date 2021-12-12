@@ -13,7 +13,7 @@ return
     {"inserter", {x = 0.5, y = 1.5}, {dir = "east", }},
     {"transport-belt", {x = 1.5, y = 1.5}, {dir = "south", dmg = {dmg = {type = "random", min = 0, max = 90}}, }},
     {"transport-belt", {x = 1.5, y = 0.5}, {dir = "south", dmg = {dmg = {type = "random", min = 0, max = 90}}, }},
-    {"medium-electric-pole", {x = 0.5, y = 0.5}, {}},
+    {"medium-electric-pole", {x = 0.5, y = 0.5}, {dead = 1}},
     {"long-handed-inserter", {x = 0.5, y = 3.5}, {dir = "east", }},
     {"transport-belt", {x = 2.5, y = 3.5}, {dir = "west", dmg = {dmg = {type = "random", min = 0, max = 90}}, }},
     {"transport-belt", {x = 3.5, y = 3.5}, {dir = "west", dmg = {dmg = {type = "random", min = 0, max = 90}}, }},
