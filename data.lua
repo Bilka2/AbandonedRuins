@@ -1,4 +1,4 @@
-local base_util = require("util")
+local base_util = require("__core__/lualib/util")
 data.raw["utility-constants"]["default"].default_other_force_color = base_util.copy(data.raw["utility-constants"]["default"].default_enemy_force_color)
 
 

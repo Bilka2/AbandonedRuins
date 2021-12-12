@@ -1,7 +1,7 @@
-local util = require("utilities")
-local spawning = require("spawning")
+local util = require("__AbandonedRuins__/utilities")
+local spawning = require("__AbandonedRuins__/spawning")
 local ruin_sets = {}
-ruin_sets.base = require("ruins/base_ruin_set")
+ruin_sets.base = require("__AbandonedRuins__/ruins/base_ruin_set")
 
 local on_entity_force_changed_event = script.generate_event_name()
 

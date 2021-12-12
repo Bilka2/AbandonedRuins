@@ -1,5 +1,3 @@
-local util = require("utilities")
-
 local parsing = {}
 
 -- extend table 1 with table 2

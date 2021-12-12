@@ -1,5 +1,5 @@
-local util = require("utilities")
-local expressions = require("expression_parsing")
+local util = require("__AbandonedRuins__/utilities")
+local expressions = require("__AbandonedRuins__/expression_parsing")
 
 local spawning = {}
 
