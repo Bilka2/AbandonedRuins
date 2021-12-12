@@ -1,7 +1,6 @@
 local m_ruins = {}
 
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/assemblingLine"))
---table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/biterDefense"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/chemicalPlant"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/centrifuges"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/encampment"))
@@ -12,9 +11,7 @@ table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/nuclearPower
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/overgrownFort"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/pipeChain"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/powerSetup"))
---table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/queenNest"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/radarOutpost"))
---table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/railCrossing"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/roughFort"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/roughPerimeter"))
 table.insert(m_ruins, require("__AbandonedRuins__/ruins/mediumRuins/smallOilSetup"))
