@@ -27,11 +27,14 @@ local function init()
     global.spawn_ruins = true
   end
   global.ruin_queue = global.ruin_queue or {}
-  global.excluded_surfaces = global.excluded_surfaces or {}
-  global.excluded_surfaces["beltlayer"] = true
-  global.excluded_surfaces["pipelayer"] = true
-  global.excluded_surfaces["Factory floor"] = true -- factorissimo
-  global.excluded_surfaces["ControlRoom"] = true -- mobile factory
+  if not global.excluded_surfaces then
+    global.excluded_surfaces = {
+      ["beltlayer"] = true,
+      ["pipelayer"] = true,
+      ["Factory floor"] = true, -- factorissimo
+      ["ControlRoom"] = true -- mobile factory
+    }
+  end
 end
 
 script.on_init(init)
@@ -56,6 +59,8 @@ script.on_event(defines.events.on_tick,
   end
 )
 
+-- This delays ruin spawning to the next tick. This is done because on_chunk_generated may be called before other mods have a chance to do the remote call for the ruin set:
+-- ThisMod_onInit -> SomeOtherMod_generatesChunks -> ThisMod_onChunkGenerated (ruin is queued) -> RuinPack_onInit (ruin set remote call) -> ThisMod_OnTick (ruin set is used)
 local function queue_ruin(tick, ruin)
   local processing_tick = tick + 1
   if not global.ruin_queue[processing_tick] then
@@ -64,7 +69,7 @@ local function queue_ruin(tick, ruin)
   table.insert(global.ruin_queue[processing_tick], ruin)
 end
 
-local function check_ruin_spawn(size, min_distance, center, surface, tick)
+local function try_ruin_spawn(size, min_distance, center, surface, tick)
   min_distance = min_distance * util.ruin_min_distance_multiplier[size]
   if math.abs(center.x) < min_distance and math.abs(center.y) < min_distance then return end -- too close to spawn
 
@@ -89,11 +94,11 @@ script.on_event(defines.events.on_chunk_generated,
 
     local spawn_type = math.random()
     if spawn_type <= global.spawn_table["small"] then
-      check_ruin_spawn("small", min_distance, center, e.surface, e.tick)
+      try_ruin_spawn("small", min_distance, center, e.surface, e.tick)
     elseif spawn_type <= global.spawn_table["medium"] then
-      check_ruin_spawn("medium", min_distance, center, e.surface, e.tick)
+      try_ruin_spawn("medium", min_distance, center, e.surface, e.tick)
     elseif spawn_type <= global.spawn_table["large"] then
-      check_ruin_spawn("large", min_distance, center, e.surface, e.tick)
+      try_ruin_spawn("large", min_distance, center, e.surface, e.tick)
     end
   end
 )

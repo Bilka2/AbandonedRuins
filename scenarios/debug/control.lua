@@ -38,7 +38,7 @@ end)
 
 
 script.on_event(defines.events.on_player_created, function(event)
-  -- This stuff is all here instead of on_init because this relies on other mod's on_init,
+  -- This stuff is all here instead of on_init because this relies on other mods' on_init,
   --  which run after the scenario on_init, but before scenario on_player_created
 
   -- Set up the debug surface
