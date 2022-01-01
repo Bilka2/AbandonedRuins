@@ -6,6 +6,8 @@ Date: ????
   Changes:
     - Reduced the amount of power poles in ruins.
     - Removed 4 small ruins that were broken.
+  Bugfixes:
+    - Fixed that oil pumpjack ruins would spawn oil patches.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 2021-04-01
