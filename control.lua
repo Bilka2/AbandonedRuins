@@ -51,6 +51,7 @@ script.on_event(defines.events.on_force_created,
 
 script.on_event(defines.events.on_tick,
   function(event)
+    ---@type RuinQueueItem[]
     local ruins = global.ruin_queue[event.tick]
     if not ruins then return end
     for _, ruin in pairs(ruins) do
@@ -137,8 +138,10 @@ end)
 remote.add_interface("AbandonedRuins",
 {
   get_on_entity_force_changed_event = function() return on_entity_force_changed_event end,
-  -- Contains: event.entity = The entity that had its force changed.
-  -- Contains: event.force = LuaForce that the entity had previously.
+  -- The event contains:
+  ---@class on_entity_force_changed_event_data:EventData
+  ---@field entity LuaEntity The entity that had its force changed.
+  ---@field force LuaForce The entity that had its force changed.
   -- The current force can be gotten from event.entity.
   -- This is raised after the force is changed.
   -- Mod event subscription explanation can be found lower in this file.
