@@ -232,7 +232,7 @@ A table with the following key/value pairs:
 
 * dmg - [Number expression](#Number-expression) - Mandatory. - The amount of damage to be done.
 * type - string - Optional. - Damage type. Defaults to "physical".
-* force - [ForceSpecification](https://lua-api.factorio.com/latest/Concepts.html#ForceSpecification) - Optional. - The force that will be doing the damage. Defaults to "neutral".
+* force - [ForceIdentification](https://lua-api.factorio.com/latest/Concepts.html#ForceIdentification) - Optional. - The force that will be doing the damage. Defaults to "neutral".
 
 ### Examples
 
