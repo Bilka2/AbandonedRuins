@@ -79,4 +79,5 @@ script.on_event(defines.events.on_player_created, function(event)
   game.tick_paused = false
   player.teleport({0, 0}, SURFACE_NAME)
   player.force = "neutral"
+  player.game_view_settings.show_entity_info = true
 end)
