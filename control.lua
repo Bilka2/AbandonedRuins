@@ -1,5 +1,6 @@
 local util = require("__AbandonedRuins__/utilities")
 local spawning = require("__AbandonedRuins__/spawning")
+---@type table<string, RuinSet>
 local ruin_sets = {}
 ruin_sets.base = require("__AbandonedRuins__/ruins/base_ruin_set")
 
@@ -59,8 +60,10 @@ script.on_event(defines.events.on_tick,
   end
 )
 
--- This delays ruin spawning to the next tick. This is done because on_chunk_generated may be called before other mods have a chance to do the remote call for the ruin set:
+-- This delays ruin spawning to the next tick. This is done because on_chunk_generated may be called before other mods have a chance to do the remote call for the ruin set:  
 -- ThisMod_onInit -> SomeOtherMod_generatesChunks -> ThisMod_onChunkGenerated (ruin is queued) -> RuinPack_onInit (ruin set remote call) -> ThisMod_OnTick (ruin set is used)
+---@param tick uint
+---@param ruin RuinQueueItem
 local function queue_ruin(tick, ruin)
   local processing_tick = tick + 1
   if not global.ruin_queue[processing_tick] then
@@ -69,6 +72,11 @@ local function queue_ruin(tick, ruin)
   table.insert(global.ruin_queue[processing_tick], ruin)
 end
 
+---@param size number
+---@param min_distance number
+---@param center MapPosition
+---@param surface LuaSurface
+---@param tick uint
 local function try_ruin_spawn(size, min_distance, center, surface, tick)
   min_distance = min_distance * util.ruin_min_distance_multiplier[size]
   if math.abs(center.x) < min_distance and math.abs(center.y) < min_distance then return end -- too close to spawn
@@ -136,37 +144,44 @@ remote.add_interface("AbandonedRuins",
   -- Mod event subscription explanation can be found lower in this file.
 
   -- Set whether ruins should be spawned at all
+  ---@param spawn_ruins boolean
   set_spawn_ruins = function(spawn_ruins)
-    if type(spawn_ruins) ~= "boolean" then
-      error("Remote call parameter to set_spawn_ruins for AbandonedRuins must be a boolean value.")
-    end
+    assert(type(spawn_ruins) == "boolean",
+      "Remote call parameter to set_spawn_ruins for AbandonedRuins must be a boolean value."
+    )
     global.spawn_ruins = spawn_ruins
   end,
 
   -- Get whether ruins should be spawned at all
+  ---@return boolean
   get_spawn_ruins = function() return global.spawn_ruins end,
 
   -- Any surface whose name contains this string will not have ruins generated on it.
+  ---@param name string
   exclude_surface = function(name)
-    if type(name) ~= "string" then
-      error("Remote call parameter to exclude_surface for AbandonedRuins must be a string value.")
-    end
+    assert(type(name) == "string",
+      "Remote call parameter to exclude_surface for AbandonedRuins must be a string value."
+    )
     global.excluded_surfaces[name] = true
   end,
 
   -- You excluded a surface at some earlier point but you don't want it excluded anymore.
+  ---@param name string
   reinclude_surface = function(name)
-    if type(name) ~= "string" then
-      error("Remote call parameter to reinclude_surface for AbandonedRuins must be a string value.")
-    end
+    assert(type(name) == "string",
+      "Remote call parameter to reinclude_surface for AbandonedRuins must be a string value."
+    )
     global.excluded_surfaces[name] = nil
   end,
 
-  -- !! ALWAYS call this in on_load and on_init. !!
-  -- !! The ruins sets are not save/loaded. !!
-  -- small_ruins, medium_ruins and large_ruins are each arrays of ruins.
+  -- !! ALWAYS call this in on_load and on_init. !!  
+  -- !! The ruins sets are not save/loaded. !!  
   -- The ruins should have the sizes given in util.ruin_half_sizes, e.g. ruins in the small_ruins array should be 8x8 tiles.
   -- See also: docs/ruin_sets.md
+  ---@param name string
+  ---@param small_ruins Ruin[]
+  ---@param medium_ruins Ruin[]
+  ---@param large_ruins Ruin[]
   add_ruin_set = function(name, small_ruins, medium_ruins, large_ruins)
     assert(small_ruins and next(small_ruins))
     assert(medium_ruins and next(medium_ruins))
@@ -180,12 +195,15 @@ remote.add_interface("AbandonedRuins",
 
   -- !! The ruins sets are not save/loaded. !!
   -- returns {small = {<array of ruins>}, medium = {<array of ruins>}, large = {<array of ruins>}}
+  ---@param name string
+  ---@return RuinSet
   get_ruin_set = function(name)
     return ruin_sets[name]
   end,
 
   -- !! The ruins sets are not save/loaded. !!
   -- returns {small = {<array of ruins>}, medium = {<array of ruins>}, large = {<array of ruins>}}
+  ---@return RuinSet
   get_current_ruin_set = function()
     return ruin_sets[settings.global["AbandonedRuins-set"].value]
   end

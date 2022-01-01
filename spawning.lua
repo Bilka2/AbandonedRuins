@@ -3,6 +3,9 @@ local expressions = require("__AbandonedRuins__/expression_parsing")
 
 local spawning = {}
 
+---@param half_size number
+---@param center MapPosition
+---@param surface LuaSurface
 local function no_corpse_fade(half_size, center, surface)
   local area = util.area_from_center_and_half_size(half_size, center)
   for _, entity in pairs(surface.find_entities_filtered({area = area, type={"corpse"}})) do
@@ -10,6 +13,13 @@ local function no_corpse_fade(half_size, center, surface)
   end
 end
 
+---@param entity EntityExpression|string
+---@param relative_position MapPosition
+---@param center MapPosition
+---@param surface LuaSurface
+---@param extra_options EntityOptions
+---@param vars VariableValues
+---@param prototypes LuaCustomTable<string,LuaEntityPrototype>
 local function spawn_entity(entity, relative_position, center, surface, extra_options, vars, prototypes)
   local entity_name = expressions.entity(entity, vars)
 
@@ -71,6 +81,10 @@ local function spawn_entity(entity, relative_position, center, surface, extra_op
   end
 end
 
+---@param entities RuinEntity[]
+---@param center MapPosition
+---@param surface LuaSurface
+---@param vars VariableValues
 local function spawn_entities(entities, center, surface, vars)
   if not entities then return end
 
@@ -81,10 +95,14 @@ local function spawn_entities(entities, center, surface, vars)
   end
 end
 
+---@param tiles RuinTile[]
+---@param center MapPosition
+---@param surface LuaSurface
 local function spawn_tiles(tiles, center, surface)
   if not tiles then return end
 
   local prototypes = game.tile_prototypes
+  ---@type Tile[]
   local valid = {}
   for _, tile_info in pairs(tiles) do
     local name = tile_info[1]
@@ -104,6 +122,9 @@ local function spawn_tiles(tiles, center, surface)
     true) -- raise_event,                  Default: false
 end
 
+-- Evaluates the values of the variables.
+---@param vars Variable[]
+---@return VariableValues
 local function parse_variables(vars)
   if not vars then return end
   local parsed = {}
@@ -121,6 +142,10 @@ local function parse_variables(vars)
   return parsed
 end
 
+---@param half_size number
+---@param center MapPosition
+---@param surface LuaSurface
+---@return boolean @Whether the area is clear and ruins can be spawned
 local function clear_area(half_size, center, surface)
   local area = util.area_from_center_and_half_size(half_size, center)
   -- exclude tiles that we shouldn't spawn on
@@ -137,6 +162,10 @@ local function clear_area(half_size, center, surface)
   return true
 end
 
+---@param ruin Ruin
+---@param half_size number
+---@param center MapPosition
+---@param surface LuaSurface
 spawning.spawn_ruin = function(ruin, half_size, center, surface)
   if surface.valid and clear_area(half_size, center, surface) then
     local vars = parse_variables(ruin.variables)
@@ -146,6 +175,10 @@ spawning.spawn_ruin = function(ruin, half_size, center, surface)
   end
 end
 
+---@param ruins Ruin[]
+---@param half_size number
+---@param center MapPosition
+---@param surface LuaSurface
 spawning.spawn_random_ruin = function(ruins, half_size, center, surface)
   --spawn a random ruin from the list
   spawning.spawn_ruin(ruins[math.random(#ruins)], half_size, center, surface)

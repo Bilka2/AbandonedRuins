@@ -3,6 +3,9 @@ local spawning = require("__AbandonedRuins__/spawning")
 
 local SURFACE_NAME = "ruins"
 
+---@param center MapPosition
+---@param half_size number
+---@param surface LuaSurface
 local function draw_dimensions(center, half_size, surface)
   rendering.draw_line(
   {
