@@ -2,7 +2,7 @@ return
 {
   entities =
   {
-    {"substation", {x = -1, y = -7}, {dmg = {dmg = {type = "random", min = 0, max = 80}}, dead = 0.8}},
+    {"substation", {x = -1, y = -7}, {dmg = {dmg = {type = "random", min = 0, max = 80}}}},
     {"fast-inserter", {x = 1.5, y = -7.5}, {dir = "south", dmg = {dmg = {type = "random", min = 0, max = 80}}, dead = 0.4}},
     {"assembling-machine-3", {x = 1.5, y = -5.5}, {dead = 1}},
     {"solar-panel", {x = 6.5, y = -6.5}, {dead = 0.4}},
@@ -50,7 +50,7 @@ return
     {"transport-belt", {x = 4.5, y = 3.5}, {dir = "west", dmg = {dmg = {type = "random", min = 0, max = 80}}, dead = 0.4}},
     {"transport-belt", {x = 6.5, y = 3.5}, {dir = "west", dmg = {dmg = {type = "random", min = 0, max = 80}}, dead = 0.4}},
     {"accumulator", {x = -4, y = 6}, {dead = 0.4}},
-    {"substation", {x = 0, y = 5}, {dmg = {dmg = {type = "random", min = 0, max = 80}}, dead = 0.8}},
+    {"substation", {x = 0, y = 5}, {dmg = {dmg = {type = "random", min = 0, max = 80}}}},
     {"accumulator", {x = 6, y = 7}, {dead = 0.4}},
   },
 }

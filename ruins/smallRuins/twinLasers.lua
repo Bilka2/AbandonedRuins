@@ -5,7 +5,7 @@ return
     {"accumulator", {x = 1, y = -3}, {dead = 0.4}},
     {"accumulator", {x = 3, y = -3}, {dead = 0.4}},
     {"accumulator", {x = -3, y = -2}, {dead = 0.4}},
-    {"medium-electric-pole", {x = -0.5, y = -1.5}, {dead = 0.8}},
+    {"medium-electric-pole-remnants", {x = -0.5, y = -1.5}, {}},
     {"laser-turret-remnants", {x = -2, y = 1}, {dir = "south", }},
     {"laser-turret-remnants", {x = 1, y = 1}, {dir = "south", }},
     {"stone-wall", {x = -2.5, y = 3.5}, {dead = 0.4}},
