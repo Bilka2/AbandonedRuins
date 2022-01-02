@@ -8,7 +8,7 @@ local spawning = {}
 ---@param surface LuaSurface
 local function no_corpse_fade(half_size, center, surface)
   local area = util.area_from_center_and_half_size(half_size, center)
-  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"corpse"}})) do
+  for _, entity in pairs(surface.find_entities_filtered({area = area, type={"corpse", "rail-remnants"}})) do
     entity.corpse_expires = false
   end
 end
