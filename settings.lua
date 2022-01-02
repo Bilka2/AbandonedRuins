@@ -37,7 +37,7 @@ data:extend({
     type = "double-setting",
     name = "ruins-small-ruin-chance",
     setting_type = "runtime-global",
-    default_value = 0.05,
+    default_value = 0.04,
     minimum_value = 0.0,
     maximum_value = 1.0,
     order = "b",
