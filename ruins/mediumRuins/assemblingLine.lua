@@ -12,7 +12,7 @@ return
     {"small-electric-pole-remnants", {x = -0.5, y = -5.5}, {}},
     {"inserter", {x = -0.5, y = -4.5}, {dir = "east", dmg = {dmg = {type = "random", min = 0, max = 100}}, dead = 0.3}},
     {"transport-belt", {x = 0.5, y = -5.5}, {dmg = {dmg = {type = "random", min = 0, max = 100}}, dead = 0.3}},
-    {"underground-belt", {x = 0.5, y = -4.5}, {dead = 1}},
+    {"underground-belt", {x = 0.5, y = -4.5}, {dead = 1, dir = "south"}},
     {"wooden-chest", {x = 4.5, y = -4.5}, {dmg = {dmg = {type = "random", min = 0, max = 100}}, dead = 0.3}},
     {"assembling-machine-1", {x = -2.5, y = -1.5}, {dmg = {dmg = {type = "random", min = 0, max = 100}}, dead = 0.3}},
     {"inserter", {x = -1.5, y = -3.5}, {dmg = {dmg = {type = "random", min = 0, max = 100}}, dead = 0.3}},

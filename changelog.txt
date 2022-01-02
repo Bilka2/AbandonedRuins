@@ -4,6 +4,7 @@ Date: ????
   Features:
     - Added 9 small ruins.
     - Added 9 medium ruins.
+    - Added 5 large ruins.
   Changes:
     - Reduced the amount of power poles in ruins.
     - Removed 4 small ruins that were broken.
