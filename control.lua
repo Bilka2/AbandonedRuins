@@ -219,24 +219,30 @@ remote.add_interface("AbandonedRuins",
 
   script.on_load(function()
     if remote.interfaces["AbandonedRuins"] then
-      script.on_event(remote.call("AbandonedRuins", "get_on_entity_force_changed_event"), function(event)
+      script.on_event(remote.call("AbandonedRuins", "get_on_entity_force_changed_event"),
+      ---@param event on_entity_force_changed_event_data
+      function(event)
         -- An entity changed force, let's handle that
         local entity = event.entity
         local old_force = event.force
         local new_force = entity.force
         -- handle the force change
+        game.print("old: " .. old_force.name .. " new: " .. new_force.name)
       end)
     end
   end)
 
   script.on_init(function()
     if remote.interfaces["AbandonedRuins"] then
-      script.on_event(remote.call("AbandonedRuins", "get_on_entity_force_changed_event"), function(event)
+      script.on_event(remote.call("AbandonedRuins", "get_on_entity_force_changed_event"),
+      ---@param event on_entity_force_changed_event_data
+      function(event)
         -- An entity changed force, let's handle that
         local entity = event.entity
         local old_force = event.force
         local new_force = entity.force
         -- handle the force change
+        game.print("old: " .. old_force.name .. " new: " .. new_force.name)
       end)
     end
   end)
