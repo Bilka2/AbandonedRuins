@@ -19,7 +19,13 @@ local common_expressions =
   ---@param t NumberExpression|EntityExpression
   ---@param vars VariableValues
   ---@return number|string
-  ["random-variable"] = function(t, vars) return vars[t.variables[math.random(#t.variables)]] end
+  ["random-variable"] = function(t, vars) return vars[t.variables[math.random(#t.variables)]] end,
+  ---@param t NumberExpression|EntityExpression
+  ---@return number|string
+  ["random-from-list"] = function(t)
+    assert(type(t.list) == "table", "Expression random-from-list: list expected a table, got " .. type(t.list))
+    return t.list[math.random(#t.list)]
+  end
 }
 
 local number_expressions =
@@ -36,6 +42,8 @@ local entity_expressions =
   ---@param t EntityExpression
   ---@return string
   ["random-of-entity-type"] = function(t)
+    assert(type(t.entity_type) == "string", "Expression random-of-entity-type: entity_type expected a string, got " .. type(t.entity_type))
+    ---@type string[]
     local entities = {}
     for k in pairs(game.get_filtered_entity_prototypes({{filter = "type", type = t.entity_type}})) do
       entities[#entities+1] = k

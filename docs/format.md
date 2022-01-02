@@ -151,7 +151,7 @@ return
 ## Entity-expression
 
 An entity name (string) or a table with the "type" key which as a string value. The rest of the table key/value pairs depend on the used type.
-Available types are "random-of-entity-type", "variable" and "random-variable", their behaviours are listed below.
+Available types are "random-of-entity-type", "variable", "random-variable" and "random-from-list", their behaviours are listed below.
 
 **type = "random-of-entity-type"**<br>
 Random entity of the given entity_type. Expected key/value pairs:
@@ -165,6 +165,10 @@ A reference to a [Variable](#Variable) that was previously defined for this ruin
 Random [Variable](#Variable) from the given list. Expected key/value pairs:
 * variables - array of strings - Mandatory. - Variable names. A random variable name is chosen from these.
 
+**type = "random-from-list"**<br>
+Random item from the given list. Expected key/value pairs:
+* list - array of numbers or array of strings - Mandatory. - Strings or numbers. A random item is chosen from the array.
+
 ### Examples
 
 `"stone-wall"`<br>
@@ -172,12 +176,13 @@ Random [Variable](#Variable) from the given list. Expected key/value pairs:
 `{type = "random-of-entity-type", entity_type = "tree"}`<br>
 `{type = "random-of-entity-type", entity_type = "splitter"}`<br>
 `{type = "variable", name = "random-inserter"}`<br>
-`{type = "random-variable", variables = {"random-tree-1", "random-tree-2"}}`
+`{type = "random-variable", variables = {"random-tree-1", "random-tree-2"}}`<br>
+`{type = "random-from-list", list = {"inserter", "fast-inserter", "stack-inserter"}}`
 
 ## Number-expression
 
 A number or a table with the "type" key which as a string value. The rest of the table key/value pairs depend on the used type.
-Available types are "random", "variable" and "random-variable", their behaviours are listed below.
+Available types are "random", "variable", "random-variable" and "random-from-list", their behaviours are listed below.
 
 **type = "random"**<br>
 Random integer from math.random(). Expected key/value pairs:
@@ -192,13 +197,18 @@ A reference to a [Variable](#Variable) that was previously defined for this ruin
 Random [Variable](#Variable) from the given list. Expected key/value pairs:
 * variables - array of strings - Mandatory. - Variable names. A random variable name is chosen from these.
 
+**type = "random-from-list"**<br>
+Random item from the given list. Expected key/value pairs:
+* list - array of numbers or array of strings - Mandatory. - Strings or numbers. A random item is chosen from the array.
+
 ### Examples
 
 `20`<br>
 `0.92`<br>
 `{type = "random", min = 100, max = 300} -- gives ints`<br>
 `{type = "variable", name = "foo"}`<br>
-`{type = "random-variable", variables = {"foo", "bar"}}`
+`{type = "random-variable", variables = {"foo", "bar"}}`<br>
+`{type = "random-from-list", list = {42, 69, 1}}`
 
 ## Position
 

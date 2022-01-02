@@ -27,19 +27,22 @@
 ---@field value EntityExpression|string | NumberExpression|number
 
 ---@class EntityExpression
----@field type '"random-of-entity-type"' | '"variable"' | '"random-variable"'
+---@field type '"random-of-entity-type"' | '"variable"' | '"random-variable"' | '"random-from-list"'
 ---Required by "random-of-entity-type".  
 ---Entity type of the random entity.
 ---@field entity_type string
 ---Required by "random".  
 ---Name of the variable.
 ---@field name string
----Required by "random-of-variable".  
+---Required by "random-variable".  
 ---Variable names. A random variable name is chosen from these.
 ---@field variables string[]
+---Required by "random-from-list"  
+---Array of numbers or array of strings. A random item is chosen from the array.
+---@field list string[] | number[]
 
 ---@class NumberExpression
----@field type '"random"' | '"variable"' | '"random-variable"'
+---@field type '"random"' | '"variable"' | '"random-variable"' | '"random-from-list"'
 ---Required by "random".  
 ---Inclusive lower bound on the random number.
 ---@field min number
@@ -49,9 +52,12 @@
 ---Required by "random".  
 ---Name of the variable.
 ---@field name string
----Required by "random-of-variable".  
+---Required by "random-variable".  
 ---Variable names. A random variable name is chosen from these.
 ---@field variables string[]
+---Required by "random-from-list"  
+---Array of numbers or array of strings. A random item is chosen from the array.
+---@field list string[] | number[]
 
 ---@class EntityOptions
 ---@field force? string Name of the force of the entity. Defaults to "neutral", use "enemy" for base defenses.
