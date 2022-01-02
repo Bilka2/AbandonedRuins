@@ -3,7 +3,7 @@ Version: 1.1.5
 Date: ????
   Features:
     - Added 8 small ruins.
-    - Added 6 medium ruins.
+    - Added 9 medium ruins.
   Changes:
     - Reduced the amount of power poles in ruins.
     - Removed 4 small ruins that were broken.
