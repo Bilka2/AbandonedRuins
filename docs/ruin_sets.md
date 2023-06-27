@@ -23,7 +23,7 @@ data.raw["string-setting"]["AbandonedRuins-set"].default_value = "my-ruin-set"
 
 ## Step 2: Ruin set remote interface
 
-Adding a ruin set is a simple as providing the ruins to *The Ruins Mod* via the add_ruin_set remote call in on_init and on_load in control.lua. For the format of ruins, see [ruin data format](docs/format.md).
+Adding a ruin set is a simple as providing the ruins to *The Ruins Mod* via the add_ruin_set remote call in on_init and on_load in control.lua. For the format of ruins, see [ruin data format](/docs/format.md).
 
 Some extra care needs to be taken with ruin sets, as they are not save/loaded. That means they should not be changed during the game.<br>
 For that reason, it is recommended to only add ruin sets in on_init and on_load. Furthermore, it is recommended to not conditionally change ruin sets.
